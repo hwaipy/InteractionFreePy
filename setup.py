@@ -9,11 +9,12 @@ setup(
     author='Hwaipy',
     author_email='hwaipy@gmail.com',
     url='https://github.com/hwaipy/InteractionFreePy',
-    download_url='https://github.com/user/reponame/archive/v_01.tar.gz',  # I explain this later on
+    download_url='https://github.com/hwaipy/InteractionFreePy/archive/v1.0.0.tar.gz',
     keywords=['msgpack', 'zeromq', 'zmq', '0mq', 'rcp', 'cross-languige'],
-    install_requires=[  # I get to this in a second
-        # 'validators',
-        # 'beautifulsoup4',
+    install_requires=[
+        'msgpack',
+        'tornado',
+        'pyzmq',
     ],
     classifiers=[
         'Development Status :: 4 - Beta',
