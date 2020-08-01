@@ -1,3 +1,3 @@
-from IFBroker import IFBroker, Manager
-from IFCore import IFDefinition, IFException, IFLoop, Message, Invocation
-from IFWorker import IFWorker, InvokeTarget, RemoteObject, DynamicRemoteObject, AsyncRemoteObject, InvokeFuture
+from interactionfreepy.core import IFLoop, IFDefinition, IFException, Invocation, Message, IFLoop
+from interactionfreepy.broker import IFBroker
+from interactionfreepy.worker import IFWorker
