@@ -3,13 +3,13 @@ from distutils.core import setup
 setup(
     name='interactionfreepy',
     packages=['interactionfreepy'],
-    version='1.0.7',
+    version='1.0.8',
     license='gpl-3.0',
     description='A intuitive and cross-languige RCP lib for Python.',
     author='Hwaipy',
     author_email='hwaipy@gmail.com',
     url='https://github.com/hwaipy/InteractionFreePy',
-    download_url='https://github.com/hwaipy/InteractionFreePy/archive/v1.0.7.tar.gz',
+    download_url='https://github.com/hwaipy/InteractionFreePy/archive/v1.0.8.tar.gz',
     keywords=['msgpack', 'zeromq', 'zmq', '0mq', 'rcp', 'cross-languige'],
     install_requires=[
         'msgpack',
