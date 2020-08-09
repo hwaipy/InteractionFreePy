@@ -1,16 +1,22 @@
-from distutils.core import setup
+import setuptools
 
-setup(
+with open("README.md", "r") as fh:
+    long_description = fh.read()
+version = '1.0.11'
+
+setuptools.setup(
     name='interactionfreepy',
-    packages=['interactionfreepy'],
-    version='1.0.8',
-    license='gpl-3.0',
-    description='A intuitive and cross-languige RCP lib for Python.',
+    version=version,
     author='Hwaipy',
     author_email='hwaipy@gmail.com',
+    description='A intuitive and cross-languige RCP lib for Python.',
+    long_description=long_description,
+    long_description_content_type="text/markdown",
+    license='gpl-3.0',
     url='https://github.com/hwaipy/InteractionFreePy',
-    download_url='https://github.com/hwaipy/InteractionFreePy/archive/v1.0.8.tar.gz',
+    download_url='https://github.com/hwaipy/InteractionFreePy/archive/v{}.tar.gz'.format(version),
     keywords=['msgpack', 'zeromq', 'zmq', '0mq', 'rcp', 'cross-languige'],
+    packages=setuptools.find_packages(),
     install_requires=[
         'msgpack',
         'tornado',
@@ -26,4 +32,7 @@ setup(
         'Programming Language :: Python :: 3.7',
         'Programming Language :: Python :: 3.8',
     ],
+    python_requires='>=3.6',
 )
+
+
