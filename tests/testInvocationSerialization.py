@@ -4,7 +4,7 @@ import sys
 import unittest
 import msgpack
 from random import Random
-from IFCore import Invocation
+from interactionfreepy import Invocation
 
 
 class InvocationSerializationTest(unittest.TestCase):

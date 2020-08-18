@@ -2,7 +2,7 @@ __author__ = 'Hwaipy'
 
 import sys
 import unittest
-from IFCore import Invocation, IFException
+from interactionfreepy import Invocation, IFException
 
 
 class InvocationTest(unittest.TestCase):

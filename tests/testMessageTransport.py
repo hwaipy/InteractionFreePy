@@ -2,9 +2,9 @@ __author__ = 'Hwaipy'
 
 import unittest
 import time
-from IFBroker import IFBroker
-from IFWorker import IFWorker
-from IFCore import Message, IFException
+from interactionfreepy import IFBroker
+from interactionfreepy import IFWorker
+from interactionfreepy import Message, IFException
 from tornado.ioloop import IOLoop
 import threading
 from asyncio import Queue
@@ -164,7 +164,7 @@ class MessageTransportTest(unittest.TestCase):
     @classmethod
     def tearDownClass(cls):
         time.sleep(1)
-        IOLoop.current().stop()
+        # IOLoop.current().stop()
 
 
 if __name__ == '__main__':
