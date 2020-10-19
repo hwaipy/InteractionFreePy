@@ -31,12 +31,7 @@ class IFBroker(object):
         self.main_stream = None
 
     def startWebSocket(self, port, path):
-        handlers_array = [
-            (path, WebSocketZMQBridgeHandler),
-        ]
-        # settings = {
-        #     # 'debug': True,
-        # }
+        handlers_array = [(path, WebSocketZMQBridgeHandler)]
         app = web.Application(handlers_array)
         app.listen(port)
 
