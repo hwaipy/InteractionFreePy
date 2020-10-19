@@ -5,7 +5,7 @@ __email__ = 'hwaipy@gmail.com'
 import zmq
 from zmq.eventloop.zmqstream import ZMQStream
 from interactionfreepy.core import IFDefinition, IFException, Invocation, Message, IFLoop
-from tornado import websocket
+from tornado import websocket, web
 from tornado.ioloop import IOLoop
 import time
 import logging
@@ -179,8 +179,6 @@ class WebSocketZMQBridgeHandler(websocket.WebSocketHandler):
         return True
 
 if __name__ == '__main__':
-    from tornado import web
-    
     broker = IFBroker("tcp://*:224")
     broker.startWebSocket(81, '/ws/')
     print('started')
