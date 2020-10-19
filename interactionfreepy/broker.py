@@ -30,6 +30,16 @@ class IFBroker(object):
         self.main_stream.close()
         self.main_stream = None
 
+    def startWebSocket(self, port, path):
+        handlers_array = [
+            (path, WebSocketZMQBridgeHandler),
+        ]
+        # settings = {
+        #     # 'debug': True,
+        # }
+        app = web.Application(handlers_array)
+        app.listen(port)
+
     def __onMessage(self, msg):
         try:
             sourcePoint, msg = msg[0], msg[1:]
@@ -141,7 +151,6 @@ class Manager:
 
 class WebSocketZMQBridgeHandler(websocket.WebSocketHandler):
     def open(self, *args, **kwargs):
-        print('open ws')
         self.currentMessage = []
         self.__endpoint = 'tcp://localhost:224'
         socket = zmq.Context().socket(zmq.DEALER)
@@ -154,7 +163,6 @@ class WebSocketZMQBridgeHandler(websocket.WebSocketHandler):
         self.__stream.close()
 
     def on_message(self, message):
-        print('on ws message: ', message)
         hasMore = message[0]
         self.currentMessage.append(message[1:])
         if not hasMore:
@@ -174,16 +182,7 @@ if __name__ == '__main__':
     from tornado import web
     
     broker = IFBroker("tcp://*:224")
-
-    handlers_array = [
-        (r'/ws/', WebSocketZMQBridgeHandler),
-    ]
-    settings = {
-        'debug': True,
-    }
-    app = web.Application(handlers_array, **settings)
-    app.listen(81)
-
+    broker.startWebSocket(81, '/ws/')
     print('started')
 
     IFLoop.join()
