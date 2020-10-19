@@ -7,5 +7,6 @@ WORKDIR /ifs
 RUN python3.8 setup.py install
 
 EXPOSE 224
+EXPOSE 81
 
 CMD ["python3.8", "start.py"]
