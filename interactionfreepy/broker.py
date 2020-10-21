@@ -5,11 +5,12 @@ __email__ = 'hwaipy@gmail.com'
 import zmq
 from zmq.eventloop.zmqstream import ZMQStream
 from interactionfreepy.core import IFDefinition, IFException, Invocation, Message, IFLoop
-from tornado import websocket, web
+from tornado import websocket, web, httpserver
 from tornado.ioloop import IOLoop
 import time
 import logging
-
+import os
+import ssl
 
 class IFBroker(object):
     def __init__(self, binding, manager=None):
@@ -30,10 +31,18 @@ class IFBroker(object):
         self.main_stream.close()
         self.main_stream = None
 
-    def startWebSocket(self, port, path):
-        handlers_array = [(path, WebSocketZMQBridgeHandler)]
+    def startWebSocket(self, port, path, ssl_options=None):
+        handlers_array = [
+            (path, WebSocketZMQBridgeHandler),
+            (r"/(.+)", web.StaticFileHandler, {'path': 'interactionfreepy'}),
+        ]
         app = web.Application(handlers_array)
-        app.listen(port)
+        if ssl_options:
+            ssl_ctx = ssl.create_default_context(ssl.Purpose.CLIENT_AUTH)
+            ssl_ctx.load_cert_chain(ssl_options['certfile'], ssl_options['keyfile'])
+            httpserver.HTTPServer(app, ssl_options=ssl_ctx).listen(port)
+        else:
+            app.listen(port)
 
     def __onMessage(self, msg):
         try:
@@ -175,7 +184,11 @@ class WebSocketZMQBridgeHandler(websocket.WebSocketHandler):
 
 if __name__ == '__main__':
     broker = IFBroker("tcp://*:224")
-    broker.startWebSocket(81, '/ws/')
+    broker.startWebSocket(81, '/ws/', 
+    {
+        "certfile": "/root/.config/OpenSSL/server.crt",
+        "keyfile": "/root/.config/OpenSSL/server.key",
+    }
+    )
     print('started')
-
     IFLoop.join()
