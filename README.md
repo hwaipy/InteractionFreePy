@@ -18,7 +18,7 @@
 $ pip install interactionfreepy
 ```
 
-**Start the sever**
+**Start the server**
 
 ```python
 from interactionfreepy import IFBroker

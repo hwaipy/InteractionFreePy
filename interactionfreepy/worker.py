@@ -10,8 +10,8 @@ import logging
 class IFWorker(object):
     def __init__(self, endpoint, serviceName=None, serviceObject=None, interfaces=[], blocking=True, timeout=None):
         self.__endpoint = endpoint
-        socket = zmq.Context().socket(zmq.DEALER)
-        self.__stream = ZMQStream(socket, IOLoop.current())
+        self.socket = zmq.Context().socket(zmq.DEALER)
+        self.__stream = ZMQStream(self.socket, IOLoop.current())
         self.__stream.on_recv(self.__onMessage)
         self.__stream.socket.setsockopt(zmq.LINGER, 0)
         self.__stream.connect(self.__endpoint)
@@ -31,8 +31,7 @@ class IFWorker(object):
         while True:
             time.sleep(IFDefinition.HEARTBEAT_LIVETIME / 5)
             try:
-                if not self.blockingInvoker(timeout=IFDefinition.HEARTBEAT_LIVETIME / 5).heartbeat() \
-                        and self.__isService:
+                if not self.blockingInvoker(timeout=IFDefinition.HEARTBEAT_LIVETIME / 5).heartbeat() and self.__isService:
                     self.registerAsService(self.__serviceName, self.__interfaces)
             except BaseException as e:
                 logging.warning('Heartbeat: {}'.format(e))
@@ -54,7 +53,13 @@ class IFWorker(object):
         sourcePoint = message.fromAddress
         invocation = message.getInvocation()
         try:
-            result = await invocation.perform(self.__serviceObject)
+            if 'stopService' == invocation.getFunction():
+                self.__isService = False
+                result = await self.asyncInvoker().unregister()
+                # self.__stream.close()
+                # self.socket.close()
+            else:
+                result = await invocation.perform(self.__serviceObject)
             responseMessage = Message.newDirectMessage(sourcePoint, Invocation.newResponse(message.messageID, result))
             self.__stream.send_multipart(responseMessage.getContent())
         except BaseException as e:
@@ -299,3 +304,17 @@ class InvokeFuture:
         if self.__onComplete is not None:
             self.__onComplete()
         self.__awaitSemaphore.release()
+
+if __name__ == '__main__':
+    pass
+    # class Target:
+    #     def test(self, arg):
+    #         print(arg)
+    #         return 1.1
+
+    # worker = IFWorker('tcp://172.16.60.200:224', 'TS', Target())
+    # print(worker.listServiceMeta())
+    # # print(worker.HMC7044EvalAlice.checkChannel(1))
+    # IFLoop.join()
+
+    

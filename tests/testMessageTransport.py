@@ -8,7 +8,7 @@ from interactionfreepy import Message, IFException
 from tornado.ioloop import IOLoop
 import threading
 from asyncio import Queue
-
+import queue
 
 class MessageTransportTest(unittest.TestCase):
     testPort = 20111
@@ -157,6 +157,35 @@ class MessageTransportTest(unittest.TestCase):
         self.assertEqual(client.TimeCostWorker.returnImmediatly(), 'rim')
         stopTime = time.time()
         self.assertLess(stopTime - startTime, 1)
+
+    def testDisconnectService(self):
+        serviceName = 'DSWorker1'
+        s1 = IFWorker(MessageTransportTest.brokerAddress, serviceName=serviceName, serviceObject="")
+        client = IFWorker(MessageTransportTest.brokerAddress)
+        self.assertTrue(client.listServiceNames().__contains__(serviceName))
+        stopFuture = client.asyncInvoker(serviceName).stopService(serviceName)
+
+        stopResultQueue = queue.Queue()
+        async def test():
+            stopped = await stopFuture
+            stopResultQueue.put('')
+
+        IOLoop.current().add_callback(test)
+        stopResultQueue.get(timeout=10)
+        self.assertFalse(client.listServiceNames().__contains__(serviceName))
+
+    def testStartInDifferentThread(self):
+        resultQueue = queue.Queue()
+        def test():
+            client = IFWorker(MessageTransportTest.brokerAddress)
+            # self.assertTrue(client.listServiceNames().__contains__(serviceName))
+            # stopFuture = client.asyncInvoker(serviceName).stopService(serviceName)
+            print(1123)
+            resultQueue.put('')
+
+        thread = threading.Thread(target=test)
+        thread.start()
+        resultQueue.get(timeout=3)
 
     def tearDown(self):
         pass

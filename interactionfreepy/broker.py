@@ -144,6 +144,20 @@ class Manager:
             results.append([s, meta[0], meta[1], currentTime - meta[2]])
         return results
 
+    # async def stopService(self, sourcePoint, serviceName):
+    #     try:
+    #         print(serviceName)
+    #         # self.broker.main_stream.socket.disconnect(self.__services[serviceName][0]) 
+    #         print('stoping')
+    #         broker.
+    #         # import asyncio
+    #         # await asyncio.sleep(2)
+    #         # print('stoped')
+    #     except BaseException as e:
+    #         print('exception')
+    #         import traceback
+    #         traceback.print_tb(e)
+
     def __check(self):
         currentTime = time.time()
         for key in self.__activities.keys():
