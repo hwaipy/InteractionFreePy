@@ -106,8 +106,8 @@ class Manager:
         self.__activities = {}
         IOLoop.current().call_later(2, self.__check)
 
-    def registerAsService(self, sourcePoint, name, interfaces=[]):
-        if self.__services.__contains__(name):
+    def registerAsService(self, sourcePoint, name, interfaces=[], force=False):
+        if self.__services.__contains__(name) and not force:
             raise IFException('Service name [{}] occupied.'.format(name))
         if self.__workers.__contains__(sourcePoint):
             raise IFException('The current worker has registered as [{}].'.format(name))

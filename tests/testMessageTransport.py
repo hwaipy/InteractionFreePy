@@ -174,18 +174,14 @@ class MessageTransportTest(unittest.TestCase):
         stopResultQueue.get(timeout=10)
         self.assertFalse(client.listServiceNames().__contains__(serviceName))
 
-    def testStartInDifferentThread(self):
-        resultQueue = queue.Queue()
-        def test():
-            client = IFWorker(MessageTransportTest.brokerAddress)
-            # self.assertTrue(client.listServiceNames().__contains__(serviceName))
-            # stopFuture = client.asyncInvoker(serviceName).stopService(serviceName)
-            print(1123)
-            resultQueue.put('')
-
-        thread = threading.Thread(target=test)
-        thread.start()
-        resultQueue.get(timeout=3)
+    def testForceRegisterService(self):
+        serviceName = 'DSWorker1'
+        s1 = IFWorker(MessageTransportTest.brokerAddress, serviceName=serviceName, serviceObject="1")
+        client = IFWorker(MessageTransportTest.brokerAddress)
+        self.assertTrue(client.listServiceNames().__contains__(serviceName))
+        self.assertTrue(client.blockingInvoker(serviceName).strip() == '1')
+        s2 = IFWorker(MessageTransportTest.brokerAddress, serviceName=serviceName, serviceObject='2', force=True)
+        self.assertTrue(client.blockingInvoker(serviceName).strip() == '2')
 
     def tearDown(self):
         pass

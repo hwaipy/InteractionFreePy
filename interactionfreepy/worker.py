@@ -8,7 +8,7 @@ import asyncio
 import logging
 
 class IFWorker(object):
-    def __init__(self, endpoint, serviceName=None, serviceObject=None, interfaces=[], blocking=True, timeout=None):
+    def __init__(self, endpoint, serviceName=None, serviceObject=None, interfaces=[], blocking=True, timeout=None, force=False):
         self.__endpoint = endpoint
         self.socket = zmq.Context().socket(zmq.DEALER)
         self.__stream = ZMQStream(self.socket, IOLoop.current())
@@ -25,7 +25,7 @@ class IFWorker(object):
         threading.Thread(target=self.__hbLoop, daemon=True).start()
         IFLoop.tryStart()
         if self.__isService:
-            self.registerAsService(self.__serviceName, self.__interfaces)
+            self.registerAsService(self.__serviceName, self.__interfaces, force)
 
     def __hbLoop(self):
         while True:
