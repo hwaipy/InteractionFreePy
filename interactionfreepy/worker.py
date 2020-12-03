@@ -56,8 +56,6 @@ class IFWorker(object):
             if 'stopService' == invocation.getFunction():
                 self.__isService = False
                 result = await self.asyncInvoker().unregister()
-                # self.__stream.close()
-                # self.socket.close()
             else:
                 result = await invocation.perform(self.__serviceObject)
             responseMessage = Message.newDirectMessage(sourcePoint, Invocation.newResponse(message.messageID, result))

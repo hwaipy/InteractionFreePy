@@ -48,6 +48,7 @@ class IFBroker(object):
         try:
             sourcePoint, msg = msg[0], msg[1:]
             protocol = msg[1]
+            self.manager.statistics(sourcePoint, True, msg)
             if protocol != IFDefinition.PROTOCOL: raise IFException('Protocol {} not supported.'.format(protocol))
             distributingMode = msg[3]
             distributingAddress = msg[4]
@@ -95,6 +96,7 @@ class IFBroker(object):
             self.__sendMessage([sourcePoint] + errorMsg)
 
     def __sendMessage(self, frames):
+        self.manager.statistics(frames[0], False, frames)
         self.main_stream.send_multipart(frames)
 
 
@@ -111,7 +113,7 @@ class Manager:
             raise IFException('Service name [{}] occupied.'.format(name))
         if self.__workers.__contains__(sourcePoint):
             raise IFException('The current worker has registered as [{}].'.format(name))
-        self.__services[name] = [sourcePoint, interfaces, time.time()]
+        self.__services[name] = [sourcePoint, interfaces, time.time(), [0] * 4]
         self.__workers[sourcePoint] = name
         logging.info('Service [{}] registered as {}.'.format(name, interfaces))
 
@@ -141,8 +143,27 @@ class Manager:
         currentTime = time.time()
         for s in self.__services:
             meta = self.__services[s]
-            results.append([s, meta[0], meta[1], currentTime - meta[2]])
+            results.append({
+                "ServiceName": s, 
+                "Address": meta[0], 
+                "Interfaces": meta[1], 
+                "OnTime": currentTime - meta[2],
+                "Statistics": {
+                    "Received Message": meta[3][0],
+                    "Received Bytes": meta[3][1],
+                    "Sent Message": meta[3][2],
+                    "Sent Bytes": meta[3][3],
+                }
+            })
         return results
+
+    def statistics(self, sourcePoint, isReceived, message):
+        if self.__workers.__contains__(sourcePoint):
+            meta = self.__services[self.__workers[sourcePoint]]
+            offset = 0 if isReceived else 2
+            meta[3][offset] += 1
+            meta[3][offset + 1] += len(message[-1])
+            # print(sourcePoint, isReceived, (message[-1]), meta)
 
     # async def stopService(self, sourcePoint, serviceName):
     #     try:
