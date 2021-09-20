@@ -106,6 +106,9 @@ class Manager:
         self.__workers = {}
         self.__services = {}
         self.__activities = {}
+        self.__nonserviceStatistics = [0] * 4
+        self.__nonservice = {}
+        self.__previousGCTime = time.time()
         IOLoop.current().call_later(2, self.__check)
 
     def registerAsService(self, sourcePoint, name, interfaces=[], force=False):
@@ -115,13 +118,16 @@ class Manager:
             raise IFException('The current worker has registered as [{}].'.format(name))
         self.__services[name] = [sourcePoint, interfaces, time.time(), [0] * 4]
         self.__workers[sourcePoint] = name
+        if self.__nonservice.__contains__(sourcePoint): self.__nonservice.pop(sourcePoint)
         logging.info('Service [{}] registered as {}.'.format(name, interfaces))
 
     def unregister(self, sourcePoint):
         if self.__workers.__contains__(sourcePoint):
             serviceName = self.__workers.pop(sourcePoint)
-            self.__services.pop(serviceName)
-            logging.info('Service [{}] unregistered.'.format(serviceName))
+            if self.__services.__contains__(serviceName) and self.__services[serviceName][0] == sourcePoint:
+                self.__services.pop(serviceName)
+                print('Service [{}] unregistered.'.format(serviceName))
+                logging.info('Service [{}] unregistered.'.format(serviceName))
 
     def protocol(self, sourcePoint):
         return str(IFDefinition.PROTOCOL, encoding='UTF-8')
@@ -141,6 +147,21 @@ class Manager:
     def listServiceMeta(self, sourcePoint):
         results = []
         currentTime = time.time()
+
+        def metaItem(sn, meta):
+            return {
+                "ServiceName": sn, 
+                "Address": meta[0], 
+                "Interfaces": meta[1], 
+                "OnTime": currentTime - meta[2],
+                "Statistics": {
+                    "Received Message": meta[3][0],
+                    "Received Bytes": meta[3][1],
+                    "Sent Message": meta[3][2],
+                    "Sent Bytes": meta[3][3],
+                }
+            }
+
         for s in self.__services:
             meta = self.__services[s]
             results.append({
@@ -153,17 +174,50 @@ class Manager:
                     "Received Bytes": meta[3][1],
                     "Sent Message": meta[3][2],
                     "Sent Bytes": meta[3][3],
-                }
-            })
+                }})
+        for s in self.__nonservice:
+            meta = self.__nonservice[s]
+            results.append({
+                "ServiceName": '', 
+                "Address": s, 
+                "Interfaces": '', 
+                "OnTime": currentTime - meta[0],
+                "Statistics": {
+                    "Received Message": meta[2][0],
+                    "Received Bytes": meta[2][1],
+                    "Sent Message": meta[2][2],
+                    "Sent Bytes": meta[2][3],
+                }})
+        # results.append(metaItem("", ["", "", 0, self.__nonserviceStatistics]))
         return results
 
     def statistics(self, sourcePoint, isReceived, message):
+        offset = 0 if isReceived else 2
         if self.__workers.__contains__(sourcePoint):
-            meta = self.__services[self.__workers[sourcePoint]]
-            offset = 0 if isReceived else 2
-            meta[3][offset] += 1
-            meta[3][offset + 1] += len(message[-1])
-            # print(sourcePoint, isReceived, (message[-1]), meta)
+            statItem = self.__services[self.__workers[sourcePoint]][3]
+        else:
+            if not self.__nonservice.__contains__(sourcePoint):
+                self.__nonservice[sourcePoint] = [time.time(), 0, [0] * 4] 
+            self.__nonservice[sourcePoint][1] = time.time()
+            statItem = self.__nonservice[sourcePoint][2]
+        statItem[offset] += 1
+        statItem[offset + 1] += len(message[-1])
+
+        if (time.time() - self.__previousGCTime > 10):
+            try:
+                keys = []
+                for key in self.__nonservice:
+                    keys.append(key)
+                for key in keys:
+                    if self.__nonservice[key][1] < self.__previousGCTime:
+                        self.__nonservice.pop(key)
+                self.__previousGCTime = time.time()
+            except BaseException as e:
+                import traceback
+                exstr = traceback.format_exc()
+                print(exstr)
+        # print(self.__workers.__contains__(sourcePoint), statItem)
+
 
     # async def stopService(self, sourcePoint, serviceName):
     #     try:
@@ -180,12 +234,20 @@ class Manager:
     #         traceback.print_tb(e)
 
     def __check(self):
+        # try:
         currentTime = time.time()
+        tobeRemoved = []
         for key in self.__activities.keys():
             lastActiviteTime = self.__activities[key]
             timeDiff = currentTime - lastActiviteTime
             if timeDiff > IFDefinition.HEARTBEAT_LIVETIME:
+                tobeRemoved.append(key)
+                print('unreg in check', key)
                 self.unregister(key)
+        for tbr in tobeRemoved:
+            self.__activities.pop(tbr)
+        # except BaseException as e:
+        #     print('error in check', e)
         IOLoop.current().call_later(2, self.__check)
 
 class WebSocketZMQBridgeHandler(websocket.WebSocketHandler):
@@ -219,11 +281,11 @@ class WebSocketZMQBridgeHandler(websocket.WebSocketHandler):
 
 if __name__ == '__main__':
     broker = IFBroker("tcp://*:224")
-    broker.startWebSocket(81, '/ws/', 
-    {
-        "certfile": "/root/.config/OpenSSL/server.crt",
-        "keyfile": "/root/.config/OpenSSL/server.key",
-    }
-    )
+    # broker.startWebSocket(81, '/ws/',
+    # {
+    #     "certfile": "/root/.config/OpenSSL/server.crt",
+    #     "keyfile": "/root/.config/OpenSSL/server.key",
+    # }
+    # )
     print('started')
     IFLoop.join()
