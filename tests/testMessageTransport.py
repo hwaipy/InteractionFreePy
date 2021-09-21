@@ -8,6 +8,8 @@ from interactionfreepy import Message, IFException
 from tornado.ioloop import IOLoop
 import threading
 from asyncio import Queue
+from random import Random
+import string
 import queue
 
 class MessageTransportTest(unittest.TestCase):
@@ -157,6 +159,34 @@ class MessageTransportTest(unittest.TestCase):
         self.assertEqual(client.TimeCostWorker.returnImmediatly(), 'rim')
         stopTime = time.time()
         self.assertLess(stopTime - startTime, 1)
+
+    def testInvokeLargeData(self):
+        rnd = Random()
+        letters = string.printable
+        largeData = (''.join([letters[rnd.randint(0, len(letters) - 1)] for i in range(1000000)])).encode()
+
+        class Target:
+            def get(self):
+                return largeData
+
+            def compare(self, data, simple=False):
+                if simple:
+                    return len(data) == len(largeData) and data[0] == largeData[0] and data[-1] == largeData[-1]
+                return data == largeData
+
+        worker = IFWorker(MessageTransportTest.brokerAddress, serviceObject=Target(), serviceName="LDS")
+        checker = IFWorker(MessageTransportTest.brokerAddress)
+        self.assertTrue(checker.LDS.compare(largeData))
+        retrived = checker.LDS.get()
+        self.assertTrue(largeData, retrived)
+
+        largeData = largeData * 100
+        self.assertTrue(checker.LDS.compare(largeData, True))
+        retrived = checker.LDS.get()
+        self.assertTrue(len(retrived) == len(largeData) and retrived[0] == largeData[0] and retrived[-1] == largeData[-1])
+
+        worker.close()
+        checker.close()
 
     def testDisconnectService(self):
         serviceName = 'DSWorker1'

@@ -106,6 +106,7 @@ celerybeat.pid
 .venv
 env/
 venv/
+venv2/
 ENV/
 env.bak/
 venv.bak/
@@ -130,4 +131,4 @@ dmypy.json
 
 .idea
 .DS_Store
-.vscode
+*.ini

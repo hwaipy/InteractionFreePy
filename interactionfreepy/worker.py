@@ -1,3 +1,7 @@
+__license__ = "GNU General Public License v3"
+__author__ = 'Hwaipy'
+__email__ = 'hwaipy@gmail.com'
+
 import zmq
 from zmq.eventloop.zmqstream import ZMQStream
 from tornado.ioloop import IOLoop
