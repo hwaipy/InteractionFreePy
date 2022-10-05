@@ -21,7 +21,7 @@ class InitBrokerAndWorkerTest(unittest.TestCase):
         self.assertRaises(ValueError, lambda: IFBroker('udp://127.0.0.1'))
         self.assertRaises(ValueError, lambda: IFBroker('udp://127.0.0.1:1123'))
 
-        worker1 = IFWorker('127.0.0.1:1101', 'W1', '')
+        worker1 = IFWorker('127.0.0.1:101', 'W1', '')
         self.assertEqual(worker1.listServiceNames(), ['W1'])
         worker1.unregister()
         worker2 = IFWorker('127.0.0.1:1102', 'W2', '')
