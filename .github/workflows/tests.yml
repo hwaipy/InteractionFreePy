@@ -39,7 +39,6 @@ jobs:
       - name: Test with unittest
         run: |
           python -m unittest discover
-    test-on-ubuntu:
   test-on-macos:
     runs-on: macos-latest
     strategy:
