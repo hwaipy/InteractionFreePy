@@ -127,7 +127,7 @@ class Manager:
             serviceName = self.__workers.pop(sourcePoint)
             if self.__services.__contains__(serviceName) and self.__services[serviceName][0] == sourcePoint:
                 self.__services.pop(serviceName)
-                print('Service [{}] unregistered.'.format(serviceName))
+                # print('Service [{}] unregistered.'.format(serviceName))
                 logging.info('Service [{}] unregistered.'.format(serviceName))
 
     def protocol(self, sourcePoint):

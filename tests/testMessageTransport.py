@@ -225,7 +225,7 @@ class MessageTransportTest(unittest.TestCase):
 
             def trans(self): return self.invoker.v8()
 
-        print('Not Implemented')
+        # print('Not Implemented')
         # worker1 = IFWorker(MessageTransportTest.brokerAddress, serviceObject=Target(), serviceName="T1")
         # worker2 = IFWorker(MessageTransportTest.brokerAddress, serviceObject=Relay(worker1.T1), serviceName='Relay') 
         # checker = IFWorker(MessageTransportTest.brokerAddress)

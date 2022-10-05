@@ -17,9 +17,9 @@ class IFDefinition:
     DISTRIBUTING_MODE_DIRECT = b'Direct'
     DISTRIBUTING_MODE_SERVICE = b'Service'
     HEARTBEAT_LIVETIME = 10
-    DEFAULT_PORT_TCP = 81
-    DEFAULT_PORT_WEBSOCKET_SSL = 82
-    DEFAULT_PORT_WEBSOCKET = 83
+    DEFAULT_PORT_TCP = 1081
+    DEFAULT_PORT_WEBSOCKET_SSL = 1082
+    DEFAULT_PORT_WEBSOCKET = 1083
 
 
 class IFException(Exception):
@@ -53,8 +53,7 @@ class IFLoop:
     @classmethod
     def tryStart(cls):
         if IFLoop.__runIfNot():
-            thread = Thread(target=IFLoop.getInstance().start)
-            thread.setDaemon(True)
+            thread = Thread(target=IFLoop.getInstance().start, daemon=True)
             thread.start()
             IFLoop.__loopingThread = thread
 
@@ -376,3 +375,6 @@ if __name__ == '__main__':
 
     import random
     random.Random().randint(100000, 999999)
+
+    import sys
+    print(sys.path)
