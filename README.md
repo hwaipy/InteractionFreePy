@@ -2,6 +2,7 @@
 # InteractionFree for Python
 
 [![](https://img.shields.io/pypi/v/interactionfreepy)](https://pypi.org/project/interactionfreepy/)
+[![](https://img.shields.io/pypi/pyversions/interactionfreepy)](https://pypi.org/project/interactionfreepy/)
 
 [InteractionFree]() is a remote procedure call (RPC) protocol based on [ZeroMQ](https://zeromq.org). It allows the developers to build their own distributed and cross-languige program easily. The protocol is config-less and extremly easy to use. Currently, [Msgpack](https://msgpack.org) is used for binary serialization. InteractionFree implementation is already available in various languages (including Scala, Javascript, Arduino). More infomation will be available soon.
 
