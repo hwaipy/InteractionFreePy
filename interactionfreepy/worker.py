@@ -4,21 +4,21 @@ __email__ = 'hwaipy@gmail.com'
 
 import zmq
 from zmq.eventloop.zmqstream import ZMQStream
-from tornado.ioloop import IOLoop
-from interactionfreepy.core import IFException, Message, Invocation, IFLoop, IFDefinition
+from interactionfreepy.core import IFException, Message, Invocation, IFLoop, IFDefinition, IFAddress
 import time
 import threading
 import asyncio
 import logging
 
+
 class IFWorker(object):
     def __init__(self, endpoint, serviceName=None, serviceObject=None, interfaces=[], blocking=True, timeout=None, force=False):
-        self.__endpoint = endpoint
+        self.address = IFAddress.parseAddress(endpoint)
         self.socket = zmq.Context().socket(zmq.DEALER)
-        self.__stream = ZMQStream(self.socket, IOLoop.current())
+        self.__stream = ZMQStream(self.socket, IFLoop.getInstance())
         self.__stream.on_recv(self.__onMessage)
         self.__stream.socket.setsockopt(zmq.LINGER, 0)
-        self.__stream.connect(self.__endpoint)
+        self.__stream.connect(f'{self.address[0]}://{self.address[1]}:{self.address[2]}')
         self.__waitingMap = {}
         self.__waitingMapLock = threading.Lock()
         self.blocking = blocking
@@ -45,7 +45,7 @@ class IFWorker(object):
             message = Message(msg)
             invocation = message.getInvocation()
             if invocation.isRequest():
-                IOLoop.current().add_callback(self.__onRequest, message)
+                IFLoop.getInstance().add_callback(self.__onRequest, message)
             elif invocation.isResponse():
                 self.__onResponse(message)
         except BaseException as e:
@@ -111,7 +111,7 @@ class IFWorker(object):
 
     @classmethod
     def start(cls):
-        IOLoop.instance().start()
+        IFLoop.getInstance().start()
 
     def __getattr__(self, item):
         return InvokeTarget(self, item)
@@ -307,16 +307,19 @@ class InvokeFuture:
             self.__onComplete()
         self.__awaitSemaphore.release()
 
+
 if __name__ == '__main__':
-    pass
+    worker = IFWorker('127.0.0.1', 'TimeoutTest2', 'TimeoutTest2')
+    print('TimeoutTest started')
+    IFLoop().join()
+
     # class Target:
     #     def test(self, arg):
     #         print(arg)
     #         return 1.1
 
-    # worker = IFWorker('tcp://172.16.60.200:224', 'TS', Target())
+    # worker = IFWorker('tcp://172.16.60.200:81', 'TS', Target())
     # print(worker.listServiceMeta())
     # # print(worker.HMC7044EvalAlice.checkChannel(1))
     # IFLoop.join()
 
-    

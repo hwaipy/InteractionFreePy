@@ -213,6 +213,48 @@ class MessageTransportTest(unittest.TestCase):
         s2 = IFWorker(MessageTransportTest.brokerAddress, serviceName=serviceName, serviceObject='2', force=True)
         self.assertTrue(client.blockingInvoker(serviceName).strip() == '2')
 
+    def testInvokeOtherClientRemotely(self):
+        class Target:
+            def v8(self): return "V8 great!"
+
+        class Relay:
+            def __init__(self, invoker):
+                self.invoker = invoker
+
+            def local(self): return 'local'
+
+            def trans(self): return self.invoker.v8()
+
+        print('Not Implemented')
+        # worker1 = IFWorker(MessageTransportTest.brokerAddress, serviceObject=Target(), serviceName="T1")
+        # worker2 = IFWorker(MessageTransportTest.brokerAddress, serviceObject=Relay(worker1.T1), serviceName='Relay') 
+        # checker = IFWorker(MessageTransportTest.brokerAddress)
+        # self.assertEqual(checker.Relay.local(), 'local')
+        # checker.Relay.trans()
+        # v8r = benzChecker.v8()
+        # self.assertEqual(v8r, "V8 great!")
+        # try:
+        #     benzChecker.v9()
+        #     self.assertTrue(False)
+        # except IFException as e:
+        #     self.assertEqual(e.__str__(), "V9 not good.")
+        # try:
+        #     benzChecker.v10()
+        #     self.assertTrue(False)
+        # except Exception as e:
+        #     self.assertEqual(e.__str__(), "V10 have problems.")
+        # self.assertEqual(benzChecker.v(1, False), "OK")
+        # try:
+        #     benzChecker.v11()
+        #     self.assertTrue(False)
+        # except IFException as e:
+        #     self.assertEqual(e.__str__(), "Function [v11] not available.")
+        # try:
+        #     benzChecker.notFunction()
+        #     self.assertTrue(False)
+        # except IFException as e:
+        #     self.assertEqual(e.__str__(), "Function [notFunction] not available.")
+
     def tearDown(self):
         pass
 

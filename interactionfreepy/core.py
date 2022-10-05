@@ -8,6 +8,7 @@ import re
 from tornado.ioloop import IOLoop
 from threading import Thread
 import types
+# import nest_asyncio
 
 
 class IFDefinition:
@@ -16,6 +17,9 @@ class IFDefinition:
     DISTRIBUTING_MODE_DIRECT = b'Direct'
     DISTRIBUTING_MODE_SERVICE = b'Service'
     HEARTBEAT_LIVETIME = 10
+    DEFAULT_PORT_TCP = 81
+    DEFAULT_PORT_WEBSOCKET_SSL = 82
+    DEFAULT_PORT_WEBSOCKET = 83
 
 
 class IFException(Exception):
@@ -31,23 +35,25 @@ class IFLoop:
     __loopLock = threading.Lock()
     __running = False
     __loopingThread = None
+    # nest_asyncio.apply()
+    __INSTANCE = None
 
     @classmethod
     def start(cls, background=True):
         if not IFLoop.__runIfNot(): raise IFException('IFLoop is already running.')
         if background:
-            thread = Thread(target=IOLoop.current().start)
+            thread = Thread(target=IFLoop.getInstance().start)
             thread.setDaemon(True)
             thread.start()
             IFLoop.__loopingThread = thread
         else:
             IFLoop.__loopingThread = threading.current_thread()
-            IOLoop.current().start()
+            IFLoop.getInstance().start()
 
     @classmethod
     def tryStart(cls):
         if IFLoop.__runIfNot():
-            thread = Thread(target=IOLoop.current().start)
+            thread = Thread(target=IFLoop.getInstance().start)
             thread.setDaemon(True)
             thread.start()
             IFLoop.__loopingThread = thread
@@ -66,9 +72,15 @@ class IFLoop:
     def join(cls):
         IFLoop.__loopingThread.join()
 
+    @classmethod
+    def getInstance(cls):
+        if not IFLoop.__INSTANCE:
+            IFLoop.__INSTANCE = IOLoop.current()
+        return IFLoop.__INSTANCE
 
 class Message:
     MessageIDs = 0
+    __mutex__ = threading.Lock()
 
     @classmethod
     def newBrokerMessage(cls, invocation, serialization='Msgpack'):
@@ -105,11 +117,10 @@ class Message:
 
     @classmethod
     def __getAndIncrementID(cls):
-        __mutex__ = threading.Lock()
-        __mutex__.acquire()
+        Message.__mutex__.acquire()
         id = Message.MessageIDs
         Message.MessageIDs += 1
-        __mutex__.release()
+        Message.__mutex__.release()
         return id
 
     @classmethod
@@ -342,3 +353,26 @@ class Invocation:
         #         self.communicator.sendLater(error)
         #     return
 
+class IFAddress:
+    @classmethod
+    def parseAddress(clz, address):
+        sp1 = address.split('://')
+        if len(sp1) > 2:
+            raise ValueError(f'Invalid address: {address}')
+        else:
+            protocol = sp1[0] if len(sp1) == 2 else 'tcp'
+            if protocol != 'tcp':
+                raise ValueError(f'Invalid protocol "{protocol}" of address "{address}"')
+            sp2 = sp1[-1].split(':')
+            ip = sp2[0]
+            port = IFDefinition().DEFAULT_PORT_TCP if len(sp2) == 1 else sp2[1]
+            return [protocol, ip, port]
+
+if __name__ == '__main__':
+    print('test Core')
+    inv = Invocation.newRequest('set', args=[i for i in range(100)] * 150000, kwargs={})
+    bs = inv.serialize()
+    print(len(bs))
+
+    import random
+    random.Random().randint(100000, 999999)

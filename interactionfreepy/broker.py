@@ -4,7 +4,7 @@ __email__ = 'hwaipy@gmail.com'
 
 import zmq
 from zmq.eventloop.zmqstream import ZMQStream
-from interactionfreepy.core import IFDefinition, IFException, Invocation, Message, IFLoop
+from interactionfreepy.core import IFDefinition, IFException, Invocation, Message, IFLoop, IFAddress
 from tornado import websocket, web, httpserver
 from tornado.ioloop import IOLoop
 import time
@@ -13,9 +13,10 @@ import os
 import ssl
 
 class IFBroker(object):
-    def __init__(self, binding, manager=None):
+    def __init__(self, binding='*', manager=None):
+        self.address = IFAddress.parseAddress(binding)
         socket = zmq.Context().socket(zmq.ROUTER)
-        socket.bind(binding)
+        socket.bind(f'{self.address[0]}://{self.address[1]}:{self.address[2]}')
         self.main_stream = ZMQStream(socket, IOLoop.current())
         self.main_stream.on_recv(self.__onMessage)
         if manager == None:
@@ -33,7 +34,7 @@ class IFBroker(object):
 
     def startWebSocket(self, port, path, ssl_options=None):
         handlers_array = [
-            (path, WebSocketZMQBridgeHandler),
+            (path, WebSocketZMQBridgeHandler, {'port': self.address[2]}),
             (r"/(.+)", web.StaticFileHandler, {'path': 'interactionfreepy'}),
         ]
         app = web.Application(handlers_array)
@@ -150,9 +151,9 @@ class Manager:
 
         def metaItem(sn, meta):
             return {
-                "ServiceName": sn, 
-                "Address": meta[0], 
-                "Interfaces": meta[1], 
+                "ServiceName": sn,
+                "Address": meta[0],
+                "Interfaces": meta[1],
                 "OnTime": currentTime - meta[2],
                 "Statistics": {
                     "Received Message": meta[3][0],
@@ -165,9 +166,9 @@ class Manager:
         for s in self.__services:
             meta = self.__services[s]
             results.append({
-                "ServiceName": s, 
-                "Address": meta[0], 
-                "Interfaces": meta[1], 
+                "ServiceName": s,
+                "Address": meta[0],
+                "Interfaces": meta[1],
                 "OnTime": currentTime - meta[2],
                 "Statistics": {
                     "Received Message": meta[3][0],
@@ -178,9 +179,9 @@ class Manager:
         for s in self.__nonservice:
             meta = self.__nonservice[s]
             results.append({
-                "ServiceName": '', 
-                "Address": s, 
-                "Interfaces": '', 
+                "ServiceName": '',
+                "Address": s,
+                "Interfaces": '',
                 "OnTime": currentTime - meta[0],
                 "Statistics": {
                     "Received Message": meta[2][0],
@@ -197,7 +198,7 @@ class Manager:
             statItem = self.__services[self.__workers[sourcePoint]][3]
         else:
             if not self.__nonservice.__contains__(sourcePoint):
-                self.__nonservice[sourcePoint] = [time.time(), 0, [0] * 4] 
+                self.__nonservice[sourcePoint] = [time.time(), 0, [0] * 4]
             self.__nonservice[sourcePoint][1] = time.time()
             statItem = self.__nonservice[sourcePoint][2]
         statItem[offset] += 1
@@ -222,7 +223,7 @@ class Manager:
     # async def stopService(self, sourcePoint, serviceName):
     #     try:
     #         print(serviceName)
-    #         # self.broker.main_stream.socket.disconnect(self.__services[serviceName][0]) 
+    #         # self.broker.main_stream.socket.disconnect(self.__services[serviceName][0])
     #         print('stoping')
     #         broker.
     #         # import asyncio
@@ -251,9 +252,13 @@ class Manager:
         IOLoop.current().call_later(2, self.__check)
 
 class WebSocketZMQBridgeHandler(websocket.WebSocketHandler):
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args)
+        self.port = kwargs['port']
+
     def open(self, *args, **kwargs):
         self.currentMessage = []
-        self.__endpoint = 'tcp://localhost:224'
+        self.__endpoint = f'tcp://localhost:{self.port}'
         socket = zmq.Context().socket(zmq.DEALER)
         self.__stream = ZMQStream(socket, IOLoop.current())
         self.__stream.on_recv(self.__onReceive)
@@ -280,12 +285,17 @@ class WebSocketZMQBridgeHandler(websocket.WebSocketHandler):
         return True
 
 if __name__ == '__main__':
-    broker = IFBroker("tcp://*:224")
-    # broker.startWebSocket(81, '/ws/',
+    # broker = IFBroker(f"tcp://*:{IFDefinition.DEFAULT_PORT_TCP}")
+    broker = IFBroker()
+    # broker.startWebSocket(IFDefinition.DEFAULT_PORT_WEBSOCKET_SSL, '/ws/',
     # {
-    #     "certfile": "/root/.config/OpenSSL/server.crt",
-    #     "keyfile": "/root/.config/OpenSSL/server.key",
+    #     "certfile": "../server.crt",
+    #     "keyfile": "../server.key",
     # }
     # )
     print('started')
+
+    from interactionfreepy import IFWorker
+    print(IFWorker('tcp://127.0.0.1').listServiceNames())
+
     IFLoop.join()

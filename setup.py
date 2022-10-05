@@ -2,7 +2,7 @@ import setuptools
 
 with open("README.md", "r") as fh:
     long_description = fh.read()
-version = '1.3.1'
+version = '1.6.3'
 
 setuptools.setup(
     name='interactionfreepy',
@@ -20,7 +20,7 @@ setuptools.setup(
     install_requires=[
         'msgpack',
         'tornado',
-        'pyzmq',
+        'pyzmq'
     ],
     classifiers=[
         'Development Status :: 5 - Production/Stable',
@@ -34,5 +34,3 @@ setuptools.setup(
     ],
     python_requires='>=3.6',
 )
-
-
