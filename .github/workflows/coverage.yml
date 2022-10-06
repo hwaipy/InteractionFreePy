@@ -42,7 +42,6 @@ jobs:
           coverage json -o -
           cd ..
           ls
-          coverage json -o -
 
       - name: Coverage comment
         id: coverage_comment
