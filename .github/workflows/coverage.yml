@@ -27,8 +27,6 @@ jobs:
       - name: Launch tests & generate report
         run: |
           coverage run -m unittest discover
-          coverage json -o -
-          echo `pwd`
 
       - name: Coverage comment
         id: coverage_comment
