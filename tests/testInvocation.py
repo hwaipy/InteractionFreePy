@@ -3,7 +3,7 @@ __author__ = 'Hwaipy'
 import sys
 import unittest
 from interactionfreepy import Invocation, IFException
-import timeout_decorator
+from wrapt_timeout_decorator import timeout
 
 
 class InvocationTest(unittest.TestCase):
@@ -45,7 +45,7 @@ class InvocationTest(unittest.TestCase):
     def setUp(self):
         pass
 
-    @timeout_decorator.timeout(seconds=10)
+    @timeout(10)
     def testGetInformation(self):
         m = Invocation(InvocationTest.sampleRequestContent)
         self.assertEqual(m.get("keyString"), "value1")
@@ -53,7 +53,7 @@ class InvocationTest(unittest.TestCase):
         self.assertRaises(IFException, lambda: m.get("keyNull", False))
         self.assertIsNone(m.get("keyNull", True))
 
-    @timeout_decorator.timeout(seconds=10)
+    @timeout(10)
     def testTypeAndContent(self):
         m1 = Invocation(InvocationTest.sampleRequestContent)
         self.assertTrue(m1.isRequest())
