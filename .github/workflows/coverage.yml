@@ -28,20 +28,7 @@ jobs:
         run: |
           coverage run -m unittest discover
           coverage json -o -
-          cd interactionfreepy
-          ls
-          coverage json -o -
-          cd ..
-          ls
-          coverage json -o -
-          cd ..
-          ls
-          coverage json -o -
-          cd ..
-          ls
-          coverage json -o -
-          cd ..
-          ls
+          echo `pwd`
 
       - name: Coverage comment
         id: coverage_comment
