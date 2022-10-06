@@ -4,6 +4,7 @@ import unittest
 import time
 from interactionfreepy import IFBroker
 from interactionfreepy import IFWorker
+import timeout_decorator
 
 class InitBrokerAndWorkerTest(unittest.TestCase):
     @classmethod
@@ -13,6 +14,7 @@ class InitBrokerAndWorkerTest(unittest.TestCase):
     def setUp(self):
         pass
 
+    @timeout_decorator.timeout(seconds=10)
     def testFormatOfAddress(self):
         broker1 = IFBroker('tcp://*:1101')
         broker2 = IFBroker('tcp://127.0.0.1:1102')

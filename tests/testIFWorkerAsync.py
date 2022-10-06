@@ -8,7 +8,7 @@ from interactionfreepy import Message, IFException
 from tornado.ioloop import IOLoop
 import threading
 from asyncio import Queue
-
+import timeout_decorator
 
 class AsyncIFWorkerTest(unittest.TestCase):
     testPort = 20112
@@ -21,6 +21,7 @@ class AsyncIFWorkerTest(unittest.TestCase):
     def setUp(self):
         pass
 
+    @timeout_decorator.timeout(seconds=10)
     def testRemoteInvokeAndAsync(self):
         worker1 = IFWorker(AsyncIFWorkerTest.brokerAddress)
         invoker1 = worker1.asyncInvoker()

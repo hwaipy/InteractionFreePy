@@ -11,6 +11,7 @@ from asyncio import Queue
 from random import Random
 import string
 import queue
+import timeout_decorator
 
 class MessageTransportTest(unittest.TestCase):
     testPort = 20111
@@ -23,9 +24,11 @@ class MessageTransportTest(unittest.TestCase):
     def setUp(self):
         pass
 
+    @timeout_decorator.timeout(seconds=10)
     def testConnectionOfSession(self):
         worker = IFWorker(MessageTransportTest.brokerAddress)
 
+    @timeout_decorator.timeout(seconds=10)
     def testDynamicInvoker(self):
         worker = IFWorker(MessageTransportTest.brokerAddress)
         invoker = worker.toMessageInvoker()
@@ -48,6 +51,7 @@ class MessageTransportTest(unittest.TestCase):
         self.assertTrue(m2.isServiceMessage())
         self.assertEqual(m2.distributingAddress, b'OnT')
 
+    @timeout_decorator.timeout(seconds=10)
     def testRemoteInvokeAndAsync(self):
         worker1 = IFWorker(MessageTransportTest.brokerAddress)
         invoker1 = worker1.asynchronousInvoker()
@@ -74,12 +78,14 @@ class MessageTransportTest(unittest.TestCase):
         self.assertFalse(future1.isSuccess())
         self.assertEqual(future1.exception().description, "Function [protocol] expects [0] arguments, but [3] were given.")
 
+    @timeout_decorator.timeout(seconds=10)
     def testRemoteInvokeAndSync(self):
         worker = IFWorker(MessageTransportTest.brokerAddress)
         invoker = worker.blockingInvoker()
         self.assertRaises(IFException, lambda: invoker.co())
         self.assertEqual(invoker.protocol(), 'IF1')
 
+    @timeout_decorator.timeout(seconds=10)
     def testSyncAndAsyncMode(self):
         worker = IFWorker(MessageTransportTest.brokerAddress)
         self.assertRaises(IFException, lambda: worker.co())
@@ -93,6 +99,7 @@ class MessageTransportTest(unittest.TestCase):
         self.assertFalse(future1.isSuccess())
         self.assertEqual(future1.exception().description, "Function [protocol] expects [0] arguments, but [3] were given.")
 
+    @timeout_decorator.timeout(seconds=10)
     def testInvokeOtherClient(self):
         class Target:
             def __init__(self):
@@ -133,6 +140,7 @@ class MessageTransportTest(unittest.TestCase):
         except IFException as e:
             self.assertEqual(e.__str__(), "Function [notFunction] not available.")
 
+    @timeout_decorator.timeout(seconds=10)
     def testServiceDuplicated(self):
         worker1 = IFWorker(MessageTransportTest.brokerAddress, serviceName="T2-ClientDuplicated")
         try:
@@ -140,6 +148,7 @@ class MessageTransportTest(unittest.TestCase):
         except IFException as e:
             self.assertEqual(e.__str__(), "Service name [T2-ClientDuplicated] occupied.")
 
+    @timeout_decorator.timeout(seconds=10)
     def testTimeCostInvocation(self):
         queue = Queue()
 
@@ -160,6 +169,7 @@ class MessageTransportTest(unittest.TestCase):
         stopTime = time.time()
         self.assertLess(stopTime - startTime, 1)
 
+    @timeout_decorator.timeout(seconds=10)
     def testInvokeLargeData(self):
         rnd = Random()
         letters = string.printable
@@ -188,6 +198,7 @@ class MessageTransportTest(unittest.TestCase):
         worker.close()
         checker.close()
 
+    @timeout_decorator.timeout(seconds=10)
     def testDisconnectService(self):
         serviceName = 'DSWorker1'
         s1 = IFWorker(MessageTransportTest.brokerAddress, serviceName=serviceName, serviceObject="")
@@ -204,6 +215,7 @@ class MessageTransportTest(unittest.TestCase):
         stopResultQueue.get(timeout=10)
         self.assertFalse(client.listServiceNames().__contains__(serviceName))
 
+    @timeout_decorator.timeout(seconds=10)
     def testForceRegisterService(self):
         serviceName = 'DSWorker1'
         s1 = IFWorker(MessageTransportTest.brokerAddress, serviceName=serviceName, serviceObject="1")
@@ -213,6 +225,7 @@ class MessageTransportTest(unittest.TestCase):
         s2 = IFWorker(MessageTransportTest.brokerAddress, serviceName=serviceName, serviceObject='2', force=True)
         self.assertTrue(client.blockingInvoker(serviceName).strip() == '2')
 
+    @timeout_decorator.timeout(seconds=10)
     def testInvokeOtherClientRemotely(self):
         class Target:
             def v8(self): return "V8 great!"
