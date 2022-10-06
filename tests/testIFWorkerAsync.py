@@ -9,10 +9,12 @@ from tornado.ioloop import IOLoop
 import threading
 from asyncio import Queue
 from wrapt_timeout_decorator import timeout
+from tests.defines import Defines
 
 class AsyncIFWorkerTest(unittest.TestCase):
     testPort = 20112
     brokerAddress = 'tcp://127.0.0.1:{}'.format(testPort)
+    timeoutLimit = 20
 
     @classmethod
     def setUpClass(cls):
@@ -21,7 +23,7 @@ class AsyncIFWorkerTest(unittest.TestCase):
     def setUp(self):
         pass
 
-    @timeout(10)
+    @timeout(Defines.timeout)
     def testRemoteInvokeAndAsync(self):
         worker1 = IFWorker(AsyncIFWorkerTest.brokerAddress)
         invoker1 = worker1.asyncInvoker()

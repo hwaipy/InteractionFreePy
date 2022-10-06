@@ -4,6 +4,7 @@ import sys
 import unittest
 from interactionfreepy import Invocation, IFException
 from wrapt_timeout_decorator import timeout
+from tests.defines import Defines
 
 
 class InvocationTest(unittest.TestCase):
@@ -45,7 +46,7 @@ class InvocationTest(unittest.TestCase):
     def setUp(self):
         pass
 
-    @timeout(10)
+    @timeout(Defines.timeout)
     def testGetInformation(self):
         m = Invocation(InvocationTest.sampleRequestContent)
         self.assertEqual(m.get("keyString"), "value1")
@@ -53,7 +54,7 @@ class InvocationTest(unittest.TestCase):
         self.assertRaises(IFException, lambda: m.get("keyNull", False))
         self.assertIsNone(m.get("keyNull", True))
 
-    @timeout(10)
+    @timeout(Defines.timeout)
     def testTypeAndContent(self):
         m1 = Invocation(InvocationTest.sampleRequestContent)
         self.assertTrue(m1.isRequest())

@@ -6,6 +6,7 @@ import msgpack
 from random import Random
 from interactionfreepy import Invocation
 from wrapt_timeout_decorator import timeout
+from tests.defines import Defines
 
 
 class InvocationSerializationTest(unittest.TestCase):
@@ -30,21 +31,21 @@ class InvocationSerializationTest(unittest.TestCase):
     def setUp(self):
         pass
 
-    @timeout(10)
+    @timeout(Defines.timeout)
     def testFeedOverflow(self):
         unpacker = msgpack.Unpacker(raw=False)
         bytes = Invocation(InvocationSerializationTest.map).serialize()
         for i in range(100000):
             unpacker.feed(bytes)
 
-    @timeout(10)
+    @timeout(Defines.timeout)
     def testOverDeepth(self):
         map = {"a": "b"}
         for i in range(200):
             map = {'a': map}
         Invocation(map).serialize()
 
-    @timeout(10)
+    @timeout(Defines.timeout)
     def testMapPackAndUnpack(self):
         bytes = Invocation(InvocationSerializationTest.map).serialize()
         unpacker = msgpack.Unpacker(raw=False)
@@ -53,13 +54,13 @@ class InvocationSerializationTest(unittest.TestCase):
         self.assertRaises(StopIteration, unpacker.__next__)
         self.assertEqual(m1, InvocationSerializationTest.map)
 
-    @timeout(10)
+    @timeout(Defines.timeout)
     def testMapPackAndClassUnpack(self):
         bytes = Invocation(InvocationSerializationTest.map).serialize()
         m1 = Invocation.deserialize(bytes, contentOnly=True)
         self.assertEqual(m1, InvocationSerializationTest.map)
 
-    @timeout(10)
+    @timeout(Defines.timeout)
     def testMultiUnpack(self):
         multi = 100
         bytes = b''
@@ -71,7 +72,7 @@ class InvocationSerializationTest(unittest.TestCase):
             self.assertEqual(unpacker.__next__(), InvocationSerializationTest.map)
         self.assertRaises(StopIteration, unpacker.__next__)
 
-    @timeout(10)
+    @timeout(Defines.timeout)
     def testPartialUnpackByteByByte(self):
         multi = 10
         bytes = Invocation(InvocationSerializationTest.map).serialize()
@@ -83,7 +84,7 @@ class InvocationSerializationTest(unittest.TestCase):
             unpacker.feed(bytes[-1:])
             self.assertEqual(unpacker.__next__(), InvocationSerializationTest.map)
 
-    @timeout(10)
+    @timeout(Defines.timeout)
     def testPartialUnpackBlockByBlock(self):
         unitSize = len(Invocation(InvocationSerializationTest.map).serialize())
         limit = unitSize * 3
@@ -114,7 +115,7 @@ class InvocationSerializationTest(unittest.TestCase):
             self.assertRaises(StopIteration, unpacker.__next__)
         self.assertEqual(generated, totalSize // unitSize)
 
-    @timeout(10)
+    @timeout(Defines.timeout)
     def testException(self):
         unpacker = msgpack.Unpacker(raw=False)
         bytes = Invocation(InvocationSerializationTest.map).serialize()
