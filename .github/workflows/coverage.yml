@@ -28,6 +28,15 @@ jobs:
         run: |
           coverage run -m unittest discover
           coverage json -o -
+          cd interactionfreepy
+          ls
+          cd ..
+          ls
+          cd ..
+          ls
+          cd..
+          ls
+          cd ..
           ls
 
       - name: Coverage comment
