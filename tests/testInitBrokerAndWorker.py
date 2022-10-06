@@ -18,10 +18,10 @@ class InitBrokerAndWorkerTest(unittest.TestCase):
 
     @timeout(Defines.timeout)
     def testFormatOfAddress(self):
-        broker1 = IFBroker('tcp://*:1101')
-        broker2 = IFBroker('tcp://127.0.0.1:1102')
-        broker3 = IFBroker('127.0.0.1:1103')
-        broker4 = IFBroker('127.0.0.1')
+        IFBroker('tcp://*:1101')
+        IFBroker('tcp://127.0.0.1:1102')
+        IFBroker('127.0.0.1:1103')
+        IFBroker('127.0.0.1')
         self.assertRaises(ValueError, lambda: IFBroker('udp://127.0.0.1'))
         self.assertRaises(ValueError, lambda: IFBroker('udp://127.0.0.1:1123'))
 
