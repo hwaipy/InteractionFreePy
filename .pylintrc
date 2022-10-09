@@ -426,7 +426,7 @@ attr-naming-style=camelCase
 # Regular expression matching correct attribute names. Overrides attr-naming-
 # style. If left empty, attribute names will be checked with the set naming
 # style.
-#attr-rgx=
+attr-rgx=[_a-zA-Z]+[_A-Za-z0-9]*
 
 # Bad variable names which should always be refused, separated by a comma.
 bad-names=foo,
@@ -511,7 +511,7 @@ method-naming-style=camelCase
 
 # Regular expression matching correct method names. Overrides method-naming-
 # style. If left empty, method names will be checked with the set naming style.
-#method-rgx=
+method-rgx=[_a-zA-Z]+[_A-Za-z0-9]*
 
 # Naming style matching correct module names.
 module-naming-style=camelCase
