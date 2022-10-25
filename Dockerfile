@@ -6,8 +6,8 @@ COPY .dockerConfig/start.py /ifs
 WORKDIR /ifs
 RUN python3.10 -m pip install -r requirements.txt
 
-EXPOSE 224
-EXPOSE 81
+EXPOSE 1081
 EXPOSE 1082
+EXPOSE 1083
 
 CMD ["python3.10", "start.py"]

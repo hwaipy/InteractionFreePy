@@ -311,6 +311,7 @@ class InvokeFuture:
 if __name__ == '__main__':
     worker = IFWorker('127.0.0.1', 'TimeoutTest2', 'TimeoutTest2')
     print('TimeoutTest started')
+    print(worker.listServiceNames())
     IFLoop().join()
 
     # class Target:
