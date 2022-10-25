@@ -10,4 +10,4 @@ EXPOSE 1081
 EXPOSE 1082
 EXPOSE 1083
 
-CMD ["python3.10", "start.py"]
+CMD ["python3.10", "-u", "start.py"]
