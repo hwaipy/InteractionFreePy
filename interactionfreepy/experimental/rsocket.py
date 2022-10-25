@@ -1,6 +1,7 @@
 """A reconnectable socket with asyncio."""
 
 import asyncio
+from curses.ascii import RS
 import threading
 import socket
 import random
@@ -14,6 +15,7 @@ class RSocket:
   The parameters, `host` and `port`, are the same for `asyncio.open_connection()`.
   """
   __logger = logging.getLogger('RSocket')
+  __loop = None
 
   def __init__(self, host: str, port: int) -> None:
     # reader: asyncio.streams.StreamReader, write: asyncio.streams.StreamWriter
@@ -21,22 +23,40 @@ class RSocket:
     self.port = port
     self.reader = None
     self.writer = None
+    self.__running = False
     self.__connectionActive = asyncio.Event()
     self.__writeQueue = asyncio.Queue()
     self.__waterline = 30
+    self.__closeEvents = [asyncio.Event(), asyncio.Event(), asyncio.Event()]
+
+  async def start(self) -> None:
+    if self.__running:
+      raise RuntimeError('The RSocdSocis already running.')
+    self.__running = True
     asyncio.create_task(self.__loopConnect())
     asyncio.create_task(self.__loopRead())
     asyncio.create_task(self.__loopWrite())
+
+  async def close(self) -> None:
+    RSocket.__logger.info('RSocket closing.')
+    self.__running = False
+    for event in self.__closeEvents:
+      await event.wait()
+    RSocket.__logger.info('RSocket closed.')
 
   def writeLater(self, data) -> None:
     asyncio.create_task(self.write(data))
 
   async def write(self, data) -> None:
+    if self.__writeQueue.qsize() > self.__waterline:
+      RSocket.__logger.warning('The writing queue of RSocket reaches the waterline. New appended data will be discarded.')
+    else:
+      await self.__writeQueue.put(['WRITE', data])
+
+  async def flush(self) -> None:
     event = asyncio.Event()
-    await self.__writeQueue.put(data)
+    await self.__writeQueue.put(['FLUSH', event])
     await event.wait()
-  # need a limit of queue size 
-  # async def flush():
 
   def setWaterline(self, waterline: int) -> None:
     self.__waterline = waterline
@@ -45,7 +65,7 @@ class RSocket:
     return self.__waterline
 
   async def __loopConnect(self):
-    while True:
+    while self.__running:
       if self.__connectionActive.is_set():
         await asyncio.sleep(1)
       else:
@@ -59,9 +79,10 @@ class RSocket:
           msg = f'RSocket connection failed: {exc}. Retring in 5 s...'
           RSocket.__logger.warning(msg)
           await asyncio.sleep(5 - random.random() / 10)
+    self.__closeEvents[0].set()
 
   async def __loopRead(self):
-    while True:
+    while self.__running:
       await self.__connectionActive.wait()
       data = await self.reader.read(1000000)
       if len(data) == 0:
@@ -69,20 +90,33 @@ class RSocket:
         self.__connectionActive.clear()
       else:
         print(f'{len(data)} data read.')
+    self.__closeEvents[1].set()
 
   async def __loopWrite(self):
-    while True:
-      data = await self.__writeQueue.get()
+    while self.__running:
+      cmd, data = await self.__writeQueue.get()
       await self.__connectionActive.wait()
-      self.writer.write(data)
+      if cmd == 'WRITE':
+        self.writer.write(data)
+      elif cmd == 'FLUSH':
+        await self.writer.drain()
+        data.set()
+      else:
+        msg = f'Invalid write command: {cmd}'
+        RSocket.__logger.warning(msg)
+    if self.writer:
+      self.writer.close()
+    self.__closeEvents[2].set()
+
 
 class RSocketServer:
   """RSocketServer is a wrap of asyncio Server.
   After an RSocket client connects to an RSocket server, they will try to keep the connection alive even in a unstable network.
   """
 
-  def __init__(self, server: asyncio.base_events.Server) -> None:
-    self.server = server
+  def __init__(self, host: str, port: int) -> None:
+    self.host = host
+    self.port = port
 
   @classmethod
   async def startServer(cls, host: str | None, port: int | str | None):
@@ -124,7 +158,8 @@ class RSocketServer:
 
 
 if __name__ == "__main__":
-  logging.basicConfig(level = logging.INFO,format = '%(asctime)s - %(name)s - %(levelname)s - %(message)s')
+  logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(name)s - %(levelname)s - %(message)s')
+
   async def test(cmd):
     if cmd == 'server':
       server = await RSocketServer.startServer('127.0.0.1', 8888)
