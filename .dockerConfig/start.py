@@ -1,5 +1,8 @@
+""" InteractionFree server start script for docker container. """
 import os
+# pylint: disable=import-error
 from interactionfreepy import IFBroker, IFLoop, IFDefinition
+# pylint: enable=import-error
 
 broker = IFBroker()
 print(f'InteractionFree server start at port {broker.address[2]}')
