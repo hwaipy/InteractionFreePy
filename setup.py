@@ -2,7 +2,7 @@ import setuptools
 
 with open("README.md", "r") as fh:
     long_description = fh.read()
-version = '1.6.10'
+version = '1.6.11'
 
 setuptools.setup(
     name='interactionfreepy',
