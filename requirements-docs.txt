@@ -3,3 +3,4 @@ tornado
 pyzmq
 sphinx
 sphinx-rtd-theme
+sphinx-autoapi
