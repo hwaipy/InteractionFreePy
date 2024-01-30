@@ -22,7 +22,10 @@ extensions = [
     'sphinx.ext.doctest',
     'sphinx.ext.autodoc',
     'sphinx.ext.autosummary',
+    'autoapi.extension',
 ]
+autosummary_generate = True  # Turn on sphinx.ext.autosummary
+autoapi_dirs = ['../../interactionfreepy']
 
 templates_path = ['_templates']
 exclude_patterns = []
