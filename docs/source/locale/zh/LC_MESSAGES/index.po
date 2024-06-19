@@ -1,0 +1,48 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2024, Hwaipy
+# This file is distributed under the same license as the InteractionFreePy
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2024.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: InteractionFreePy \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-06-19 07:24+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: zh\n"
+"Language-Team: zh <LL@li.org>\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.13.1\n"
+
+#: ../../source/index.rst:2
+msgid "Welcome to Lumache's documentation!"
+msgstr ""
+
+#: ../../source/index.rst:4
+msgid ""
+"**Lumache** (/lu'make/) is a Python library for cooks and food lovers "
+"that creates recipes mixing random ingredients.  It pulls data from the "
+"`Open Food Facts database <https://world.openfoodfacts.org/>`_ and offers"
+" a *simple* and *intuitive* API."
+msgstr ""
+
+#: ../../source/index.rst:9
+msgid ""
+"Check out the :doc:`usage` section for further information, including how"
+" to :ref:`install <installation>` the project."
+msgstr ""
+
+#: ../../source/index.rst:14
+msgid "This project is under active development."
+msgstr ""
+
+#: ../../source/index.rst:17
+msgid "Contents"
+msgstr ""
+

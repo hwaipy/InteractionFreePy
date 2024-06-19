@@ -1,0 +1,1215 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2024, Hwaipy
+# This file is distributed under the same license as the InteractionFreePy
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2024.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: InteractionFreePy \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-06-19 07:24+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: zh\n"
+"Language-Team: zh <LL@li.org>\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.13.1\n"
+
+#: ../../source/autoapi/index.rst:2
+msgid "API Reference"
+msgstr ""
+
+#: ../../source/autoapi/index.rst:4
+msgid "This page contains auto-generated API reference documentation [#f1]_."
+msgstr ""
+
+#: ../../source/autoapi/index.rst:12
+msgid ""
+"Created with `sphinx-autoapi <https://github.com/readthedocs/sphinx-"
+"autoapi>`_"
+msgstr ""
+
+#: ../../source/autoapi/interactionfreepy/broker/index.rst:2
+msgid ":py:mod:`interactionfreepy.broker`"
+msgstr ""
+
+#: ../../source/autoapi/interactionfreepy/broker/index.rst:8
+msgid "IFBroker as the center server of InteractionFree."
+msgstr ""
+
+#: ../../source/autoapi/interactionfreepy/broker/index.rst:13
+#: ../../source/autoapi/interactionfreepy/core/index.rst:13
+#: ../../source/autoapi/interactionfreepy/worker/index.rst:13
+msgid "Module Contents"
+msgstr ""
+
+#: ../../source/autoapi/interactionfreepy/broker/index.rst:16
+#: ../../source/autoapi/interactionfreepy/core/index.rst:16
+#: ../../source/autoapi/interactionfreepy/index.rst:27
+#: ../../source/autoapi/interactionfreepy/worker/index.rst:16
+msgid "Classes"
+msgstr ""
+
+#: ../../source/autoapi/interactionfreepy/broker/index.rst:26:<autosummary>:1
+msgid ":py:obj:`IFBroker <interactionfreepy.broker.IFBroker>`\\"
+msgstr ""
+
+#: ../../source/autoapi/interactionfreepy/broker/index.rst:56
+#: ../../source/autoapi/interactionfreepy/broker/index.rst:26:<autosummary>:1
+#: ../../source/autoapi/interactionfreepy/index.rst:575
+#: ../../source/autoapi/interactionfreepy/index.rst:40:<autosummary>:1
+msgid "IFBroker is the center server of InteractionFree."
+msgstr ""
+
+#: ../../source/autoapi/interactionfreepy/broker/index.rst:26:<autosummary>:1
+msgid ":py:obj:`Manager <interactionfreepy.broker.Manager>`\\"
+msgstr ""
+
+#: ../../source/autoapi/interactionfreepy/broker/index.rst:96
+#: ../../source/autoapi/interactionfreepy/broker/index.rst:26:<autosummary>:1
+msgid ""
+"A service to manager workers of IFBroker. It can register workers as "
+"services, and distribute messages to workers."
+msgstr ""
+
+#: ../../source/autoapi/interactionfreepy/broker/index.rst:26:<autosummary>:1
+msgid ""
+":py:obj:`WebSocketZMQBridgeHandler "
+"<interactionfreepy.broker.WebSocketZMQBridgeHandler>`\\"
+msgstr ""
+
+#: ../../source/autoapi/interactionfreepy/broker/index.rst:192
+#: ../../source/autoapi/interactionfreepy/broker/index.rst:26:<autosummary>:1
+msgid "The handler for WebSocket connection to the IFBroker."
+msgstr ""
+
+#: ../../source/autoapi/interactionfreepy/broker/index.rst:28
+#: ../../source/autoapi/interactionfreepy/core/index.rst:30
+#: ../../source/autoapi/interactionfreepy/index.rst:42
+#: ../../source/autoapi/interactionfreepy/worker/index.rst:31
+msgid "Attributes"
+msgstr ""
+
+#: ../../source/autoapi/interactionfreepy/broker/index.rst:37:<autosummary>:1
+msgid ":py:obj:`__license__ <interactionfreepy.broker.__license__>`\\"
+msgstr ""
+
+#: ../../source/autoapi/interactionfreepy/broker/index.rst:37:<autosummary>:1
+msgid ":py:obj:`__author__ <interactionfreepy.broker.__author__>`\\"
+msgstr ""
+
+#: ../../source/autoapi/interactionfreepy/broker/index.rst:37:<autosummary>:1
+msgid ":py:obj:`__email__ <interactionfreepy.broker.__email__>`\\"
+msgstr ""
+
+#: ../../source/autoapi/interactionfreepy/broker/index.rst:37:<autosummary>:1
+msgid ":py:obj:`ifbroker <interactionfreepy.broker.ifbroker>`\\"
+msgstr ""
+
+#: ../../source/autoapi/interactionfreepy/broker/index.rst:60
+#: ../../source/autoapi/interactionfreepy/index.rst:579
+msgid "Close the server. All the connections will be closed."
+msgstr ""
+
+#: ../../source/autoapi/interactionfreepy/broker/index.rst:65
+#: ../../source/autoapi/interactionfreepy/index.rst:584
+msgid ""
+"Start a WebSocket server on the given port, with the given path. If "
+"sslOptions is given, the WebSocket server will use SSL."
+msgstr ""
+
+#: ../../source/autoapi/interactionfreepy/broker/index.rst:70
+#: ../../source/autoapi/interactionfreepy/broker/index.rst:105
+#: ../../source/autoapi/interactionfreepy/broker/index.rst:113
+#: ../../source/autoapi/interactionfreepy/broker/index.rst:122
+#: ../../source/autoapi/interactionfreepy/broker/index.rst:133
+#: ../../source/autoapi/interactionfreepy/broker/index.rst:145
+#: ../../source/autoapi/interactionfreepy/broker/index.rst:155
+#: ../../source/autoapi/interactionfreepy/broker/index.rst:164
+#: ../../source/autoapi/interactionfreepy/broker/index.rst:177
+#: ../../source/autoapi/interactionfreepy/core/index.rst:185
+#: ../../source/autoapi/interactionfreepy/core/index.rst:199
+#: ../../source/autoapi/interactionfreepy/core/index.rst:216
+#: ../../source/autoapi/interactionfreepy/core/index.rst:234
+#: ../../source/autoapi/interactionfreepy/core/index.rst:296
+#: ../../source/autoapi/interactionfreepy/core/index.rst:382
+#: ../../source/autoapi/interactionfreepy/core/index.rst:484
+#: ../../source/autoapi/interactionfreepy/core/index.rst:497
+#: ../../source/autoapi/interactionfreepy/core/index.rst:510
+#: ../../source/autoapi/interactionfreepy/core/index.rst:521
+#: ../../source/autoapi/interactionfreepy/core/index.rst:540
+#: ../../source/autoapi/interactionfreepy/core/index.rst:553
+#: ../../source/autoapi/interactionfreepy/core/index.rst:571
+#: ../../source/autoapi/interactionfreepy/index.rst:242
+#: ../../source/autoapi/interactionfreepy/index.rst:344
+#: ../../source/autoapi/interactionfreepy/index.rst:357
+#: ../../source/autoapi/interactionfreepy/index.rst:370
+#: ../../source/autoapi/interactionfreepy/index.rst:381
+#: ../../source/autoapi/interactionfreepy/index.rst:400
+#: ../../source/autoapi/interactionfreepy/index.rst:413
+#: ../../source/autoapi/interactionfreepy/index.rst:441
+#: ../../source/autoapi/interactionfreepy/index.rst:455
+#: ../../source/autoapi/interactionfreepy/index.rst:472
+#: ../../source/autoapi/interactionfreepy/index.rst:490
+#: ../../source/autoapi/interactionfreepy/index.rst:552
+#: ../../source/autoapi/interactionfreepy/index.rst:589
+#: ../../source/autoapi/interactionfreepy/index.rst:635
+#: ../../source/autoapi/interactionfreepy/index.rst:646
+#: ../../source/autoapi/interactionfreepy/index.rst:657
+#: ../../source/autoapi/interactionfreepy/index.rst:671
+#: ../../source/autoapi/interactionfreepy/index.rst:682
+#: ../../source/autoapi/interactionfreepy/index.rst:710
+#: ../../source/autoapi/interactionfreepy/worker/index.rst:79
+#: ../../source/autoapi/interactionfreepy/worker/index.rst:90
+#: ../../source/autoapi/interactionfreepy/worker/index.rst:101
+#: ../../source/autoapi/interactionfreepy/worker/index.rst:115
+#: ../../source/autoapi/interactionfreepy/worker/index.rst:126
+#: ../../source/autoapi/interactionfreepy/worker/index.rst:154
+msgid "Args:"
+msgstr ""
+
+#: ../../source/autoapi/interactionfreepy/broker/index.rst:68
+#: ../../source/autoapi/interactionfreepy/index.rst:587
+msgid ""
+"port (int): The port to listen. path (str): The path to listen. "
+"sslOptions (dict): The SSL options. If not given, the WebSocket server "
+"will not use SSL. sslOptions should be a dict with two keys: 'certfile' "
+"and 'keyfile'."
+msgstr ""
+
+#: ../../source/autoapi/interactionfreepy/broker/index.rst:72
+#: ../../source/autoapi/interactionfreepy/broker/index.rst:124
+#: ../../source/autoapi/interactionfreepy/broker/index.rst:135
+#: ../../source/autoapi/interactionfreepy/broker/index.rst:147
+#: ../../source/autoapi/interactionfreepy/broker/index.rst:166
+#: ../../source/autoapi/interactionfreepy/broker/index.rst:179
+#: ../../source/autoapi/interactionfreepy/core/index.rst:187
+#: ../../source/autoapi/interactionfreepy/core/index.rst:202
+#: ../../source/autoapi/interactionfreepy/core/index.rst:219
+#: ../../source/autoapi/interactionfreepy/core/index.rst:236
+#: ../../source/autoapi/interactionfreepy/core/index.rst:263
+#: ../../source/autoapi/interactionfreepy/core/index.rst:271
+#: ../../source/autoapi/interactionfreepy/core/index.rst:279
+#: ../../source/autoapi/interactionfreepy/core/index.rst:287
+#: ../../source/autoapi/interactionfreepy/core/index.rst:298
+#: ../../source/autoapi/interactionfreepy/core/index.rst:306
+#: ../../source/autoapi/interactionfreepy/core/index.rst:384
+#: ../../source/autoapi/interactionfreepy/core/index.rst:392
+#: ../../source/autoapi/interactionfreepy/core/index.rst:400
+#: ../../source/autoapi/interactionfreepy/core/index.rst:408
+#: ../../source/autoapi/interactionfreepy/core/index.rst:416
+#: ../../source/autoapi/interactionfreepy/core/index.rst:424
+#: ../../source/autoapi/interactionfreepy/core/index.rst:432
+#: ../../source/autoapi/interactionfreepy/core/index.rst:440
+#: ../../source/autoapi/interactionfreepy/core/index.rst:448
+#: ../../source/autoapi/interactionfreepy/core/index.rst:456
+#: ../../source/autoapi/interactionfreepy/core/index.rst:464
+#: ../../source/autoapi/interactionfreepy/core/index.rst:472
+#: ../../source/autoapi/interactionfreepy/core/index.rst:486
+#: ../../source/autoapi/interactionfreepy/core/index.rst:499
+#: ../../source/autoapi/interactionfreepy/core/index.rst:512
+#: ../../source/autoapi/interactionfreepy/core/index.rst:523
+#: ../../source/autoapi/interactionfreepy/core/index.rst:542
+#: ../../source/autoapi/interactionfreepy/core/index.rst:555
+#: ../../source/autoapi/interactionfreepy/core/index.rst:573
+#: ../../source/autoapi/interactionfreepy/index.rst:244
+#: ../../source/autoapi/interactionfreepy/index.rst:252
+#: ../../source/autoapi/interactionfreepy/index.rst:260
+#: ../../source/autoapi/interactionfreepy/index.rst:268
+#: ../../source/autoapi/interactionfreepy/index.rst:276
+#: ../../source/autoapi/interactionfreepy/index.rst:284
+#: ../../source/autoapi/interactionfreepy/index.rst:292
+#: ../../source/autoapi/interactionfreepy/index.rst:300
+#: ../../source/autoapi/interactionfreepy/index.rst:308
+#: ../../source/autoapi/interactionfreepy/index.rst:316
+#: ../../source/autoapi/interactionfreepy/index.rst:324
+#: ../../source/autoapi/interactionfreepy/index.rst:332
+#: ../../source/autoapi/interactionfreepy/index.rst:346
+#: ../../source/autoapi/interactionfreepy/index.rst:359
+#: ../../source/autoapi/interactionfreepy/index.rst:372
+#: ../../source/autoapi/interactionfreepy/index.rst:383
+#: ../../source/autoapi/interactionfreepy/index.rst:402
+#: ../../source/autoapi/interactionfreepy/index.rst:415
+#: ../../source/autoapi/interactionfreepy/index.rst:443
+#: ../../source/autoapi/interactionfreepy/index.rst:458
+#: ../../source/autoapi/interactionfreepy/index.rst:475
+#: ../../source/autoapi/interactionfreepy/index.rst:492
+#: ../../source/autoapi/interactionfreepy/index.rst:519
+#: ../../source/autoapi/interactionfreepy/index.rst:527
+#: ../../source/autoapi/interactionfreepy/index.rst:535
+#: ../../source/autoapi/interactionfreepy/index.rst:543
+#: ../../source/autoapi/interactionfreepy/index.rst:554
+#: ../../source/autoapi/interactionfreepy/index.rst:562
+#: ../../source/autoapi/interactionfreepy/index.rst:591
+#: ../../source/autoapi/interactionfreepy/index.rst:637
+#: ../../source/autoapi/interactionfreepy/index.rst:648
+#: ../../source/autoapi/interactionfreepy/index.rst:660
+#: ../../source/autoapi/interactionfreepy/index.rst:673
+#: ../../source/autoapi/interactionfreepy/index.rst:684
+#: ../../source/autoapi/interactionfreepy/index.rst:699
+#: ../../source/autoapi/interactionfreepy/index.rst:712
+#: ../../source/autoapi/interactionfreepy/worker/index.rst:81
+#: ../../source/autoapi/interactionfreepy/worker/index.rst:92
+#: ../../source/autoapi/interactionfreepy/worker/index.rst:104
+#: ../../source/autoapi/interactionfreepy/worker/index.rst:117
+#: ../../source/autoapi/interactionfreepy/worker/index.rst:128
+#: ../../source/autoapi/interactionfreepy/worker/index.rst:143
+#: ../../source/autoapi/interactionfreepy/worker/index.rst:156
+msgid "Returns:"
+msgstr ""
+
+#: ../../source/autoapi/interactionfreepy/broker/index.rst:73
+#: ../../source/autoapi/interactionfreepy/index.rst:592
+#: ../../source/autoapi/interactionfreepy/index.rst:700
+#: ../../source/autoapi/interactionfreepy/index.rst:713
+#: ../../source/autoapi/interactionfreepy/worker/index.rst:144
+#: ../../source/autoapi/interactionfreepy/worker/index.rst:157
+msgid "None"
+msgstr ""
+
+#: ../../source/autoapi/interactionfreepy/broker/index.rst:100
+msgid "Register a worker as a service."
+msgstr ""
+
+#: ../../source/autoapi/interactionfreepy/broker/index.rst:103
+msgid ""
+"sourcePoint (str): The source point of the invoker. name (str): The name "
+"of the service. interfaces (list): The interfaces of the service. force "
+"(bool): If True, the service will be registered even if the name is "
+"occupied. The old service will be replaced."
+msgstr ""
+
+#: ../../source/autoapi/interactionfreepy/broker/index.rst:111
+msgid "Unregister a worker."
+msgstr ""
+
+#: ../../source/autoapi/interactionfreepy/broker/index.rst:114
+#: ../../source/autoapi/interactionfreepy/broker/index.rst:133
+msgid "sourcePoint (str): The source point of the invoker."
+msgstr ""
+
+#: ../../source/autoapi/interactionfreepy/broker/index.rst:119
+msgid "Get the protocol of IFBroker."
+msgstr ""
+
+#: ../../source/autoapi/interactionfreepy/broker/index.rst:122
+#: ../../source/autoapi/interactionfreepy/broker/index.rst:156
+#: ../../source/autoapi/interactionfreepy/broker/index.rst:164
+msgid "_sourcePoint (str): The source point of the invoker. Not used."
+msgstr ""
+
+#: ../../source/autoapi/interactionfreepy/broker/index.rst:125
+msgid "str: The protocol of IFBroker. Default is b'IF1'."
+msgstr ""
+
+#: ../../source/autoapi/interactionfreepy/broker/index.rst:130
+msgid "Sending heartbeat package to the IFBroker."
+msgstr ""
+
+#: ../../source/autoapi/interactionfreepy/broker/index.rst:136
+msgid "bool: True if the worker is registered as a service."
+msgstr ""
+
+#: ../../source/autoapi/interactionfreepy/broker/index.rst:141
+msgid "Get the address of a service."
+msgstr ""
+
+#: ../../source/autoapi/interactionfreepy/broker/index.rst:144
+msgid ""
+"_sourcePoint (str): The source point of the invoker. Not used. "
+"serviceName (str): The name of the service."
+msgstr ""
+
+#: ../../source/autoapi/interactionfreepy/broker/index.rst:148
+msgid "str: The address of the service."
+msgstr ""
+
+#: ../../source/autoapi/interactionfreepy/broker/index.rst:153
+msgid "List all service names."
+msgstr ""
+
+#: ../../source/autoapi/interactionfreepy/broker/index.rst:161
+msgid "List all service with meta informations."
+msgstr ""
+
+#: ../../source/autoapi/interactionfreepy/broker/index.rst:167
+msgid "list: A list of service meta informations."
+msgstr ""
+
+#: ../../source/autoapi/interactionfreepy/broker/index.rst:172
+msgid "Get the statistics information of the IFBroker."
+msgstr ""
+
+#: ../../source/autoapi/interactionfreepy/broker/index.rst:175
+msgid ""
+"sourcePoint (str): The source point of the invoker. isReceived (bool): If"
+" True, the message is received. message (list): The message."
+msgstr ""
+
+#: ../../source/autoapi/interactionfreepy/broker/index.rst:180
+msgid "list: A list of statistics information."
+msgstr ""
+
+#: ../../source/autoapi/interactionfreepy/broker/index.rst:190
+msgid "Bases: :py:obj:`tornado.websocket.WebSocketHandler`"
+msgstr ""
+
+#: ../../source/autoapi/interactionfreepy/broker/index.rst:196
+msgid "Open the WebSocket connection."
+msgstr ""
+
+#: ../../source/autoapi/interactionfreepy/broker/index.rst:201
+msgid "Invoked when the WebSocket is closed."
+msgstr ""
+
+#: ../../source/autoapi/interactionfreepy/broker/index.rst:203
+msgid ""
+"If the connection was closed cleanly and a status code or reason phrase "
+"was supplied, these values will be available as the attributes "
+"``self.close_code`` and ``self.close_reason``."
+msgstr ""
+
+#: ../../source/autoapi/interactionfreepy/broker/index.rst:209
+msgid "Added ``close_code`` and ``close_reason`` attributes."
+msgstr ""
+
+#: ../../source/autoapi/interactionfreepy/broker/index.rst:214
+msgid "Handle incoming messages on the WebSocket"
+msgstr ""
+
+#: ../../source/autoapi/interactionfreepy/broker/index.rst:216
+msgid "This method must be overridden."
+msgstr ""
+
+#: ../../source/autoapi/interactionfreepy/broker/index.rst:220
+msgid "``on_message`` can be a coroutine."
+msgstr ""
+
+#: ../../source/autoapi/interactionfreepy/broker/index.rst:228
+msgid "Override to enable support for allowing alternate origins."
+msgstr ""
+
+#: ../../source/autoapi/interactionfreepy/broker/index.rst:230
+msgid ""
+"The ``origin`` argument is the value of the ``Origin`` HTTP header, the "
+"url responsible for initiating this request.  This method is not called "
+"for clients that do not send this header; such requests are always "
+"allowed (because all browsers that implement WebSockets support this "
+"header, and non-browser clients do not have the same cross-site security "
+"concerns)."
+msgstr ""
+
+#: ../../source/autoapi/interactionfreepy/broker/index.rst:237
+msgid ""
+"Should return ``True`` to accept the request or ``False`` to reject it. "
+"By default, rejects all requests with an origin on a host other than this"
+" one."
+msgstr ""
+
+#: ../../source/autoapi/interactionfreepy/broker/index.rst:241
+msgid ""
+"This is a security protection against cross site scripting attacks on "
+"browsers, since WebSockets are allowed to bypass the usual same-origin "
+"policies and don't use CORS headers."
+msgstr ""
+
+#: ../../source/autoapi/interactionfreepy/broker/index.rst:247
+msgid ""
+"This is an important security measure; don't disable it without "
+"understanding the security implications. In particular, if your "
+"authentication is cookie-based, you must either restrict the origins "
+"allowed by ``check_origin()`` or implement your own XSRF-like protection "
+"for websocket connections. See `these <https://www.christian-"
+"schneider.net/CrossSiteWebSocketHijacking.html>`_ `articles "
+"<https://devcenter.heroku.com/articles/websocket-security>`_ for more."
+msgstr ""
+
+#: ../../source/autoapi/interactionfreepy/broker/index.rst:258
+msgid ""
+"To accept all cross-origin traffic (which was the default prior to "
+"Tornado 4.0), simply override this method to always return ``True``::"
+msgstr ""
+
+#: ../../source/autoapi/interactionfreepy/broker/index.rst:264
+msgid ""
+"To allow connections from any subdomain of your site, you might do "
+"something like::"
+msgstr ""
+
+#: ../../source/autoapi/interactionfreepy/broker/index.rst:277
+msgid "Implement this method to handle streamed request data."
+msgstr ""
+
+#: ../../source/autoapi/interactionfreepy/broker/index.rst:279
+msgid "Requires the `.stream_request_body` decorator."
+msgstr ""
+
+#: ../../source/autoapi/interactionfreepy/broker/index.rst:281
+msgid "May be a coroutine for flow control."
+msgstr ""
+
+#: ../../source/autoapi/interactionfreepy/core/index.rst:2
+msgid ":py:mod:`interactionfreepy.core`"
+msgstr ""
+
+#: ../../source/autoapi/interactionfreepy/core/index.rst:8
+msgid "Core definitions and classes."
+msgstr ""
+
+#: ../../source/autoapi/interactionfreepy/core/index.rst:28:<autosummary>:1
+msgid ":py:obj:`IFDefinition <interactionfreepy.core.IFDefinition>`\\"
+msgstr ""
+
+#: ../../source/autoapi/interactionfreepy/core/index.rst:57
+#: ../../source/autoapi/interactionfreepy/core/index.rst:28:<autosummary>:1
+#: ../../source/autoapi/interactionfreepy/index.rst:120
+#: ../../source/autoapi/interactionfreepy/index.rst:40:<autosummary>:1
+msgid "Some definitions of Interaction Free."
+msgstr ""
+
+#: ../../source/autoapi/interactionfreepy/core/index.rst:28:<autosummary>:1
+msgid ":py:obj:`IFLoop <interactionfreepy.core.IFLoop>`\\"
+msgstr ""
+
+#: ../../source/autoapi/interactionfreepy/core/index.rst:116
+#: ../../source/autoapi/interactionfreepy/core/index.rst:28:<autosummary>:1
+#: ../../source/autoapi/interactionfreepy/index.rst:69
+#: ../../source/autoapi/interactionfreepy/index.rst:40:<autosummary>:1
+msgid "A tool class to start the loop of Interaction Free."
+msgstr ""
+
+#: ../../source/autoapi/interactionfreepy/core/index.rst:28:<autosummary>:1
+msgid ":py:obj:`Message <interactionfreepy.core.Message>`\\"
+msgstr ""
+
+#: ../../source/autoapi/interactionfreepy/core/index.rst:167
+#: ../../source/autoapi/interactionfreepy/core/index.rst:28:<autosummary>:1
+#: ../../source/autoapi/interactionfreepy/index.rst:423
+#: ../../source/autoapi/interactionfreepy/index.rst:40:<autosummary>:1
+msgid "A Message represent the content of Remote Procedure Call."
+msgstr ""
+
+#: ../../source/autoapi/interactionfreepy/core/index.rst:28:<autosummary>:1
+msgid ":py:obj:`Invocation <interactionfreepy.core.Invocation>`\\"
+msgstr ""
+
+#: ../../source/autoapi/interactionfreepy/core/index.rst:319
+#: ../../source/autoapi/interactionfreepy/core/index.rst:28:<autosummary>:1
+#: ../../source/autoapi/interactionfreepy/index.rst:179
+#: ../../source/autoapi/interactionfreepy/index.rst:40:<autosummary>:1
+msgid "The Invocation class represents an invocation of a function."
+msgstr ""
+
+#: ../../source/autoapi/interactionfreepy/core/index.rst:28:<autosummary>:1
+msgid ":py:obj:`IFAddress <interactionfreepy.core.IFAddress>`\\"
+msgstr ""
+
+#: ../../source/autoapi/interactionfreepy/core/index.rst:563
+#: ../../source/autoapi/interactionfreepy/core/index.rst:28:<autosummary>:1
+msgid "A utility class for parsing address."
+msgstr ""
+
+#: ../../source/autoapi/interactionfreepy/core/index.rst:38:<autosummary>:1
+msgid ":py:obj:`__license__ <interactionfreepy.core.__license__>`\\"
+msgstr ""
+
+#: ../../source/autoapi/interactionfreepy/core/index.rst:38:<autosummary>:1
+msgid ":py:obj:`__author__ <interactionfreepy.core.__author__>`\\"
+msgstr ""
+
+#: ../../source/autoapi/interactionfreepy/core/index.rst:38:<autosummary>:1
+msgid ":py:obj:`__email__ <interactionfreepy.core.__email__>`\\"
+msgstr ""
+
+#: ../../source/autoapi/interactionfreepy/core/index.rst:103
+#: ../../source/autoapi/interactionfreepy/index.rst:166
+msgid "Bases: :py:obj:`Exception`"
+msgstr ""
+
+#: ../../source/autoapi/interactionfreepy/core/index.rst:105
+#: ../../source/autoapi/interactionfreepy/index.rst:168
+msgid "Exception of Interaction Free."
+msgstr ""
+
+#: ../../source/autoapi/interactionfreepy/core/index.rst:109
+#: ../../source/autoapi/interactionfreepy/core/index.rst:312
+#: ../../source/autoapi/interactionfreepy/core/index.rst:529
+#: ../../source/autoapi/interactionfreepy/index.rst:172
+#: ../../source/autoapi/interactionfreepy/index.rst:389
+#: ../../source/autoapi/interactionfreepy/index.rst:568
+#: ../../source/autoapi/interactionfreepy/worker/index.rst:181
+#: ../../source/autoapi/interactionfreepy/worker/index.rst:195
+#: ../../source/autoapi/interactionfreepy/worker/index.rst:209
+msgid "Return str(self)."
+msgstr ""
+
+#: ../../source/autoapi/interactionfreepy/core/index.rst:138
+#: ../../source/autoapi/interactionfreepy/index.rst:91
+msgid "Start the loop of Interaction Free."
+msgstr ""
+
+#: ../../source/autoapi/interactionfreepy/core/index.rst:144
+#: ../../source/autoapi/interactionfreepy/index.rst:97
+msgid "Start the loop of Interaction Free if not running."
+msgstr ""
+
+#: ../../source/autoapi/interactionfreepy/core/index.rst:154
+#: ../../source/autoapi/interactionfreepy/index.rst:107
+msgid "Join the thread of Interaction Free loop."
+msgstr ""
+
+#: ../../source/autoapi/interactionfreepy/core/index.rst:160
+#: ../../source/autoapi/interactionfreepy/index.rst:113
+msgid "Get the instance of Interaction Free loop."
+msgstr ""
+
+#: ../../source/autoapi/interactionfreepy/core/index.rst:181
+#: ../../source/autoapi/interactionfreepy/index.rst:437
+msgid "Create a new message to send to broker."
+msgstr ""
+
+#: ../../source/autoapi/interactionfreepy/core/index.rst:184
+#: ../../source/autoapi/interactionfreepy/index.rst:440
+msgid ""
+"invocation: The Invocation object to send. serialization: The "
+"serialization method of the message. Can be 'Msgpack', 'Plain' or "
+"'Default'. 'Msgpack' is the default."
+msgstr ""
+
+#: ../../source/autoapi/interactionfreepy/core/index.rst:188
+#: ../../source/autoapi/interactionfreepy/core/index.rst:202
+#: ../../source/autoapi/interactionfreepy/core/index.rst:219
+#: ../../source/autoapi/interactionfreepy/core/index.rst:237
+#: ../../source/autoapi/interactionfreepy/index.rst:444
+#: ../../source/autoapi/interactionfreepy/index.rst:458
+#: ../../source/autoapi/interactionfreepy/index.rst:475
+#: ../../source/autoapi/interactionfreepy/index.rst:493
+msgid "A Message object."
+msgstr ""
+
+#: ../../source/autoapi/interactionfreepy/core/index.rst:194
+#: ../../source/autoapi/interactionfreepy/index.rst:450
+msgid "Create a new message to send to a service."
+msgstr ""
+
+#: ../../source/autoapi/interactionfreepy/core/index.rst:197
+#: ../../source/autoapi/interactionfreepy/index.rst:453
+msgid ""
+"serviceName: The name of the service. invocation: The Invocation object "
+"to send. serialization: The serialization method of the message. Can be "
+"'Msgpack', 'Plain' or 'Default'. 'Msgpack' is the default."
+msgstr ""
+
+#: ../../source/autoapi/interactionfreepy/core/index.rst:204
+#: ../../source/autoapi/interactionfreepy/core/index.rst:221
+#: ../../source/autoapi/interactionfreepy/index.rst:460
+#: ../../source/autoapi/interactionfreepy/index.rst:477
+msgid "Raises:"
+msgstr ""
+
+#: ../../source/autoapi/interactionfreepy/core/index.rst:205
+#: ../../source/autoapi/interactionfreepy/index.rst:461
+msgid "IFException: If the service name is not a valid service name."
+msgstr ""
+
+#: ../../source/autoapi/interactionfreepy/core/index.rst:211
+#: ../../source/autoapi/interactionfreepy/index.rst:467
+msgid "Create a new message to send to a direct address."
+msgstr ""
+
+#: ../../source/autoapi/interactionfreepy/core/index.rst:214
+#: ../../source/autoapi/interactionfreepy/index.rst:470
+msgid ""
+"address: The address of the target. invocation: The Invocation object to "
+"send. serialization: The serialization method of the message. Can be "
+"'Msgpack', 'Plain' or 'Default'. 'Msgpack' is the default."
+msgstr ""
+
+#: ../../source/autoapi/interactionfreepy/core/index.rst:222
+#: ../../source/autoapi/interactionfreepy/index.rst:478
+msgid "IFException: If the address is not a valid address."
+msgstr ""
+
+#: ../../source/autoapi/interactionfreepy/core/index.rst:228
+#: ../../source/autoapi/interactionfreepy/index.rst:484
+msgid "Create a new message object."
+msgstr ""
+
+#: ../../source/autoapi/interactionfreepy/core/index.rst:231
+#: ../../source/autoapi/interactionfreepy/index.rst:487
+msgid ""
+"distributingMode: The distributing mode of the message. Can be 'Broker', "
+"'Direct' or 'Service'. distributingAddress: The address of the target. If"
+" the distributing mode is 'Broker', this should be empty. If the "
+"distributing mode is 'Direct', this should be the address of the target. "
+"If the distributing mode is 'Service', this should be the name of the "
+"service. invocation: The Invocation object to send. serialization: The "
+"serialization method of the message. Can be 'Msgpack', 'Plain' or "
+"'Default'. 'Msgpack' is the default."
+msgstr ""
+
+#: ../../source/autoapi/interactionfreepy/core/index.rst:243
+#: ../../source/autoapi/interactionfreepy/index.rst:499
+msgid "Create a new message that is from broker, i.e., from another worker."
+msgstr ""
+
+#: ../../source/autoapi/interactionfreepy/core/index.rst:256
+#: ../../source/autoapi/interactionfreepy/index.rst:512
+msgid "Check if the protocol of the message is valid."
+msgstr ""
+
+#: ../../source/autoapi/interactionfreepy/core/index.rst:261
+#: ../../source/autoapi/interactionfreepy/index.rst:517
+msgid "Check if the message is an outgoing message."
+msgstr ""
+
+#: ../../source/autoapi/interactionfreepy/core/index.rst:264
+#: ../../source/autoapi/interactionfreepy/index.rst:520
+msgid "True if the message is an outgoing message, False otherwise."
+msgstr ""
+
+#: ../../source/autoapi/interactionfreepy/core/index.rst:269
+#: ../../source/autoapi/interactionfreepy/index.rst:525
+msgid "Check if the message is a broker message."
+msgstr ""
+
+#: ../../source/autoapi/interactionfreepy/core/index.rst:272
+#: ../../source/autoapi/interactionfreepy/index.rst:528
+msgid "True if the message is a broker message, False otherwise."
+msgstr ""
+
+#: ../../source/autoapi/interactionfreepy/core/index.rst:277
+#: ../../source/autoapi/interactionfreepy/index.rst:533
+msgid "Check if the message is a service message."
+msgstr ""
+
+#: ../../source/autoapi/interactionfreepy/core/index.rst:280
+#: ../../source/autoapi/interactionfreepy/index.rst:536
+msgid "True if the message is a service message, False otherwise."
+msgstr ""
+
+#: ../../source/autoapi/interactionfreepy/core/index.rst:285
+#: ../../source/autoapi/interactionfreepy/index.rst:541
+msgid "Check if the message is a direct message."
+msgstr ""
+
+#: ../../source/autoapi/interactionfreepy/core/index.rst:288
+#: ../../source/autoapi/interactionfreepy/index.rst:544
+msgid "True if the message is a direct message, False otherwise."
+msgstr ""
+
+#: ../../source/autoapi/interactionfreepy/core/index.rst:293
+#: ../../source/autoapi/interactionfreepy/index.rst:549
+msgid "Get the invocation of the message."
+msgstr ""
+
+#: ../../source/autoapi/interactionfreepy/core/index.rst:296
+#: ../../source/autoapi/interactionfreepy/index.rst:552
+msgid ""
+"decoded: If True, the invocation object will be deserialized as an "
+"Invocation object. If False, the raw content will be returned."
+msgstr ""
+
+#: ../../source/autoapi/interactionfreepy/core/index.rst:299
+#: ../../source/autoapi/interactionfreepy/index.rst:555
+msgid "The invocation object or the raw content of the invocation."
+msgstr ""
+
+#: ../../source/autoapi/interactionfreepy/core/index.rst:304
+#: ../../source/autoapi/interactionfreepy/index.rst:560
+msgid "Get the raw content of the message."
+msgstr ""
+
+#: ../../source/autoapi/interactionfreepy/core/index.rst:307
+#: ../../source/autoapi/interactionfreepy/index.rst:563
+msgid "The raw content of the message."
+msgstr ""
+
+#: ../../source/autoapi/interactionfreepy/core/index.rst:377
+#: ../../source/autoapi/interactionfreepy/index.rst:237
+msgid "Get the value of the key."
+msgstr ""
+
+#: ../../source/autoapi/interactionfreepy/core/index.rst:380
+#: ../../source/autoapi/interactionfreepy/index.rst:240
+msgid ""
+"key: The key of the value. nilValid: If True, the value can be None. "
+"nonKeyValid: If True, the key does not need to exist."
+msgstr ""
+
+#: ../../source/autoapi/interactionfreepy/core/index.rst:385
+#: ../../source/autoapi/interactionfreepy/index.rst:245
+msgid "The value of the key."
+msgstr ""
+
+#: ../../source/autoapi/interactionfreepy/core/index.rst:390
+#: ../../source/autoapi/interactionfreepy/index.rst:250
+msgid "Check if the invocation is a request."
+msgstr ""
+
+#: ../../source/autoapi/interactionfreepy/core/index.rst:393
+#: ../../source/autoapi/interactionfreepy/index.rst:253
+msgid "True if the invocation is a request."
+msgstr ""
+
+#: ../../source/autoapi/interactionfreepy/core/index.rst:398
+#: ../../source/autoapi/interactionfreepy/index.rst:258
+msgid "Check if the invocation is a response."
+msgstr ""
+
+#: ../../source/autoapi/interactionfreepy/core/index.rst:401
+#: ../../source/autoapi/interactionfreepy/index.rst:261
+msgid "True if the invocation is a response."
+msgstr ""
+
+#: ../../source/autoapi/interactionfreepy/core/index.rst:406
+#: ../../source/autoapi/interactionfreepy/index.rst:266
+msgid "Check if the invocation is an error."
+msgstr ""
+
+#: ../../source/autoapi/interactionfreepy/core/index.rst:409
+#: ../../source/autoapi/interactionfreepy/index.rst:269
+msgid "True if the invocation is an error."
+msgstr ""
+
+#: ../../source/autoapi/interactionfreepy/core/index.rst:414
+#: ../../source/autoapi/interactionfreepy/index.rst:274
+msgid "Check if the invocation has a warning."
+msgstr ""
+
+#: ../../source/autoapi/interactionfreepy/core/index.rst:417
+#: ../../source/autoapi/interactionfreepy/index.rst:277
+msgid "True if the invocation has a warning."
+msgstr ""
+
+#: ../../source/autoapi/interactionfreepy/core/index.rst:422
+#: ../../source/autoapi/interactionfreepy/index.rst:282
+msgid "Get the response ID of the invocation. Only valid for response."
+msgstr ""
+
+#: ../../source/autoapi/interactionfreepy/core/index.rst:425
+#: ../../source/autoapi/interactionfreepy/index.rst:285
+msgid "The response ID of the invocation."
+msgstr ""
+
+#: ../../source/autoapi/interactionfreepy/core/index.rst:430
+#: ../../source/autoapi/interactionfreepy/index.rst:290
+msgid ""
+"Get the result of the invocation. Only valid for response. If the "
+"invocation is an error, None will be returned."
+msgstr ""
+
+#: ../../source/autoapi/interactionfreepy/core/index.rst:433
+#: ../../source/autoapi/interactionfreepy/index.rst:293
+msgid ""
+"The result of the invocation. If the invocation is an error, None will be"
+" returned."
+msgstr ""
+
+#: ../../source/autoapi/interactionfreepy/core/index.rst:438
+#: ../../source/autoapi/interactionfreepy/index.rst:298
+msgid ""
+"Get the error of the invocation. Only valid for response. If the "
+"invocation is not an error, None will be returned."
+msgstr ""
+
+#: ../../source/autoapi/interactionfreepy/core/index.rst:441
+#: ../../source/autoapi/interactionfreepy/index.rst:301
+msgid ""
+"The error of the invocation. If the invocation is not an error, None will"
+" be returned."
+msgstr ""
+
+#: ../../source/autoapi/interactionfreepy/core/index.rst:446
+#: ../../source/autoapi/interactionfreepy/index.rst:306
+msgid ""
+"Get the warning of the invocation. Only valid for response. If the "
+"invocation has no warning, None will be returned."
+msgstr ""
+
+#: ../../source/autoapi/interactionfreepy/core/index.rst:449
+#: ../../source/autoapi/interactionfreepy/index.rst:309
+msgid ""
+"The warning of the invocation. If the invocation has no warning, None "
+"will be returned."
+msgstr ""
+
+#: ../../source/autoapi/interactionfreepy/core/index.rst:454
+#: ../../source/autoapi/interactionfreepy/index.rst:314
+msgid "Get the function name of the invocation. Only valid for request."
+msgstr ""
+
+#: ../../source/autoapi/interactionfreepy/core/index.rst:457
+#: ../../source/autoapi/interactionfreepy/index.rst:317
+msgid ""
+"The function name of the invocation. If the invocation is not a request, "
+"None will be returned."
+msgstr ""
+
+#: ../../source/autoapi/interactionfreepy/core/index.rst:462
+#: ../../source/autoapi/interactionfreepy/index.rst:322
+msgid "Get the arguments of the invocation. Only valid for request."
+msgstr ""
+
+#: ../../source/autoapi/interactionfreepy/core/index.rst:465
+#: ../../source/autoapi/interactionfreepy/index.rst:325
+msgid ""
+"The list of arguments of the invocation. If the invocation is not a "
+"request, None will be returned. If the invocation has no arguments, an "
+"empty list will be returned."
+msgstr ""
+
+#: ../../source/autoapi/interactionfreepy/core/index.rst:470
+#: ../../source/autoapi/interactionfreepy/index.rst:330
+msgid "Get the keyword arguments of the invocation. Only valid for request."
+msgstr ""
+
+#: ../../source/autoapi/interactionfreepy/core/index.rst:473
+#: ../../source/autoapi/interactionfreepy/index.rst:333
+msgid ""
+"The dictionary of keyword arguments of the invocation. If the invocation "
+"is not a request, None will be returned. If the invocation has no keyword"
+" arguments, an empty dictionary will be returned."
+msgstr ""
+
+#: ../../source/autoapi/interactionfreepy/core/index.rst:479
+#: ../../source/autoapi/interactionfreepy/index.rst:339
+msgid "Create a new request invocation."
+msgstr ""
+
+#: ../../source/autoapi/interactionfreepy/core/index.rst:482
+#: ../../source/autoapi/interactionfreepy/index.rst:342
+msgid ""
+"functionName: The name of the function. args: The list of arguments. "
+"kwargs: The dictionary of keyword arguments."
+msgstr ""
+
+#: ../../source/autoapi/interactionfreepy/core/index.rst:487
+#: ../../source/autoapi/interactionfreepy/index.rst:347
+msgid "The new request invocation."
+msgstr ""
+
+#: ../../source/autoapi/interactionfreepy/core/index.rst:493
+#: ../../source/autoapi/interactionfreepy/index.rst:353
+msgid ""
+"Create a new response invocation corresponding to the request message "
+"with specified messageID."
+msgstr ""
+
+#: ../../source/autoapi/interactionfreepy/core/index.rst:496
+#: ../../source/autoapi/interactionfreepy/index.rst:356
+msgid "messageID: The ID of the request. result: The result of the request."
+msgstr ""
+
+#: ../../source/autoapi/interactionfreepy/core/index.rst:500
+#: ../../source/autoapi/interactionfreepy/index.rst:360
+msgid "The new response invocation."
+msgstr ""
+
+#: ../../source/autoapi/interactionfreepy/core/index.rst:506
+#: ../../source/autoapi/interactionfreepy/index.rst:366
+msgid ""
+"Create a new error response invocation corresponding to the request "
+"message with specified messageID."
+msgstr ""
+
+#: ../../source/autoapi/interactionfreepy/core/index.rst:509
+#: ../../source/autoapi/interactionfreepy/index.rst:369
+msgid ""
+"messageID: The ID of the request. description: The description of the "
+"error."
+msgstr ""
+
+#: ../../source/autoapi/interactionfreepy/core/index.rst:513
+#: ../../source/autoapi/interactionfreepy/index.rst:373
+msgid "The new error response invocation."
+msgstr ""
+
+#: ../../source/autoapi/interactionfreepy/core/index.rst:518
+#: ../../source/autoapi/interactionfreepy/index.rst:378
+msgid "Serialize the invocation."
+msgstr ""
+
+#: ../../source/autoapi/interactionfreepy/core/index.rst:521
+#: ../../source/autoapi/interactionfreepy/index.rst:381
+msgid ""
+"serialization: The serialization method. Currently only 'Msgpack' is "
+"supported."
+msgstr ""
+
+#: ../../source/autoapi/interactionfreepy/core/index.rst:524
+#: ../../source/autoapi/interactionfreepy/index.rst:384
+msgid "The serialized binary data."
+msgstr ""
+
+#: ../../source/autoapi/interactionfreepy/core/index.rst:535
+#: ../../source/autoapi/interactionfreepy/index.rst:395
+msgid "Deserialize the invocation."
+msgstr ""
+
+#: ../../source/autoapi/interactionfreepy/core/index.rst:538
+#: ../../source/autoapi/interactionfreepy/index.rst:398
+msgid ""
+"data: The serialized binary data. serialization: The serialization "
+"method. Currently only 'Msgpack' is supported. contentOnly: If True, only"
+" the content will be returned. Otherwise, an Invocation object will be "
+"returned."
+msgstr ""
+
+#: ../../source/autoapi/interactionfreepy/core/index.rst:543
+#: ../../source/autoapi/interactionfreepy/index.rst:403
+msgid ""
+"The content of the invocation. If contentOnly is False, an Invocation "
+"object will be returned."
+msgstr ""
+
+#: ../../source/autoapi/interactionfreepy/core/index.rst:549
+#: ../../source/autoapi/interactionfreepy/index.rst:409
+msgid ""
+"Perform the invocation on the target object. The target object must have "
+"a function with the same name as the invocation function. The arguments "
+"of the invocation will be passed to the function."
+msgstr ""
+
+#: ../../source/autoapi/interactionfreepy/core/index.rst:552
+#: ../../source/autoapi/interactionfreepy/index.rst:412
+msgid ""
+"target: The target object. sourcePoint: The source point of the "
+"invocation. Only available for Broker."
+msgstr ""
+
+#: ../../source/autoapi/interactionfreepy/core/index.rst:556
+#: ../../source/autoapi/interactionfreepy/index.rst:416
+msgid "The result of the invocation."
+msgstr ""
+
+#: ../../source/autoapi/interactionfreepy/core/index.rst:568
+msgid "Parse the address."
+msgstr ""
+
+#: ../../source/autoapi/interactionfreepy/core/index.rst:571
+msgid "address: The address to be parsed."
+msgstr ""
+
+#: ../../source/autoapi/interactionfreepy/core/index.rst:574
+msgid ""
+"A list of [protocol, ip, port]. If the address is invalid, an exception "
+"will be raised."
+msgstr ""
+
+#: ../../source/autoapi/interactionfreepy/index.rst:2
+msgid ":py:mod:`interactionfreepy`"
+msgstr ""
+
+#: ../../source/autoapi/interactionfreepy/index.rst:8
+msgid "InteractionFreePy"
+msgstr ""
+
+#: ../../source/autoapi/interactionfreepy/index.rst:13
+msgid "Submodules"
+msgstr ""
+
+#: ../../source/autoapi/interactionfreepy/index.rst:24
+msgid "Package Contents"
+msgstr ""
+
+#: ../../source/autoapi/interactionfreepy/index.rst:40:<autosummary>:1
+msgid ":py:obj:`IFLoop <interactionfreepy.IFLoop>`\\"
+msgstr ""
+
+#: ../../source/autoapi/interactionfreepy/index.rst:40:<autosummary>:1
+msgid ":py:obj:`IFDefinition <interactionfreepy.IFDefinition>`\\"
+msgstr ""
+
+#: ../../source/autoapi/interactionfreepy/index.rst:40:<autosummary>:1
+msgid ":py:obj:`Invocation <interactionfreepy.Invocation>`\\"
+msgstr ""
+
+#: ../../source/autoapi/interactionfreepy/index.rst:40:<autosummary>:1
+msgid ":py:obj:`Message <interactionfreepy.Message>`\\"
+msgstr ""
+
+#: ../../source/autoapi/interactionfreepy/index.rst:40:<autosummary>:1
+msgid ":py:obj:`IFBroker <interactionfreepy.IFBroker>`\\"
+msgstr ""
+
+#: ../../source/autoapi/interactionfreepy/index.rst:40:<autosummary>:1
+msgid ":py:obj:`IFWorker <interactionfreepy.IFWorker>`\\"
+msgstr ""
+
+#: ../../source/autoapi/interactionfreepy/index.rst:615
+#: ../../source/autoapi/interactionfreepy/index.rst:40:<autosummary>:1
+#: ../../source/autoapi/interactionfreepy/worker/index.rst:59
+#: ../../source/autoapi/interactionfreepy/worker/index.rst:29:<autosummary>:1
+msgid "InteractionFreePy Worker class."
+msgstr ""
+
+#: ../../source/autoapi/interactionfreepy/index.rst:50:<autosummary>:1
+msgid ":py:obj:`__license__ <interactionfreepy.__license__>`\\"
+msgstr ""
+
+#: ../../source/autoapi/interactionfreepy/index.rst:50:<autosummary>:1
+msgid ":py:obj:`__author__ <interactionfreepy.__author__>`\\"
+msgstr ""
+
+#: ../../source/autoapi/interactionfreepy/index.rst:50:<autosummary>:1
+msgid ":py:obj:`__email__ <interactionfreepy.__email__>`\\"
+msgstr ""
+
+#: ../../source/autoapi/interactionfreepy/index.rst:632
+#: ../../source/autoapi/interactionfreepy/worker/index.rst:76
+msgid "Send a message by the worker."
+msgstr ""
+
+#: ../../source/autoapi/interactionfreepy/index.rst:635
+#: ../../source/autoapi/interactionfreepy/worker/index.rst:79
+msgid "msg (Message): The message to send."
+msgstr ""
+
+#: ../../source/autoapi/interactionfreepy/index.rst:638
+#: ../../source/autoapi/interactionfreepy/worker/index.rst:82
+msgid "InvokeFuture: The future of the sending."
+msgstr ""
+
+#: ../../source/autoapi/interactionfreepy/index.rst:643
+#: ../../source/autoapi/interactionfreepy/worker/index.rst:87
+msgid "Create a invoker that generate Message objects only, without sending."
+msgstr ""
+
+#: ../../source/autoapi/interactionfreepy/index.rst:646
+#: ../../source/autoapi/interactionfreepy/index.rst:657
+#: ../../source/autoapi/interactionfreepy/index.rst:671
+#: ../../source/autoapi/interactionfreepy/index.rst:682
+#: ../../source/autoapi/interactionfreepy/worker/index.rst:90
+#: ../../source/autoapi/interactionfreepy/worker/index.rst:101
+#: ../../source/autoapi/interactionfreepy/worker/index.rst:115
+#: ../../source/autoapi/interactionfreepy/worker/index.rst:126
+msgid "target (str): The target of the invoker."
+msgstr ""
+
+#: ../../source/autoapi/interactionfreepy/index.rst:649
+#: ../../source/autoapi/interactionfreepy/index.rst:685
+#: ../../source/autoapi/interactionfreepy/worker/index.rst:93
+#: ../../source/autoapi/interactionfreepy/worker/index.rst:129
+msgid "DynamicRemoteObject: The invoker."
+msgstr ""
+
+#: ../../source/autoapi/interactionfreepy/index.rst:654
+#: ../../source/autoapi/interactionfreepy/worker/index.rst:98
+msgid "Create a non-blocking invoker."
+msgstr ""
+
+#: ../../source/autoapi/interactionfreepy/index.rst:660
+#: ../../source/autoapi/interactionfreepy/index.rst:674
+#: ../../source/autoapi/interactionfreepy/worker/index.rst:104
+#: ../../source/autoapi/interactionfreepy/worker/index.rst:118
+msgid "AsyncRemoteObject: The invoker."
+msgstr ""
+
+#: ../../source/autoapi/interactionfreepy/index.rst:662
+#: ../../source/autoapi/interactionfreepy/worker/index.rst:106
+msgid "Deprecated:"
+msgstr ""
+
+#: ../../source/autoapi/interactionfreepy/index.rst:663
+#: ../../source/autoapi/interactionfreepy/worker/index.rst:107
+msgid ""
+"This method is deprecated. Remove it in the future. Use asyncInvoker "
+"instead."
+msgstr ""
+
+#: ../../source/autoapi/interactionfreepy/index.rst:668
+#: ../../source/autoapi/interactionfreepy/worker/index.rst:112
+msgid "Create an async invoker."
+msgstr ""
+
+#: ../../source/autoapi/interactionfreepy/index.rst:679
+#: ../../source/autoapi/interactionfreepy/worker/index.rst:123
+msgid "Create a blocking invoker."
+msgstr ""
+
+#: ../../source/autoapi/interactionfreepy/index.rst:697
+#: ../../source/autoapi/interactionfreepy/worker/index.rst:141
+msgid "Close the worker. If the worker is a service, it will be unregistered."
+msgstr ""
+
+#: ../../source/autoapi/interactionfreepy/index.rst:705
+#: ../../source/autoapi/interactionfreepy/worker/index.rst:149
+msgid "Bind the worker as a service."
+msgstr ""
+
+#: ../../source/autoapi/interactionfreepy/index.rst:708
+#: ../../source/autoapi/interactionfreepy/worker/index.rst:152
+msgid ""
+"serviceName (str): The name of the service. serviceObject (object): The "
+"object to be bind. interfaces (list): The interfaces of the service."
+msgstr ""
+
+#: ../../source/autoapi/interactionfreepy/worker/index.rst:2
+msgid ":py:mod:`interactionfreepy.worker`"
+msgstr ""
+
+#: ../../source/autoapi/interactionfreepy/worker/index.rst:8
+msgid "InteractionFreePy Worker"
+msgstr ""
+
+#: ../../source/autoapi/interactionfreepy/worker/index.rst:29:<autosummary>:1
+msgid ":py:obj:`IFWorker <interactionfreepy.worker.IFWorker>`\\"
+msgstr ""
+
+#: ../../source/autoapi/interactionfreepy/worker/index.rst:29:<autosummary>:1
+msgid ":py:obj:`InvokeTarget <interactionfreepy.worker.InvokeTarget>`\\"
+msgstr ""
+
+#: ../../source/autoapi/interactionfreepy/worker/index.rst:29:<autosummary>:1
+msgid ":py:obj:`RemoteObject <interactionfreepy.worker.RemoteObject>`\\"
+msgstr ""
+
+#: ../../source/autoapi/interactionfreepy/worker/index.rst:29:<autosummary>:1
+msgid ""
+":py:obj:`DynamicRemoteObject "
+"<interactionfreepy.worker.DynamicRemoteObject>`\\"
+msgstr ""
+
+#: ../../source/autoapi/interactionfreepy/worker/index.rst:29:<autosummary>:1
+msgid ":py:obj:`AsyncRemoteObject <interactionfreepy.worker.AsyncRemoteObject>`\\"
+msgstr ""
+
+#: ../../source/autoapi/interactionfreepy/worker/index.rst:29:<autosummary>:1
+msgid ":py:obj:`InvokeFuture <interactionfreepy.worker.InvokeFuture>`\\"
+msgstr ""
+
+#: ../../source/autoapi/interactionfreepy/worker/index.rst:40:<autosummary>:1
+msgid ":py:obj:`__license__ <interactionfreepy.worker.__license__>`\\"
+msgstr ""
+
+#: ../../source/autoapi/interactionfreepy/worker/index.rst:40:<autosummary>:1
+msgid ":py:obj:`__author__ <interactionfreepy.worker.__author__>`\\"
+msgstr ""
+
+#: ../../source/autoapi/interactionfreepy/worker/index.rst:40:<autosummary>:1
+msgid ":py:obj:`__email__ <interactionfreepy.worker.__email__>`\\"
+msgstr ""
+
+#: ../../source/autoapi/interactionfreepy/worker/index.rst:40:<autosummary>:1
+msgid ":py:obj:`ifworker <interactionfreepy.worker.ifworker>`\\"
+msgstr ""
+
+#: ../../source/autoapi/interactionfreepy/worker/index.rst:177
+msgid "Bases: :py:obj:`object`"
+msgstr ""
+
+#: ../../source/autoapi/interactionfreepy/worker/index.rst:188
+#: ../../source/autoapi/interactionfreepy/worker/index.rst:202
+msgid "Bases: :py:obj:`RemoteObject`"
+msgstr ""
+
+#: ../../source/autoapi/rsocket/index.rst:2
+msgid ":py:mod:`rsocket`"
+msgstr ""
+
