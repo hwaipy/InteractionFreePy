@@ -37,6 +37,8 @@ msgid ""
 "Check out the :doc:`usage` section for further information, including how"
 " to :ref:`install <installation>` the project."
 msgstr ""
+"检查！:`usage` section for further information, including how"
+" to :ref:`install <installation>` 在这个项目中."
 
 #: ../../source/index.rst:14
 msgid "This project is under active development."
