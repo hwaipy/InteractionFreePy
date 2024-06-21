@@ -22,7 +22,7 @@ msgstr ""
 
 #: ../../source/index.rst:2
 msgid "Welcome to Lumache's documentation!"
-msgstr "这里是中文版本！"
+msgstr "这里是用于测试的中文版本！！！"
 
 #: ../../source/index.rst:4
 msgid ""
