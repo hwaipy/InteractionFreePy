@@ -14,8 +14,7 @@ certFiles = {
 if os.path.exists(certFiles['certfile']) and os.path.exists(certFiles['keyfile']):
   broker.startWebSocket(IFDefinition.DEFAULT_PORT_WEBSOCKET_SSL, '/wss/', certFiles)
   print(f'InteractionFree WebSocket server (SSL) start at port {IFDefinition.DEFAULT_PORT_WEBSOCKET_SSL}, /wss/')
-else:
-  broker.startWebSocket(IFDefinition.DEFAULT_PORT_WEBSOCKET, '/ws/')
-  print(f'InteractionFree WebSocket server (no SSL) start at port {IFDefinition.DEFAULT_PORT_WEBSOCKET}, /ws/')
+broker.startWebSocket(IFDefinition.DEFAULT_PORT_WEBSOCKET, '/ws/')
+print(f'InteractionFree WebSocket server (no SSL) start at port {IFDefinition.DEFAULT_PORT_WEBSOCKET}, /ws/')
 
 IFLoop.join()
