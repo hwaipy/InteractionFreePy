@@ -56,7 +56,7 @@ class IFBroker:
     if sslOptions:
       sslCtx = ssl.create_default_context(ssl.Purpose.CLIENT_AUTH)
       sslCtx.load_cert_chain(sslOptions['certfile'], sslOptions['keyfile'])
-      httpserver.HTTPServer(app, sslOptions=sslCtx).listen(port)
+      httpserver.HTTPServer(app, ssl_options=sslCtx).listen(port)
     else:
       app.listen(port)
 
@@ -359,12 +359,12 @@ class WebSocketZMQBridgeHandler(websocket.WebSocketHandler):
 if __name__ == '__main__':
   # broker = IFBroker(f"tcp://*:{IFDefinition.DEFAULT_PORT_TCP}")
   ifbroker = IFBroker()
-  # broker.startWebSocket(IFDefinition.DEFAULT_PORT_WEBSOCKET_SSL, '/ws/',
-  # {
-  #     "certfile": "../server.crt",
-  #     "keyfile": "../server.key",
-  # }
-  # )
+  ifbroker.startWebSocket(IFDefinition.DEFAULT_PORT_WEBSOCKET_SSL, '/ws/',
+  {
+      "certfile": "/workspaces/InteractionFreePy/InteractionFreePy/.ssl/server.crt",
+      "keyfile": "/workspaces/InteractionFreePy/InteractionFreePy/.ssl/server.key",
+  }
+  )
   print('started')
 
   from interactionfreepy import IFWorker
