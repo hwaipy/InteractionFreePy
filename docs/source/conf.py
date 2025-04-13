@@ -26,6 +26,7 @@ extensions = [
     'sphinx.ext.autodoc',
     'sphinx.ext.autosummary',
     'autoapi.extension',
+    'myst_parser',
 ]
 autosummary_generate = True  # Turn on sphinx.ext.autosummary
 autoapi_dirs = ['../../interactionfreepy']
@@ -41,3 +42,8 @@ html_theme = 'sphinx_rtd_theme'
 html_static_path = ['_static']
 
 locale_dirs = ['locale/']   # path is example but recommended.
+
+source_suffix = {
+    '.rst': 'restructuredtext',
+    '.md': 'markdown',
+}

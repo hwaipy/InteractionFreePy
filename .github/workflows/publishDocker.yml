@@ -38,7 +38,7 @@ jobs:
           context: .
           file: ./Dockerfile
           push: true
-          tags: ${{ secrets.DOCKER_HUB_USERNAME }}/ifserver:${{github.ref_name}}
+          tags: ${{ secrets.DOCKER_HUB_USERNAME }}/ifbroker:${{github.ref_name}}
       -
         name: Build and push latest
         uses: docker/build-push-action@v3
@@ -46,4 +46,4 @@ jobs:
           context: .
           file: ./Dockerfile
           push: true
-          tags: ${{ secrets.DOCKER_HUB_USERNAME }}/ifserver:latest
+          tags: ${{ secrets.DOCKER_HUB_USERNAME }}/ifbroker:latest
