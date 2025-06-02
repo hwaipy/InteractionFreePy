@@ -261,6 +261,9 @@ class Manager:
           }})
     return results
 
+  def time(self):
+    return time.time()
+
   def statistics(self, sourcePoint, isReceived, message):
     """Get the statistics information of the IFBroker.
     
