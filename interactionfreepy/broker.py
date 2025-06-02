@@ -261,7 +261,7 @@ class Manager:
           }})
     return results
 
-  def time(self):
+  def time(self, sourcePoint):
     return time.time()
 
   def statistics(self, sourcePoint, isReceived, message):
