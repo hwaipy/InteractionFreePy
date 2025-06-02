@@ -1,0 +1,35 @@
+<svg width="800.0000000000001" height="600" xmlns="http://www.w3.org/2000/svg">
+ <g>
+  <title>Layer 1</title>
+  <line fill="none" stroke-width="2" x1="377.046" y1="432.23062" x2="377.046" y2="241.1173" id="svg_57" stroke="#000"/>
+  <line fill="none" stroke-width="2" x1="168.89545" y1="342.59996" x2="334.82324" y2="235.19129" id="svg_58" stroke="#000"/>
+  <line fill="none" x1="253.07412" y1="136.72201" x2="354.7039" y2="220.40747" id="svg_53" stroke-width="2" stroke="#000"/>
+  <line fill="none" stroke-width="2" x1="496.30663" y1="130.74566" x2="400.00923" y2="223.33932" id="svg_55" stroke="#000"/>
+  <line fill="none" stroke-width="2" x1="557.04806" y1="341.8592" x2="402.23148" y2="246.30256" id="svg_56" stroke="#000"/>
+  <rect stroke="#000" fill="#9ACEE6" x="323" y="198.62821" width="99" height="71.23077" id="svg_3"/>
+  <text fill="#000000" stroke="#000" stroke-width="0" x="340" y="222.5" id="svg_2" font-size="24" font-family="Noto Sans JP" text-anchor="start" xml:space="preserve">Broker</text>
+  <ellipse fill="#FFFA8D" cx="189" cy="352" id="svg_4" rx="76" ry="33.5" stroke="#000"/>
+  <text fill="#000000" stroke="#000" x="153" y="344.5" id="svg_5" stroke-width="0" font-size="24" font-family="Noto Sans JP" text-anchor="start" xml:space="preserve">Worker</text>
+  <text fill="#666666" stroke="#000" stroke-width="0" x="148" y="357.5" id="svg_6" font-size="14" font-family="Noto Sans JP" text-anchor="start" xml:space="preserve" font-style="italic">DragonCipher</text>
+  <text fill="#000000" stroke="#000" x="158" y="375.5" id="svg_28" stroke-width="0" font-size="20" font-family="Noto Sans JP" text-anchor="start" xml:space="preserve">(server)</text>
+  <ellipse fill="#FFFA8D" cx="591" cy="341" id="svg_29" rx="76" ry="33.5" stroke="#000"/>
+  <text fill="#000000" stroke="#000" x="555" y="333.5" id="svg_30" stroke-width="0" font-size="24" font-family="Noto Sans JP" text-anchor="start" xml:space="preserve">Worker</text>
+  <text fill="#666666" stroke="#000" stroke-width="0" x="550" y="346.5" id="svg_31" font-size="14" font-family="Noto Sans JP" text-anchor="start" xml:space="preserve" font-style="italic">MarsTranslator</text>
+  <text fill="#000000" stroke="#000" x="560" y="364.5" id="svg_32" stroke-width="0" font-size="20" font-family="Noto Sans JP" text-anchor="start" xml:space="preserve">(server)</text>
+  <ellipse fill="#FFFA8D" cx="221" cy="125" id="svg_33" rx="76" ry="33.5" stroke="#000"/>
+  <text fill="#000000" stroke="#000" x="185" y="117.5" id="svg_34" stroke-width="0" font-size="24" font-family="Noto Sans JP" text-anchor="start" xml:space="preserve">Worker</text>
+  <text fill="#666666" stroke="#000" stroke-width="0" x="175" y="130.5" id="svg_35" font-size="14" font-family="Noto Sans JP" text-anchor="start" xml:space="preserve" font-style="italic">PirateTranslator</text>
+  <text fill="#000000" stroke="#000" x="190" y="148.5" id="svg_36" stroke-width="0" font-size="20" font-family="Noto Sans JP" text-anchor="start" xml:space="preserve">(server)</text>
+  <ellipse fill="#8CD79F" cx="551" cy="117" id="svg_37" rx="76" ry="33.5" stroke="#000"/>
+  <text fill="#000000" stroke="#000" x="515" y="109.5" id="svg_38" stroke-width="0" font-size="24" font-family="Noto Sans JP" text-anchor="start" xml:space="preserve">Worker</text>
+  <text fill="#666666" stroke="#000" stroke-width="0" x="520" y="122.5" id="svg_39" font-size="14" font-family="Noto Sans JP" text-anchor="start" xml:space="preserve" font-style="italic">anonymous</text>
+  <text fill="#000000" stroke="#000" x="523" y="140.5" id="svg_40" stroke-width="0" font-size="20" font-family="Noto Sans JP" text-anchor="start" xml:space="preserve">(client)</text>
+  <ellipse fill="#8CD79F" cx="383" cy="450" id="svg_49" rx="76" ry="33.5" stroke="#000"/>
+  <text fill="#000000" stroke="#000" x="347" y="442.5" id="svg_50" stroke-width="0" font-size="24" font-family="Noto Sans JP" text-anchor="start" xml:space="preserve">Worker</text>
+  <text fill="#666666" stroke="#000" stroke-width="0" x="352" y="455.5" id="svg_51" font-size="14" font-family="Noto Sans JP" text-anchor="start" xml:space="preserve" font-style="italic">anonymous</text>
+  <text fill="#000000" stroke="#000" x="355" y="473.5" id="svg_52" stroke-width="0" font-size="20" font-family="Noto Sans JP" text-anchor="start" xml:space="preserve">(client)</text>
+  <ellipse stroke="#000" ry="16.41026" rx="35.89744" id="svg_1" cy="246.41026" cx="373.07693" fill="none"/>
+  <text fill="#000000" stroke="#000" x="345.05128" y="249.73077" id="svg_8" stroke-width="0" font-size="16" font-family="Noto Sans JP" text-anchor="start" xml:space="preserve">manager</text>
+ </g>
+
+</svg>

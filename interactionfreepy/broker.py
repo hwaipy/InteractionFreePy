@@ -15,9 +15,18 @@ from interactionfreepy.core import IFDefinition, IFException, Invocation, Messag
 
 
 class IFBroker:
-  """IFBroker is the center server of InteractionFree."""
+  """
+  IFBroker is the center server of InteractionFree.
+  
+  :param binding: The address to bind. Default is ``'*'``. The full address is expected to be in the format of ``'tcp://ip:port'``, while ``tcp://`` can be omitted, and the default port is ``1061``.
+  :type binding: str
+  :param manager: The manager to use. If not given, a default manager will be created.
+  :type manager: Manager
+  
+  """
 
   def __init__(self, binding='*', manager=None):
+
     self.address = IFAddress.parseAddress(binding)
     socket = zmq.Context().socket(zmq.ROUTER)
     socket.bind(f'{self.address[0]}://{self.address[1]}:{self.address[2]}')
@@ -40,13 +49,13 @@ class IFBroker:
   def startWebSocket(self, port, path, sslOptions=None):
     '''Start a WebSocket server on the given port, with the given path. If sslOptions is given, the WebSocket server will use SSL.
 
-    Args:
-        port (int): The port to listen.
-        path (str): The path to listen.
-        sslOptions (dict): The SSL options. If not given, the WebSocket server will not use SSL. sslOptions should be a dict with two keys: 'certfile' and 'keyfile'.
-
-    Returns:
-        None
+    :param port: The port to listen.
+    :type port: int
+    :param path: The path to listen.
+    :type path: str
+    :param sslOptions: The SSL options. If not given, the WebSocket server will not use SSL. sslOptions should be a dict with two keys: ``'certfile'`` and ``'keyfile'``.
+    :type sslOptions: dict
+    :return: None
     '''
     handlersArray = [
         (path, WebSocketZMQBridgeHandler, {'port': self.address[2]}),
@@ -119,7 +128,11 @@ class IFBroker:
 
 
 class Manager:
-  """A service to manager workers of IFBroker. It can register workers as services, and distribute messages to workers."""
+  """
+  A service to manager workers of IFBroker. It can register workers as services, and distribute messages to workers.
+  The functions below are also the default functions provided by the IFBroker. You can override them to customize the behavior of the IFBroker.
+  Note: when invoking the functions by ``worker.function(argv)``, the parameter ``sourcePoint`` will be passed automatically. You don't need to pass it manually.
+  """
 
   def __init__(self, broker):
     self.broker = broker
@@ -165,14 +178,14 @@ class Manager:
         loggingMsg = f'Service [{serviceName}] unregistered.'
         logging.info(loggingMsg)
 
-  def protocol(self, _sourcePoint):
+  def protocol(self, sourcePoint):
     """Get the protocol of IFBroker.
     
     Args:
-        _sourcePoint (str): The source point of the invoker. Not used.
+        sourcePoint (str): The source point of the invoker. Not used.
 
     Returns:
-        str: The protocol of IFBroker. Default is b'IF1'.
+        str: The protocol of IFBroker. Default is ``b'IF1'``.
     """
     return str(IFDefinition.PROTOCOL, encoding='UTF-8')
 
@@ -188,11 +201,11 @@ class Manager:
     self.__activities[sourcePoint] = time.time()
     return sourcePoint in self.__workers
 
-  def getAddressOfService(self, _sourcePoint, serviceName):
+  def getAddressOfService(self, sourcePoint, serviceName):
     """Get the address of a service.
     
     Args:
-        _sourcePoint (str): The source point of the invoker. Not used.
+        sourcePoint (str): The source point of the invoker. Not used.
         serviceName (str): The name of the service.
 
     Returns:
@@ -202,19 +215,19 @@ class Manager:
       return self.__services.get(serviceName)[0]
     return None
 
-  def listServiceNames(self, _sourcePoint):
+  def listServiceNames(self, sourcePoint):
     """List all service names.
     
     Args:
-        _sourcePoint (str): The source point of the invoker. Not used.
+        sourcePoint (str): The source point of the invoker. Not used.
     """
     return list(self.__services.keys())
 
-  def listServiceMeta(self, _sourcePoint):
+  def listServiceMeta(self, sourcePoint):
     """List all service with meta informations.
     
     Args:
-        _sourcePoint (str): The source point of the invoker. Not used.
+        sourcePoint (str): The source point of the invoker. Not used.
         
     Returns:
         list: A list of service meta informations.

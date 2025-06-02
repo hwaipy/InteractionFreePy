@@ -29,6 +29,5 @@ Contents
 .. toctree::
 
    quickstart
-   concept
-   sirst
    usage
+   api
