@@ -4,7 +4,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <title>Coverage for interactionfreepy/core.py: 86%</title>
     <link rel="icon" sizes="32x32" href="favicon_32_cb_58284776.png">
-    <link rel="stylesheet" href="style_cb_8e611ae1.css" type="text/css">
+    <link rel="stylesheet" href="style_cb_6b508a39.css" type="text/css">
     <script src="coverage_html_cb_6fb7b396.js" defer></script>
 </head>
 <body class="pyfile">
@@ -64,8 +64,8 @@
             <a id="indexLink" class="nav" href="index.html">&Hat; index</a> &nbsp; &nbsp;
             <a id="nextFileLink" class="nav" href="z_d1c846dfb3dfc007_worker_py.html">&#xbb; next</a>
             &nbsp; &nbsp; &nbsp;
-            <a class="nav" href="https://coverage.readthedocs.io/en/7.5.3">coverage.py v7.5.3</a>,
-            created at 2024-06-21 08:43 +0000
+            <a class="nav" href="https://coverage.readthedocs.io/en/7.10.7">coverage.py v7.10.7</a>,
+            created at 2025-10-09 17:34 +0000
         </p>
         <aside class="hidden">
             <button type="button" class="button_next_chunk" data-shortcut="j"></button>
@@ -371,7 +371,7 @@
     <p class="run"><span class="n"><a id="t289" href="#t289">289</a></span><span class="t">  <span class="nam">ValueTypeRequest</span> <span class="op">=</span> <span class="str">'Request'</span>&nbsp;</span><span class="r"></span></p>
     <p class="run"><span class="n"><a id="t290" href="#t290">290</a></span><span class="t">  <span class="nam">ValueTypeResponse</span> <span class="op">=</span> <span class="str">'Response'</span>&nbsp;</span><span class="r"></span></p>
     <p class="run"><span class="n"><a id="t291" href="#t291">291</a></span><span class="t">  <span class="nam">Preserved</span> <span class="op">=</span> <span class="op">[</span><span class="nam">KeyType</span><span class="op">,</span> <span class="nam">KeyFunciton</span><span class="op">,</span> <span class="nam">KeyArguments</span><span class="op">,</span> <span class="nam">KeyKeyworkArguments</span><span class="op">,</span> <span class="nam">KeyRespopnseID</span><span class="op">,</span> <span class="nam">KeyResult</span><span class="op">,</span> <span class="nam">KeyError</span><span class="op">,</span>&nbsp;</span><span class="r"></span></p>
-    <p class="pln"><span class="n"><a id="t292" href="#t292">292</a></span><span class="t">               <span class="nam">KeyWarning</span><span class="op">]</span>&nbsp;</span><span class="r"></span></p>
+    <p class="run run2"><span class="n"><a id="t292" href="#t292">292</a></span><span class="t">               <span class="nam">KeyWarning</span><span class="op">]</span>&nbsp;</span><span class="r"></span></p>
     <p class="pln"><span class="n"><a id="t293" href="#t293">293</a></span><span class="t">&nbsp;</span><span class="r"></span></p>
     <p class="run"><span class="n"><a id="t294" href="#t294">294</a></span><span class="t">  <span class="key">def</span> <span class="nam">__init__</span><span class="op">(</span><span class="nam">self</span><span class="op">,</span> <span class="nam">content</span><span class="op">=</span><span class="key">None</span><span class="op">)</span><span class="op">:</span>&nbsp;</span><span class="r"></span></p>
     <p class="run"><span class="n"><a id="t295" href="#t295">295</a></span><span class="t">    <span class="nam">self</span><span class="op">.</span><span class="nam">__content</span> <span class="op">=</span> <span class="nam">content</span> <span class="key">if</span> <span class="nam">content</span> <span class="key">is</span> <span class="key">not</span> <span class="key">None</span> <span class="key">else</span> <span class="op">{</span><span class="op">}</span>&nbsp;</span><span class="r"></span></p>
@@ -517,11 +517,11 @@
     <p class="pln"><span class="n"><a id="t435" href="#t435">435</a></span><span class="t"><span class="str">      The new request invocation.</span>&nbsp;</span><span class="r"></span></p>
     <p class="pln"><span class="n"><a id="t436" href="#t436">436</a></span><span class="t"><span class="str">    """</span>&nbsp;</span><span class="r"></span></p>
     <p class="run"><span class="n"><a id="t437" href="#t437">437</a></span><span class="t">    <span class="key">return</span> <span class="nam">Invocation</span><span class="op">(</span><span class="op">{</span>&nbsp;</span><span class="r"></span></p>
-    <p class="pln"><span class="n"><a id="t438" href="#t438">438</a></span><span class="t">        <span class="nam">Invocation</span><span class="op">.</span><span class="nam">KeyType</span><span class="op">:</span> <span class="nam">Invocation</span><span class="op">.</span><span class="nam">ValueTypeRequest</span><span class="op">,</span>&nbsp;</span><span class="r"></span></p>
-    <p class="pln"><span class="n"><a id="t439" href="#t439">439</a></span><span class="t">        <span class="nam">Invocation</span><span class="op">.</span><span class="nam">KeyFunciton</span><span class="op">:</span> <span class="nam">functionName</span><span class="op">,</span>&nbsp;</span><span class="r"></span></p>
-    <p class="pln"><span class="n"><a id="t440" href="#t440">440</a></span><span class="t">        <span class="nam">Invocation</span><span class="op">.</span><span class="nam">KeyArguments</span><span class="op">:</span> <span class="nam">args</span><span class="op">,</span>&nbsp;</span><span class="r"></span></p>
-    <p class="pln"><span class="n"><a id="t441" href="#t441">441</a></span><span class="t">        <span class="nam">Invocation</span><span class="op">.</span><span class="nam">KeyKeyworkArguments</span><span class="op">:</span> <span class="nam">kwargs</span>&nbsp;</span><span class="r"></span></p>
-    <p class="pln"><span class="n"><a id="t442" href="#t442">442</a></span><span class="t">    <span class="op">}</span><span class="op">)</span>&nbsp;</span><span class="r"></span></p>
+    <p class="run run2"><span class="n"><a id="t438" href="#t438">438</a></span><span class="t">        <span class="nam">Invocation</span><span class="op">.</span><span class="nam">KeyType</span><span class="op">:</span> <span class="nam">Invocation</span><span class="op">.</span><span class="nam">ValueTypeRequest</span><span class="op">,</span>&nbsp;</span><span class="r"></span></p>
+    <p class="run run2"><span class="n"><a id="t439" href="#t439">439</a></span><span class="t">        <span class="nam">Invocation</span><span class="op">.</span><span class="nam">KeyFunciton</span><span class="op">:</span> <span class="nam">functionName</span><span class="op">,</span>&nbsp;</span><span class="r"></span></p>
+    <p class="run run2"><span class="n"><a id="t440" href="#t440">440</a></span><span class="t">        <span class="nam">Invocation</span><span class="op">.</span><span class="nam">KeyArguments</span><span class="op">:</span> <span class="nam">args</span><span class="op">,</span>&nbsp;</span><span class="r"></span></p>
+    <p class="run run2"><span class="n"><a id="t441" href="#t441">441</a></span><span class="t">        <span class="nam">Invocation</span><span class="op">.</span><span class="nam">KeyKeyworkArguments</span><span class="op">:</span> <span class="nam">kwargs</span>&nbsp;</span><span class="r"></span></p>
+    <p class="run run2"><span class="n"><a id="t442" href="#t442">442</a></span><span class="t">    <span class="op">}</span><span class="op">)</span>&nbsp;</span><span class="r"></span></p>
     <p class="pln"><span class="n"><a id="t443" href="#t443">443</a></span><span class="t">&nbsp;</span><span class="r"></span></p>
     <p class="run"><span class="n"><a id="t444" href="#t444">444</a></span><span class="t">  <span class="op">@</span><span class="nam">classmethod</span>&nbsp;</span><span class="r"></span></p>
     <p class="run"><span class="n"><a id="t445" href="#t445">445</a></span><span class="t">  <span class="key">def</span> <span class="nam">newResponse</span><span class="op">(</span><span class="nam">cls</span><span class="op">,</span> <span class="nam">messageID</span><span class="op">,</span> <span class="nam">result</span><span class="op">)</span><span class="op">:</span>&nbsp;</span><span class="r"></span></p>
@@ -535,10 +535,10 @@
     <p class="pln"><span class="n"><a id="t453" href="#t453">453</a></span><span class="t"><span class="str">      The new response invocation.</span>&nbsp;</span><span class="r"></span></p>
     <p class="pln"><span class="n"><a id="t454" href="#t454">454</a></span><span class="t"><span class="str">    """</span>&nbsp;</span><span class="r"></span></p>
     <p class="run"><span class="n"><a id="t455" href="#t455">455</a></span><span class="t">    <span class="key">return</span> <span class="nam">Invocation</span><span class="op">(</span><span class="op">{</span>&nbsp;</span><span class="r"></span></p>
-    <p class="pln"><span class="n"><a id="t456" href="#t456">456</a></span><span class="t">        <span class="nam">Invocation</span><span class="op">.</span><span class="nam">KeyType</span><span class="op">:</span> <span class="nam">Invocation</span><span class="op">.</span><span class="nam">ValueTypeResponse</span><span class="op">,</span>&nbsp;</span><span class="r"></span></p>
-    <p class="pln"><span class="n"><a id="t457" href="#t457">457</a></span><span class="t">        <span class="nam">Invocation</span><span class="op">.</span><span class="nam">KeyRespopnseID</span><span class="op">:</span> <span class="nam">messageID</span><span class="op">,</span>&nbsp;</span><span class="r"></span></p>
-    <p class="pln"><span class="n"><a id="t458" href="#t458">458</a></span><span class="t">        <span class="nam">Invocation</span><span class="op">.</span><span class="nam">KeyResult</span><span class="op">:</span> <span class="nam">result</span>&nbsp;</span><span class="r"></span></p>
-    <p class="pln"><span class="n"><a id="t459" href="#t459">459</a></span><span class="t">    <span class="op">}</span><span class="op">)</span>&nbsp;</span><span class="r"></span></p>
+    <p class="run run2"><span class="n"><a id="t456" href="#t456">456</a></span><span class="t">        <span class="nam">Invocation</span><span class="op">.</span><span class="nam">KeyType</span><span class="op">:</span> <span class="nam">Invocation</span><span class="op">.</span><span class="nam">ValueTypeResponse</span><span class="op">,</span>&nbsp;</span><span class="r"></span></p>
+    <p class="run run2"><span class="n"><a id="t457" href="#t457">457</a></span><span class="t">        <span class="nam">Invocation</span><span class="op">.</span><span class="nam">KeyRespopnseID</span><span class="op">:</span> <span class="nam">messageID</span><span class="op">,</span>&nbsp;</span><span class="r"></span></p>
+    <p class="run run2"><span class="n"><a id="t458" href="#t458">458</a></span><span class="t">        <span class="nam">Invocation</span><span class="op">.</span><span class="nam">KeyResult</span><span class="op">:</span> <span class="nam">result</span>&nbsp;</span><span class="r"></span></p>
+    <p class="run run2"><span class="n"><a id="t459" href="#t459">459</a></span><span class="t">    <span class="op">}</span><span class="op">)</span>&nbsp;</span><span class="r"></span></p>
     <p class="pln"><span class="n"><a id="t460" href="#t460">460</a></span><span class="t">&nbsp;</span><span class="r"></span></p>
     <p class="run"><span class="n"><a id="t461" href="#t461">461</a></span><span class="t">  <span class="op">@</span><span class="nam">classmethod</span>&nbsp;</span><span class="r"></span></p>
     <p class="run"><span class="n"><a id="t462" href="#t462">462</a></span><span class="t">  <span class="key">def</span> <span class="nam">newError</span><span class="op">(</span><span class="nam">cls</span><span class="op">,</span> <span class="nam">messageID</span><span class="op">,</span> <span class="nam">description</span><span class="op">)</span><span class="op">:</span>&nbsp;</span><span class="r"></span></p>
@@ -552,10 +552,10 @@
     <p class="pln"><span class="n"><a id="t470" href="#t470">470</a></span><span class="t"><span class="str">      The new error response invocation.</span>&nbsp;</span><span class="r"></span></p>
     <p class="pln"><span class="n"><a id="t471" href="#t471">471</a></span><span class="t"><span class="str">    """</span>&nbsp;</span><span class="r"></span></p>
     <p class="run"><span class="n"><a id="t472" href="#t472">472</a></span><span class="t">    <span class="key">return</span> <span class="nam">Invocation</span><span class="op">(</span><span class="op">{</span>&nbsp;</span><span class="r"></span></p>
-    <p class="pln"><span class="n"><a id="t473" href="#t473">473</a></span><span class="t">        <span class="nam">Invocation</span><span class="op">.</span><span class="nam">KeyType</span><span class="op">:</span> <span class="nam">Invocation</span><span class="op">.</span><span class="nam">ValueTypeResponse</span><span class="op">,</span>&nbsp;</span><span class="r"></span></p>
-    <p class="pln"><span class="n"><a id="t474" href="#t474">474</a></span><span class="t">        <span class="nam">Invocation</span><span class="op">.</span><span class="nam">KeyRespopnseID</span><span class="op">:</span> <span class="nam">messageID</span><span class="op">,</span>&nbsp;</span><span class="r"></span></p>
-    <p class="pln"><span class="n"><a id="t475" href="#t475">475</a></span><span class="t">        <span class="nam">Invocation</span><span class="op">.</span><span class="nam">KeyError</span><span class="op">:</span> <span class="nam">description</span>&nbsp;</span><span class="r"></span></p>
-    <p class="pln"><span class="n"><a id="t476" href="#t476">476</a></span><span class="t">    <span class="op">}</span><span class="op">)</span>&nbsp;</span><span class="r"></span></p>
+    <p class="run run2"><span class="n"><a id="t473" href="#t473">473</a></span><span class="t">        <span class="nam">Invocation</span><span class="op">.</span><span class="nam">KeyType</span><span class="op">:</span> <span class="nam">Invocation</span><span class="op">.</span><span class="nam">ValueTypeResponse</span><span class="op">,</span>&nbsp;</span><span class="r"></span></p>
+    <p class="run run2"><span class="n"><a id="t474" href="#t474">474</a></span><span class="t">        <span class="nam">Invocation</span><span class="op">.</span><span class="nam">KeyRespopnseID</span><span class="op">:</span> <span class="nam">messageID</span><span class="op">,</span>&nbsp;</span><span class="r"></span></p>
+    <p class="run run2"><span class="n"><a id="t475" href="#t475">475</a></span><span class="t">        <span class="nam">Invocation</span><span class="op">.</span><span class="nam">KeyError</span><span class="op">:</span> <span class="nam">description</span>&nbsp;</span><span class="r"></span></p>
+    <p class="run run2"><span class="n"><a id="t476" href="#t476">476</a></span><span class="t">    <span class="op">}</span><span class="op">)</span>&nbsp;</span><span class="r"></span></p>
     <p class="pln"><span class="n"><a id="t477" href="#t477">477</a></span><span class="t">&nbsp;</span><span class="r"></span></p>
     <p class="run"><span class="n"><a id="t478" href="#t478">478</a></span><span class="t">  <span class="key">def</span> <span class="nam">serialize</span><span class="op">(</span><span class="nam">self</span><span class="op">,</span> <span class="nam">serialization</span><span class="op">=</span><span class="str">'Msgpack'</span><span class="op">)</span><span class="op">:</span>&nbsp;</span><span class="r"></span></p>
     <p class="pln"><span class="n"><a id="t479" href="#t479">479</a></span><span class="t">    <span class="str">"""Serialize the invocation.</span>&nbsp;</span><span class="r"></span></p>
@@ -674,8 +674,8 @@
             <a class="nav" href="index.html">&Hat; index</a> &nbsp; &nbsp;
             <a class="nav" href="z_d1c846dfb3dfc007_worker_py.html">&#xbb; next</a>
             &nbsp; &nbsp; &nbsp;
-            <a class="nav" href="https://coverage.readthedocs.io/en/7.5.3">coverage.py v7.5.3</a>,
-            created at 2024-06-21 08:43 +0000
+            <a class="nav" href="https://coverage.readthedocs.io/en/7.10.7">coverage.py v7.10.7</a>,
+            created at 2025-10-09 17:34 +0000
         </p>
     </div>
 </footer>
