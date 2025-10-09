@@ -21,7 +21,7 @@
 $ pip install interactionfreepy
 ```
 
-**Start the server**
+**Start the broker**
 
 ```python
 from interactionfreepy import IFBroker
@@ -34,7 +34,7 @@ replace `port` to any port number that is available.
 
 `IFLoop.join()` is a utility function to prevent the program from finishing.
 
-**Start a worker**
+**Start a server**
 
 ```python
 from interactionfreepy import IFWorker

@@ -36,6 +36,7 @@ class IFBroker:
       self.manager = Manager(self)
     else:
       self.manager = manager
+      self.manager.broker = self
     IFLoop.tryStart()
 
   def close(self):
@@ -134,7 +135,7 @@ class Manager:
   Note: when invoking the functions by ``worker.function(argv)``, the parameter ``sourcePoint`` will be passed automatically. You don't need to pass it manually.
   """
 
-  def __init__(self, broker):
+  def __init__(self, broker=None):
     self.broker = broker
     self.__workers = {}
     self.__services = {}
