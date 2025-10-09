@@ -28,7 +28,6 @@ setuptools.setup(
         'Intended Audience :: End Users/Desktop',
         'License :: OSI Approved :: GNU General Public License v3 (GPLv3)',
         'Programming Language :: Python :: 3',
-        'Programming Language :: Python :: 3.7',
         'Programming Language :: Python :: 3.8',
         'Programming Language :: Python :: 3.9',
         'Programming Language :: Python :: 3.10',
@@ -37,5 +36,5 @@ setuptools.setup(
         'Programming Language :: Python :: 3.13',
         'Programming Language :: Python :: 3.14',
     ],
-    python_requires='>=3.7',
+    python_requires='>=3.8',
 )
