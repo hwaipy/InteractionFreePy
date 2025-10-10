@@ -71,7 +71,7 @@ The output should be `IF1` by default.
 
 ## Registrate a Service
 
-After connecting to the *Broker*, you can register the *Worker* as a *Server* by invoking {py:meth}`bindService <interactionfreepy.worker.IFWorker.bindService>`.
+After connecting to the *Broker*, you can register the *Worker* as a *Service* by invoking {py:meth}`bindService <interactionfreepy.worker.IFWorker.bindService>`.
 We can still use the dragon cipher as an example.
 If you have a class named `DragonCipher` that provides a function `encrypt_to_dragon_speech`, as defined below, 
 
@@ -107,7 +107,7 @@ You can even combine the creation of `IFWorker` instance and binding the service
 ```{code-block} python
 :lineno-start: 1
 
-worker = IFWorker('tcp://interactionfree.cn:1061', 'DragonCipher_Aelice', DragonCipher())
+worker = IFWorker('tcp://interactionfree.cn:1061', 'DragonCipher_Alice', DragonCipher())
 ```
 
 ## Invoking a remote Service
@@ -117,9 +117,9 @@ As a client, you do not need to provide the service address or the instance of t
 With the broker address provided, you can list all the services available by calling `listServiceNames()`.
 Then, you can call the service directly by using the service name as an attribute of the worker instance, `worker.DragonCipher_Alice.encrypt_to_dragon_speech(human_speech)`.
 The most interesting part is that you can run the code on a completely different machine, and never need to know the implementation details of the service.
-You do not even need to import anything related to the server.
+You do not even need to import anything related to the service.
 
-For example, if you have a *Server* named `DragonCipher` that provides a function `encrypt_to_dragon_speech`, you can call it from a completely machine by:
+For example, if you have a *Service* named `DragonCipher_Alice` that provides a function `encrypt_to_dragon_speech`, you can call it from a completely machine by:
 
 ```{code-block} python
 :lineno-start: 1
@@ -147,7 +147,7 @@ To be or not to be -> T-ar* b-ar* *r-ar n-ar*t-ar t-ar* b-ar*
 ## Customizing the Manager
 
 As mentioned above, any function invoked on `IFWorker` without specifying a `ServiceName` will be routed to the *Broker*'s `Manager`.
-By default, the `IFBroker` uses an instance of {py:class}`Manager <interactionfreepy.broker.Manager>` as its manager.
+By default, the `IFBroker` uses an instance of {py:class}`interactionfreepy.broker.Manager <interactionfreepy.broker.Manager>` as its manager.
 You can customize the manager by inheriting the `Manager` class and overriding the methods you want to customize, or adding new methods.
 
 For example, if you want to add two new methods, one is `echo` and the other is `whatIsMyID`, to the manager, you can do it when creating the `IFBroker` instance, as follows,
@@ -209,7 +209,7 @@ broker = IFBroker(manager=CustomManager())
 IFLoop.join()
 ```
 
-Then if you register a *Server* with an invalid `ServiceName`, you should get the exception,
+Then if you register a *Service* with an invalid `ServiceName`, you should get the exception,
 
 ```{code-block} shell
 interactionfreepy.core.IFException: The first letter of the service name should be uppercase.

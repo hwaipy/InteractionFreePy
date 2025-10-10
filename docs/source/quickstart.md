@@ -9,7 +9,7 @@ Follow the steps below as a quick start.
   pip install interactionfreepy
 ```
 
-2. Run a server
+2. Run a service
 
 We assume Alice wants to publish a service that provides a dragon-language encryption for everyone.
 She defines the service as follows:
@@ -52,7 +52,7 @@ You can also host your own broker to ensure the performance, latency time, and p
 See [Hosting a broker](host_a_broker) for more details.
 `'DragonCipher_Alice'` is the name of the service, which can be any string that you want.
 `DragonCipher()` provided the instance of the service.
-Finally, `IFLoop.join()` prevents the main thread from exiting, keeping the server running.
+Finally, `IFLoop.join()` prevents the main thread from exiting, keeping the service running.
 
 3. Run a client
 
@@ -87,7 +87,7 @@ To be or not to be -> T-ar* b-ar* *r-ar n-ar*t-ar t-ar* b-ar*
 
 The result of `listServiceNames()` may be different from the one shown above. 
 It is the list of all the services that are currently running on the broker.
-More importantly, as the service name is expected to be unique, you might get an error if you try to run the server with the same name as the one already running on the broker.
+More importantly, as the service name is expected to be unique, you might get an error if you try to run the service with the same name as the one already running on the broker.
 Therefore, when using my public testing broker located at `interactionfree.cn:1061`, it is recommended to use a unique name for your service, such as your GitHub username or any other unique identifier.
 For example, as my GitHub username is `hwaipy`, I can use `DragonCipher_hwaipy` as the service name.
 ```

@@ -1,50 +1,99 @@
 # SOME DESCRIPTIVE TITLE.
-# Copyright (C) 2024, Hwaipy
+# Copyright (C) 2025, Hwaipy
 # This file is distributed under the same license as the InteractionFreePy
 # package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, 2024.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2025.
 #
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: InteractionFreePy \n"
+"Project-Id-Version: InteractionFreePy 0.1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-06-19 07:24+0000\n"
+"POT-Creation-Date: 2025-10-10 06:32+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language: zh\n"
-"Language-Team: zh <LL@li.org>\n"
+"Language: zh_CN\n"
+"Language-Team: zh_CN <LL@li.org>\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.13.1\n"
 
-#: ../../source/index.rst:2
-msgid "Welcome to Lumache's documentation!"
-msgstr "这里是用于测试的中文版本！！！"
+#: ../../source/index.md:26
+msgid "Table of Contents"
+msgstr "目录"
 
-#: ../../source/index.rst:4
+#: ../../source/index.md:1
+msgid "InteractionFree for Python"
+msgstr ""
+
+#: ../../source/index.md:3
 msgid ""
-"**Lumache** (/lu'make/) is a Python library for cooks and food lovers "
-"that creates recipes mixing random ingredients.  It pulls data from the "
-"`Open Food Facts database <https://world.openfoodfacts.org/>`_ and offers"
-" a *simple* and *intuitive* API."
+"**InteractionFree** is a remote procedure call (RPC) protocol. It allows "
+"developers to build their own distributed and cross-language programs "
+"easily. The protocol is config-less and extremely easy to use. Currently,"
+" [`MessagePack`](https://msgpack.org) is used for binary serialization, "
+"and [`ZeroMQ`](https://zeromq.org) is used for communication. This "
+"project, **InteractionFreePy**, is the Python implementation of the "
+"protocol."
 msgstr ""
+"**InteractionFree** 是一种远程过程调用 (Remote Procedure Call, RPC) "
+"协议。该协议让开发者能够轻松构建自己的分布式跨语言程序，零配置需求，易于上手使用。当前版本采用 "
+"[`MessagePack`](https://msgpack.org) 作为二进制序列化库，并通过 "
+"[`ZeroMQ`](https://zeromq.org) 进行通信。本项目 **InteractionFreePy** 是该协议的 "
+"Python 实现。"
 
-#: ../../source/index.rst:9
+#: ../../source/index.md:9
 msgid ""
-"Check out the :doc:`usage` section for further information, including how"
-" to :ref:`install <installation>` the project."
+"PRC is a protocol that allows a computer program to execute a procedure "
+"or function on another computer, as if it were a local call. This "
+"abstraction simplifies distributed system development by hiding the "
+"complexities of network communication. The *InteractionFree* protocol is "
+"designed to be simple and efficient, allowing developers to focus on "
+"building their applications without worrying about the underlying "
+"communication details."
 msgstr ""
-"检查！:`usage` section for further information, including how"
-" to :ref:`install <installation>` 在这个项目中."
+"PRC "
+"允许程序像调用本地函数一样调用在另一台计算机上远程运行的过程或函数。"
+"这种抽象机制通过隐藏网络通信的复杂性，显著简化了分布式系统的开发。"
+"*InteractionFree* 协议简洁高效的设计使开发者能专注于分布式系统的构建，而无需担忧底层通信的实现细节。"
 
-#: ../../source/index.rst:14
-msgid "This project is under active development."
+#: ../../source/index.md:15
+msgid ""
+"The name *InteractionFree* originates from the concept of **interaction-"
+"free measurement** in quantum physics. In physics, interaction-free "
+"measurement is a type of measurement in quantum mechanics that detects "
+"the position, presence, or state of an object without an interaction "
+"occurring between it and the measuring device [^note1]. Essentially, in "
+"interaction-free measurement, although no probe particles (such as "
+"photons) reach the measured object (with intensity being zero), the phase"
+" of the probe particles is still affected by the measured object in "
+"reality, which reflects the object's properties. The name of the RPC "
+"protocol *InteractionFree* is a metaphor for this physical phenomenon: "
+"developers appear not to have written code that transmits function calls "
+"to the other side, yet RPC genuinely occurs."
+msgstr ""
+"*InteractionFree* 这一名称源于量子物理学中无相互作用测量 (**interaction-free measurement**) 的概念。"
+"在物理学中，无相互作用测量是量子力学中的一种测量方式，它能在被测对象与测量设备之间并未发生相互作用的情况下，探测到该对象的位置、存在或状态 [^note1]。"
+"本质上，在无相互作用测量中，尽管没有探测粒子（例如光子）抵达被测对象（即其强度为零），但探测粒子的相位在现实中仍然会受到被测对象的影响，从而反映出对象的属性。"
+"RPC 协议 *InteractionFree* 的名称正是对上述物理现象的隐喻：开发者看起来并没有编写向对端传输函数调用的代码，但 RPC 却真实地发生了。"
+
+#: ../../source/index.md:24
+msgid ""
+"See this project in GitHub "
+"[hwaipy/InteractionFreePy](https://github.com/hwaipy/InteractionFreePy)."
+msgstr ""
+"在 GitHub 上访问该项目 "
+"[hwaipy/InteractionFreePy](https://github.com/hwaipy/InteractionFreePy)."
+
+#: ../../source/index.md:20
+msgid ""
+"[https://en.wikipedia.org/wiki/Interaction-"
+"free_measurement](https://en.wikipedia.org/wiki/Interaction-"
+"free_measurement)"
 msgstr ""
 
-#: ../../source/index.rst:17
-msgid "Contents"
-msgstr ""
+#~ msgid "目录"
+#~ msgstr ""
 

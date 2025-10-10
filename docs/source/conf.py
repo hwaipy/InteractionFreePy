@@ -49,7 +49,8 @@ exclude_patterns = []
 html_theme = 'sphinx_rtd_theme'
 html_static_path = ['_static']
 
-locale_dirs = ['locale/']   # path is example but recommended.
+locale_dirs = ['locale/']
+gettext_compact = False
 
 source_suffix = {
     '.rst': 'restructuredtext',

@@ -1,121 +1,235 @@
 # SOME DESCRIPTIVE TITLE.
-# Copyright (C) 2024, Hwaipy
+# Copyright (C) 2025, Hwaipy
 # This file is distributed under the same license as the InteractionFreePy
 # package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, 2024.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2025.
 #
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: InteractionFreePy \n"
+"Project-Id-Version: InteractionFreePy 0.1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-06-19 07:24+0000\n"
+"POT-Creation-Date: 2025-10-10 07:45+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language: zh\n"
-"Language-Team: zh <LL@li.org>\n"
+"Language: zh_CN\n"
+"Language-Team: zh_CN <LL@li.org>\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.13.1\n"
 
-#: ../../source/usage.rst:2
+#: ../../source/usage.md:1
 msgid "Usage"
-msgstr ""
+msgstr "使用方法"
 
-#: ../../source/usage.rst:7
-msgid "Installation"
-msgstr ""
+#: ../../source/usage.md:3
+msgid "Install"
+msgstr "安装"
 
-#: ../../source/usage.rst:9
-msgid "To use Lumache, first install it using pip:"
-msgstr ""
+#: ../../source/usage.md:5
+msgid "To install the package, you can use pip."
+msgstr "使用 pip 来安装该软件包"
 
-#: ../../source/usage.rst:16
-msgid "Creating recipes"
-msgstr ""
+#: ../../source/usage.md:11
+msgid "Host a Broker"
+msgstr "行中心服务器"
 
-#: ../../source/usage.rst:18
+#: ../../source/usage.md:13
 msgid ""
-"To retrieve a list of random ingredients, you can use the "
-"``lumache.get_random_ingredients()`` function:"
+"It is simple to host a *Broker*. One may start with the "
+"{py:class}`IFBroker <interactionfreepy.broker.IFBroker>` class."
 msgstr ""
+"运行一个中心服务器非常简单。可以从 {py:class}`IFBroker "
+"<interactionfreepy.broker.IFBroker>` 类开始。"
 
-#: ../../source/usage.rst:23
-msgid "Return a list of random ingredients as strings."
-msgstr ""
-
-#: ../../source/usage.rst
-msgid "Parameters"
-msgstr ""
-
-#: ../../source/usage.rst:25
-msgid "Optional \"kind\" of ingredients."
-msgstr ""
-
-#: ../../source/usage.rst
-msgid "Returns"
-msgstr ""
-
-#: ../../source/usage.rst:27
-msgid "The ingredients list."
-msgstr ""
-
-#: ../../source/usage.rst
-msgid "Raises"
-msgstr ""
-
-#: ../../source/usage.rst:28
-msgid "If the kind is invalid."
-msgstr ""
-
-#: ../../source/usage.rst
-msgid "Return type"
-msgstr ""
-
-#: ../../source/usage.rst:31
+#: ../../source/usage.md:25
 msgid ""
-"The ``kind`` parameter should be either ``\"meat\"``, ``\"fish\"``, or "
-"``\"veggies\"``. Otherwise, :py:func:`lumache.get_random_ingredients` "
-"will raise an exception."
+"Here, `IFBroker()` creates the *Broker* instance and listens on the "
+"default port `1061`. You can also change the port by explicitly passing "
+"the port number to the constructor, for example, `8061`."
 msgstr ""
+"这里，`IFBroker()` 创建了中心服务器实例并在默认端口 1061 上监听。你也可以通过显式地向构造函数传递端口号来更改端口，例如 "
+"`8061`。"
 
-#: ../../source/usage.rst:37
-msgid "Raised if the kind is invalid."
-msgstr ""
-
-#: ../../source/usage.rst:44
-msgid "you can use the ``IFWorker.send()`` function:"
-msgstr ""
-
-#: interactionfreepy.worker.IFWorker.send:1 of
-msgid "Send a message by the worker."
-msgstr ""
-
-#: interactionfreepy.worker.IFWorker.send:4 of
-msgid "Args:"
-msgstr ""
-
-#: interactionfreepy.worker.IFWorker.send:4 of
-msgid "msg (Message): The message to send."
-msgstr ""
-
-#: interactionfreepy.worker.IFWorker.send:6 of
-msgid "Returns:"
-msgstr ""
-
-#: interactionfreepy.worker.IFWorker.send:7 of
-msgid "InvokeFuture: The future of the sending."
-msgstr ""
-
-#: ../../source/usage.rst:48
+#: ../../source/usage.md:37
 msgid ""
-"or ``\"veggies\"``. Otherwise, :py:func:`lumache.get_random_ingredients` "
-"will raise an exception."
-msgstr ""
+"The address can also be specified (by replacing `*` with the IP address "
+"of the machine) to allow only local connections. The `IFLoop.join()` is a"
+" blocking call that will keep the program running until terminated."
+msgstr "也可以指定地址（用本机的 IP 地址替换 *）来仅允许本地连接。`IFLoop.join()` 是一个阻塞调用，它将保持程序运行直至被终止。"
 
-#: interactionfreepy.core.IFException:1 of
-msgid "Exception of Interaction Free."
+#: ../../source/usage.md:40
+msgid ""
+"You can also host the *Broker* in a Docker container. The Docker image is"
+" available as "
+"[hwaipy/ifbroker](https://hub.docker.com/r/hwaipy/ifbroker). To run the "
+"broker in a Docker container, you can use the following command:"
 msgstr ""
+"你也可以在 Docker 容器中运行中心服务器。我们提供的 Docker 镜像为 "
+"[hwaipy/ifbroker](https://hub.docker.com/r/hwaipy/ifbroker)。要在 Docker "
+"容器中运行中心服务器，可以使用以下命令："
+
+#: ../../source/usage.md:48
+msgid "Connect to a Broker"
+msgstr "连接到中心服务器"
+
+#: ../../source/usage.md:50
+msgid ""
+"Use the {py:class}`IFWorker <interactionfreepy.worker.IFWorker>` class to"
+" connect to a *Broker*. For the purpose of giving an example, we will use"
+" the public *Broker* hosted by `interactionfree.cn:1061`. You could "
+"change the address to your own *Broker* if you have already hosted one."
+msgstr ""
+"使用 {py:class}`IFWorker <interactionfreepy.worker.IFWorker>` "
+"类来连接到中心服务器。为了方便举例说明，我们将使用运行在 `interactionfree.cn:1061` "
+"的公共中心服务器。如果你已经运行了自己的中心服务器，可以将地址更改为你自己的。"
+
+#: ../../source/usage.md:62
+msgid ""
+"After connecting to the *Broker*, you can check the protocol version to "
+"ensure the connectivity."
+msgstr "连接中心理服务器后，你可以检查协议版本以确保连接正常。"
+
+#: ../../source/usage.md:70
+msgid "The output should be `IF1` by default."
+msgstr "默认输出应为 `IF1`。"
+
+#: ../../source/usage.md:72
+msgid "Registrate a Service"
+msgstr "注册服务"
+
+#: ../../source/usage.md:74
+msgid ""
+"After connecting to the *Broker*, you can register the *Worker* as a "
+"*Service* by invoking {py:meth}`bindService "
+"<interactionfreepy.worker.IFWorker.bindService>`. We can still use the "
+"dragon cipher as an example. If you have a class named `DragonCipher` "
+"that provides a function `encrypt_to_dragon_speech`, as defined below,"
+msgstr ""
+"连接到中心服务器后，你可以通过调用 {py:meth}`bindService "
+"<interactionfreepy.worker.IFWorker.bindService>` 将当前 *Worker* "
+"节点注册为一个服务。我们可以使用龙语加密作为例子。如果你有一个名为 `DragonCipher` 的类，它提供了一个函数 "
+"`encrypt_to_dragon_speech`，定义如下："
+
+#: ../../source/usage.md:96
+msgid ""
+"You can simply publish it as a service by calling the `bindService` "
+"method of the `IFWorker` instance."
+msgstr "您只需调用 `IFWorker` 实例的 `bindService` 方法即可将其发布为一个服务。"
+
+#: ../../source/usage.md:105
+msgid ""
+"You can even combine the creation of `IFWorker` instance and binding the "
+"service together, as follows,"
+msgstr "你也可以将 `IFWorker` 实例的创建和服务的注册合并在一起，如下所示："
+
+#: ../../source/usage.md:113
+msgid "Invoking a remote Service"
+msgstr "调用远程服务"
+
+#: ../../source/usage.md:115
+msgid ""
+"An `IFWorker`, whether named or anonymous, can invoke a remote service by"
+" calling the function directly. As a client, you do not need to provide "
+"the service address or the instance of the service. With the broker "
+"address provided, you can list all the services available by calling "
+"`listServiceNames()`. Then, you can call the service directly by using "
+"the service name as an attribute of the worker instance, "
+"`worker.DragonCipher_Alice.encrypt_to_dragon_speech(human_speech)`. The "
+"most interesting part is that you can run the code on a completely "
+"different machine, and never need to know the implementation details of "
+"the service. You do not even need to import anything related to the "
+"service."
+msgstr ""
+"一个 `IFWorker`，无论具名还是匿名，都可以通过直接调用函数来调用远程服务。在提供了中心服务器地址后，你可以通过调用 "
+"`listServiceNames()` 来列出所有可用的服务。然后，你可以直接将服务名当做 `IFWorker` "
+"实例的一个属性来调用该服务，例如 "
+"`worker.DragonCipher_Alice.encrypt_to_dragon_speech(human_speech)`。最重要的是，您可以在一个完全不同的机器上运行这个代码，并且完全不需要知道服务的实现细节。你甚至不需要导入任何与该服务相关的代码。"
+
+#: ../../source/usage.md:122
+msgid ""
+"For example, if you have a *Service* named `DragonCipher_Alice` that "
+"provides a function `encrypt_to_dragon_speech`, you can call it from a "
+"completely machine by:"
+msgstr ""
+"例如，如果你有一个名为 `DragonCipher_Alice` 的服务提供了一个函数 "
+"`encrypt_to_dragon_speech`，您可以从另一台机器上这样调用它："
+
+#: ../../source/usage.md:136
+msgid ""
+"The parameters can be numbers, strings, lists, maps, or any data type "
+"that is supported by the standard MessagePack protocol, see [here]( "
+"https://github.com/msgpack/msgpack/blob/master/spec.md)."
+msgstr ""
+"参数可以是数字、字符串、列表、Map 或任何标准 MessagePack "
+"协议支持的数据类型，参见[此处](https://github.com/msgpack/msgpack/blob/master/spec.md)。"
+
+#: ../../source/usage.md:138
+msgid "With this code running, you might get the output like this:"
+msgstr "运行此代码，你可能会得到如下输出："
+
+#: ../../source/usage.md:147
+msgid "Customizing the Manager"
+msgstr "自定义 Manager"
+
+#: ../../source/usage.md:149
+msgid ""
+"As mentioned above, any function invoked on `IFWorker` without specifying"
+" a `ServiceName` will be routed to the *Broker*'s `Manager`. By default, "
+"the `IFBroker` uses an instance of "
+"{py:class}`interactionfreepy.broker.Manager "
+"<interactionfreepy.broker.Manager>` as its manager. You can customize the"
+" manager by inheriting the `Manager` class and overriding the methods you"
+" want to customize, or adding new methods."
+msgstr ""
+"如上所述，任何在 `IFWorker` 上调用但未指定 `ServiceName` 的函数实际上调用了中心服务器的 "
+"`Manager`的相应函数。`IFBroker` 的默认 Manager 是 "
+"{py:class}`interactionfreepy.broker.Manager "
+"<interactionfreepy.broker.Manager>`。你可以通过继承 Manager "
+"类并重写您想要自定义的方法，或添加新方法，来自定义 Manager 的行为。"
+
+#: ../../source/usage.md:153
+msgid ""
+"For example, if you want to add two new methods, one is `echo` and the "
+"other is `whatIsMyID`, to the manager, you can do it when creating the "
+"`IFBroker` instance, as follows,"
+msgstr "例如，如果你想向 Manager 添加两个新方法，一个是 `echo`，另一个是 `whatIsMyID`，你可以在创建 `IFBroker` 实例时完成，如下所示："
+
+#: ../../source/usage.md:172
+msgid ""
+"Here, the `echo` method simply returns the message passed to it, and the "
+"`whatIsMyID` method returns the unique ID of the caller. Please note that"
+" the first parameter for a method of the manager must be `sourcePoint`, "
+"which is a special parameter that will be automatically passed by the "
+"protocol, indicating the unique ID of the caller."
+msgstr "这里，`echo` 方法简单地返回传递给它的消息，而 `whatIsMyID` 方法返回调用者的唯一 ID。"
+"请注意，Manager 的方法的第一个参数必须是 `sourcePoint`，这是一个特殊参数，将由协议自动传递，指示调用者的唯一 ID。"
+
+#: ../../source/usage.md:175
+msgid ""
+"Then, any `IFWorker` connected to the new `IFBroker` can invoke these "
+"methods."
+msgstr "然后，任何连接到这个新 `IFBroker` 的 `IFWorker` 都可以调用这些方法。"
+
+#: ../../source/usage.md:186
+msgid "and get results like"
+msgstr "并得到类似这样的结果"
+
+#: ../../source/usage.md:193
+msgid ""
+"Of course, the specific ID will be different in your case, and maybe at "
+"each run. You can also add a filter for the `ServiceName` by overloading "
+"the method {py:meth}`bindService "
+"<interactionfreepy.broker.Manager.registerAsService>`, requiring that "
+"`ServiceName` must begin with a capital letter."
+msgstr "当然，具体的 ID 在你的情况下可能会不同，并且可能每次运行都不同。"
+"你还可以通过重载 {py:meth}`bindService <interactionfreepy.broker.Manager.registerAsService>` 方法来为 `ServiceName` 添加一个过滤器，要求 `ServiceName` 必须以大写字母开头。"
+
+#: ../../source/usage.md:212
+msgid ""
+"Then if you register a *Service* with an invalid `ServiceName`, you "
+"should get the exception,"
+msgstr "那么，当你尝试使用无效的 `ServiceName` 注册一个服务，你应该会收到异常，"
 

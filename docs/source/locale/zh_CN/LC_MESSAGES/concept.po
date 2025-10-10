@@ -1,0 +1,109 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2025, Hwaipy
+# This file is distributed under the same license as the InteractionFreePy
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2025.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: InteractionFreePy 0.1.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-10-10 07:17+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: zh_CN\n"
+"Language-Team: zh_CN <LL@li.org>\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.13.1\n"
+
+#: ../../source/concept.md:1
+msgid "Basic Concept"
+msgstr "基本概念"
+
+#: ../../source/concept.md:3
+msgid ""
+"The **InteractionFree** protocol involves two main roles, the *Broker* "
+"and the *Workers*. A network consists of one and only one *Broker*, and "
+"several *Workers*. The *Broker* stands for a central coordinator that "
+"connects all the *Workers*, constructing a star-type network. A *Worker* "
+"can have a unique name that can be addressed by other *Workers* (also "
+"called *Service*), or anonymous (also called *Client*)."
+msgstr ""
+"**InteractionFree** 协议涉及两个主要概念：*Broker* (中心服务器) 和 "
+"*Worker*。一个完整的网络包含有且仅有一个 *Broker*，以及若干个 *Worker*。*Broker* 作为一个中心协调者，与所有 "
+"*Worker* 相连接，构成一个星形网络。一个 *Worker* 可以拥有一个唯一的名称 (此时也称为服务) 以供其他 *Worker* "
+"寻址，也可以是匿名的（此时也称为客户端）。"
+
+#: ../../source/concept.md:8
+msgid ""
+"Just like a normal server-client mode, the *Service* provides certain "
+"service, and the *Client* consumes the service. The only difference is "
+"that the *Client* does not need to know the address of the *Service*, or "
+"access the *Service* directly. They just need to know the *Broker* "
+"address and the unique name of the *Service*, and the *Broker* will take "
+"care of the rest. A typical topological diagram is shown in the figure "
+"below."
+msgstr "就像普通的服务器-客户端模式，每一个服务节点都可以提供特定服务，而客户端节点则使用这些服务。唯一的区别在于，客户端无需知道服务的具体地址，或者直接访问服务。它们只需要知道中心服务器的地址和服务的唯一名称，中心服务器便会处理其余的事宜。一个典型的网络拓扑图如下所示"
+
+#: ../../source/concept.md:18
+msgid ""
+"Here, the yellow circle presents the named *Worker* (*Service*), and the "
+"green circles present the anonymous *Workers* (*Clients*)."
+msgstr "这里，黄色圆圈代表有名称的 *Worker* 节点（即服务），绿色圆圈代表匿名的 *Worker* 节点（即客户端）。"
+
+#: ../../source/concept.md:20
+msgid ""
+"The major method of using this protocol is constructing an instance of "
+"`IFWorker`, connecting to the *Broker*, and then making designed function"
+" calls on the `IFWorker` object."
+msgstr "使用此协议的主要方法是创建一个连接到中心服务器的 `IFWorker` 实例，然后在该 `IFWorker` 对象上进行相应的函数调用。"
+
+#: ../../source/concept.md:28
+msgid ""
+"`worker` is the instance of `IFWorker`. `ServiceName` is just like a "
+"member of `worker`, and `functionName` is just like a method of "
+"`worker.ServiceName`."
+msgstr ""
+"`worker` 是 `IFWorker` 的实例。`ServiceName` 就像是 `worker` 的一个成员，而 "
+"`functionName` 就像是 `worker.ServiceName` 的一个方法。"
+
+#: ../../source/concept.md:31
+msgid ""
+"For example, if a *Service* named `DragonCipher` provides a function "
+"`encrypt_to_dragon_speech`, the call would be like this:"
+msgstr ""
+"例如，如果一个名为 `DragonCipher` 的服务提供了一个函数 `encrypt_to_dragon_speech`，那么调用方式如下："
+
+#: ../../source/concept.md:39
+msgid ""
+"When any *Worker* makes the above invocation, it is actually the function"
+" in the *Service* `DragonCipher` that is executed."
+msgstr "当任何 *Worker* 节点进行上面这样的调用时，实际执行的是服务 `DragonCipher` 中的函数。"
+
+#: ../../source/concept.md:41
+msgid ""
+"There are also several functions provided by the `IFBroker` (actually by "
+"the `Manager` of the *Broker*). Calling these functions is similar to "
+"calling the functions of a *Worker*, except that the `ServiceName` is "
+"emitted, as follows,"
+msgstr ""
+"此外，`IFBroker` (实际上是中心服务器的 `Manager`) 也提供了一些函数可供调用。"
+"调用这些函数类似于调用普通 *Worker* 节点的函数，只是需要省略 `ServiceName`，如下所示："
+
+#: ../../source/concept.md:50
+msgid ""
+"The functions available in the *Broker* are listed in the API "
+"documentation {py:class}`Manager <interactionfreepy.broker.Manager>`. "
+"Please note that, when invoking the function of `Manager` through the "
+"protocol, the parameter `sourcePoint` will be automatically passed, you "
+"do not need to pass it manually. The `Manager` can also be customized by "
+"the user. See more detailed information in [Customizing the Manager"
+"](costomize-manager)."
+msgstr ""
+"中心服务器中可用的函数列于 API 文档 {py:class}`Manager <interactionfreepy.broker.Manager>` 中。"
+"请注意，通过协议调用 `Manager` 的函数时，参数 `sourcePoint` 会被自动传递，无需手动传递。"
+"`Manager` 也可由用户自定义。更多详细信息请参阅 [自定义 Manager](costomize-manager)。"

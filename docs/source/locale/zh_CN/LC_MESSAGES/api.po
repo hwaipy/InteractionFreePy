@@ -1,0 +1,295 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2025, Hwaipy
+# This file is distributed under the same license as the InteractionFreePy
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2025.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: InteractionFreePy 0.1.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-10-10 01:26+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: zh_CN\n"
+"Language-Team: zh_CN <LL@li.org>\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.13.1\n"
+
+#: ../../source/api.rst:2
+msgid "API Reference"
+msgstr ""
+
+#: ../../source/api.rst:4
+msgid "This page contains auto-generated API documentation."
+msgstr ""
+
+#: ../../source/api.rst:8
+msgid "IFBroker"
+msgstr ""
+
+#: interactionfreepy.broker.IFBroker:1 of
+msgid "IFBroker is the center server of InteractionFree."
+msgstr ""
+
+#: interactionfreepy.broker.IFBroker
+#: interactionfreepy.broker.IFBroker.startWebSocket of
+msgid "Parameters"
+msgstr ""
+
+#: interactionfreepy.broker.IFBroker:3 of
+msgid ""
+"The address to bind. Default is ``'*'``. The full address is expected to "
+"be in the format of ``'tcp://ip:port'``, while ``tcp://`` can be omitted,"
+" and the default port is ``1061``."
+msgstr ""
+
+#: interactionfreepy.broker.IFBroker:5 of
+msgid "The manager to use. If not given, a default manager will be created."
+msgstr ""
+
+#: interactionfreepy.broker.IFBroker.close:1 of
+msgid "Close the server. All the connections will be closed."
+msgstr ""
+
+#: interactionfreepy.broker.IFBroker.startWebSocket:1 of
+msgid ""
+"Start a WebSocket server on the given port, with the given path. If "
+"sslOptions is given, the WebSocket server will use SSL."
+msgstr ""
+
+#: interactionfreepy.broker.IFBroker.startWebSocket:3 of
+msgid "The port to listen."
+msgstr ""
+
+#: interactionfreepy.broker.IFBroker.startWebSocket:5 of
+msgid "The path to listen."
+msgstr ""
+
+#: interactionfreepy.broker.IFBroker.startWebSocket:7 of
+msgid ""
+"The SSL options. If not given, the WebSocket server will not use SSL. "
+"sslOptions should be a dict with two keys: ``'certfile'`` and "
+"``'keyfile'``."
+msgstr ""
+
+#: interactionfreepy.broker.IFBroker.startWebSocket of
+msgid "Returns"
+msgstr ""
+
+#: interactionfreepy.broker.IFBroker.startWebSocket:9
+#: interactionfreepy.worker.IFWorker.bindService:9
+#: interactionfreepy.worker.IFWorker.close:4 of
+msgid "None"
+msgstr ""
+
+#: ../../source/api.rst:16
+msgid "IFWorker"
+msgstr ""
+
+#: interactionfreepy.worker.IFWorker:1 of
+msgid "InteractionFreePy Worker class."
+msgstr ""
+
+#: interactionfreepy.worker.IFWorker.asyncInvoker:1 of
+msgid "Create an async invoker."
+msgstr ""
+
+#: interactionfreepy.broker.Manager.getAddressOfService:5
+#: interactionfreepy.broker.Manager.heartbeat:4
+#: interactionfreepy.broker.Manager.listServiceMeta:4
+#: interactionfreepy.broker.Manager.listServiceNames:3
+#: interactionfreepy.broker.Manager.protocol:4
+#: interactionfreepy.broker.Manager.registerAsService:6
+#: interactionfreepy.broker.Manager.statistics:6
+#: interactionfreepy.broker.Manager.unregister:3
+#: interactionfreepy.worker.IFWorker.asyncInvoker:4
+#: interactionfreepy.worker.IFWorker.asynchronousInvoker:4
+#: interactionfreepy.worker.IFWorker.bindService:6
+#: interactionfreepy.worker.IFWorker.blockingInvoker:4
+#: interactionfreepy.worker.IFWorker.send:4
+#: interactionfreepy.worker.IFWorker.toMessageInvoker:4 of
+msgid "Args:"
+msgstr ""
+
+#: interactionfreepy.worker.IFWorker.asyncInvoker:4
+#: interactionfreepy.worker.IFWorker.asynchronousInvoker:4
+#: interactionfreepy.worker.IFWorker.blockingInvoker:4
+#: interactionfreepy.worker.IFWorker.toMessageInvoker:4 of
+msgid "target (str): The target of the invoker."
+msgstr ""
+
+#: interactionfreepy.broker.Manager.getAddressOfService:7
+#: interactionfreepy.broker.Manager.heartbeat:6
+#: interactionfreepy.broker.Manager.listServiceMeta:6
+#: interactionfreepy.broker.Manager.protocol:6
+#: interactionfreepy.broker.Manager.statistics:8
+#: interactionfreepy.worker.IFWorker.asyncInvoker:6
+#: interactionfreepy.worker.IFWorker.asynchronousInvoker:7
+#: interactionfreepy.worker.IFWorker.bindService:8
+#: interactionfreepy.worker.IFWorker.blockingInvoker:6
+#: interactionfreepy.worker.IFWorker.close:3
+#: interactionfreepy.worker.IFWorker.send:6
+#: interactionfreepy.worker.IFWorker.toMessageInvoker:6 of
+msgid "Returns:"
+msgstr ""
+
+#: interactionfreepy.worker.IFWorker.asyncInvoker:7
+#: interactionfreepy.worker.IFWorker.asynchronousInvoker:7 of
+msgid "AsyncRemoteObject: The invoker."
+msgstr ""
+
+#: interactionfreepy.worker.IFWorker.asynchronousInvoker:1 of
+msgid "Create a non-blocking invoker."
+msgstr ""
+
+#: interactionfreepy.worker.IFWorker.asynchronousInvoker:9 of
+msgid "Deprecated:"
+msgstr ""
+
+#: interactionfreepy.worker.IFWorker.asynchronousInvoker:10 of
+msgid ""
+"This method is deprecated. Remove it in the future. Use asyncInvoker "
+"instead."
+msgstr ""
+
+#: interactionfreepy.worker.IFWorker.bindService:1 of
+msgid "Bind the worker as a service."
+msgstr ""
+
+#: interactionfreepy.worker.IFWorker.bindService:4 of
+msgid ""
+"serviceName (str): The name of the service. serviceObject (object): The "
+"object to be bind. interfaces (list): The interfaces of the service."
+msgstr ""
+
+#: interactionfreepy.worker.IFWorker.blockingInvoker:1 of
+msgid "Create a blocking invoker."
+msgstr ""
+
+#: interactionfreepy.worker.IFWorker.blockingInvoker:7
+#: interactionfreepy.worker.IFWorker.toMessageInvoker:7 of
+msgid "DynamicRemoteObject: The invoker."
+msgstr ""
+
+#: interactionfreepy.worker.IFWorker.close:1 of
+msgid "Close the worker. If the worker is a service, it will be unregistered."
+msgstr ""
+
+#: interactionfreepy.worker.IFWorker.send:1 of
+msgid "Send a message by the worker."
+msgstr ""
+
+#: interactionfreepy.worker.IFWorker.send:4 of
+msgid "msg (Message): The message to send."
+msgstr ""
+
+#: interactionfreepy.worker.IFWorker.send:7 of
+msgid "InvokeFuture: The future of the sending."
+msgstr ""
+
+#: interactionfreepy.worker.IFWorker.toMessageInvoker:1 of
+msgid "Create a invoker that generate Message objects only, without sending."
+msgstr ""
+
+#: ../../source/api.rst:24
+msgid "Manager"
+msgstr ""
+
+#: interactionfreepy.broker.Manager:1 of
+msgid ""
+"A service to manager workers of IFBroker. It can register workers as "
+"services, and distribute messages to workers. The functions below are "
+"also the default functions provided by the IFBroker. You can override "
+"them to customize the behavior of the IFBroker. Note: when invoking the "
+"functions by ``worker.function(argv)``, the parameter ``sourcePoint`` "
+"will be passed automatically. You don't need to pass it manually."
+msgstr ""
+
+#: interactionfreepy.broker.Manager.getAddressOfService:1 of
+msgid "Get the address of a service."
+msgstr ""
+
+#: interactionfreepy.broker.Manager.getAddressOfService:4 of
+msgid ""
+"sourcePoint (str): The source point of the invoker. Not used. serviceName"
+" (str): The name of the service."
+msgstr ""
+
+#: interactionfreepy.broker.Manager.getAddressOfService:8 of
+msgid "str: The address of the service."
+msgstr ""
+
+#: interactionfreepy.broker.Manager.heartbeat:1 of
+msgid "Sending heartbeat package to the IFBroker."
+msgstr ""
+
+#: interactionfreepy.broker.Manager.heartbeat:4
+#: interactionfreepy.broker.Manager.unregister:4 of
+msgid "sourcePoint (str): The source point of the invoker."
+msgstr ""
+
+#: interactionfreepy.broker.Manager.heartbeat:7 of
+msgid "bool: True if the worker is registered as a service."
+msgstr ""
+
+#: interactionfreepy.broker.Manager.listServiceMeta:1 of
+msgid "List all service with meta informations."
+msgstr ""
+
+#: interactionfreepy.broker.Manager.listServiceMeta:4
+#: interactionfreepy.broker.Manager.listServiceNames:4
+#: interactionfreepy.broker.Manager.protocol:4 of
+msgid "sourcePoint (str): The source point of the invoker. Not used."
+msgstr ""
+
+#: interactionfreepy.broker.Manager.listServiceMeta:7 of
+msgid "list: A list of service meta informations."
+msgstr ""
+
+#: interactionfreepy.broker.Manager.listServiceNames:1 of
+msgid "List all service names."
+msgstr ""
+
+#: interactionfreepy.broker.Manager.protocol:1 of
+msgid "Get the protocol of IFBroker."
+msgstr ""
+
+#: interactionfreepy.broker.Manager.protocol:7 of
+msgid "str: The protocol of IFBroker. Default is ``b'IF1'``."
+msgstr ""
+
+#: interactionfreepy.broker.Manager.registerAsService:1 of
+msgid "Register a worker as a service."
+msgstr ""
+
+#: interactionfreepy.broker.Manager.registerAsService:4 of
+msgid ""
+"sourcePoint (str): The source point of the invoker. name (str): The name "
+"of the service. interfaces (list): The interfaces of the service. force "
+"(bool): If True, the service will be registered even if the name is "
+"occupied. The old service will be replaced."
+msgstr ""
+
+#: interactionfreepy.broker.Manager.statistics:1 of
+msgid "Get the statistics information of the IFBroker."
+msgstr ""
+
+#: interactionfreepy.broker.Manager.statistics:4 of
+msgid ""
+"sourcePoint (str): The source point of the invoker. isReceived (bool): If"
+" True, the message is received.   message (list): The message."
+msgstr ""
+
+#: interactionfreepy.broker.Manager.statistics:9 of
+msgid "list: A list of statistics information."
+msgstr ""
+
+#: interactionfreepy.broker.Manager.unregister:1 of
+msgid "Unregister a worker."
+msgstr ""
+

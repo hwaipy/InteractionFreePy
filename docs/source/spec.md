@@ -8,7 +8,7 @@
 
 ## Topology
 
-**InteractionFree** frame currently supports star structure. There is one and only one center node called Broker that takes TCP connections from all clients (called Worker). Thus, the net address of the server should be reachable for all clients.
+**InteractionFree** frame currently supports star structure. There is one and only one center node called Broker that takes TCP connections from all clients (called Worker). Thus, the net address of the service should be reachable for all clients.
 
 ## Transport
 
