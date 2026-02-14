@@ -1,0 +1,14 @@
+{
+  "name": "InteractionFreePy",
+  "image": "mcr.microsoft.com/devcontainers/python:3.14",
+  "postCreateCommand": "pip install --upgrade pip && for f in requirements.txt requirements-test.txt requirements-docs.txt; do [ -f \"$f\" ] && pip install -r \"$f\" || echo \"Skipping $f\"; done",
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "ms-python.python",
+        "ms-python.vscode-pylance",
+        "ms-python.debugpy",
+      ],
+    }
+  }
+}
