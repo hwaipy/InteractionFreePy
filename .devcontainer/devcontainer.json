@@ -1,6 +1,5 @@
 {
-  "name": "InteractionFreePy",
-  "image": "mcr.microsoft.com/devcontainers/python:3.14",
+  "build": { "dockerfile": "Dockerfile" },
   "postCreateCommand": "pip install --upgrade pip && for f in requirements.txt requirements-test.txt requirements-docs.txt; do [ -f \"$f\" ] && pip install -r \"$f\" || echo \"Skipping $f\"; done",
   "customizations": {
     "vscode": {
