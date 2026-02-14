@@ -18,7 +18,7 @@
 | tests/testInvocation.py              |       51 |        1 |     98% |        91 |
 | tests/testInvocationSerialization.py |      109 |        1 |     99% |       137 |
 | tests/testMessageTransport.py        |      211 |        7 |     97% |125, 130, 136, 141, 160, 238, 284 |
-|                            **TOTAL** | **1203** |  **156** | **87%** |           |
+| **TOTAL**                            | **1203** |  **156** | **87%** |           |
 
 
 ## Setup coverage badge
