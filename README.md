@@ -6,19 +6,19 @@
 |------------------------------------- | -------: | -------: | ------: | --------: |
 | interactionfreepy/\_\_init\_\_.py    |       10 |        1 |     90% |        13 |
 | interactionfreepy/broker.py          |      210 |       79 |     62% |38-39, 44-48, 61-71, 79, 89-91, 113, 115-117, 122-124, 159, 161, 217, 236-263, 266, 291-301, 325-327, 329, 339-343, 347-351, 354, 357-362, 365-367, 370, 373, 378-390 |
-| interactionfreepy/core.py            |      273 |       38 |     86% |51-60, 83, 162, 189-191, 243, 255, 269-275, 315-317, 359, 379, 389, 399, 412, 423, 489, 492-493, 514, 566, 576 |
-| interactionfreepy/worker.py          |      238 |       24 |     90% |39, 44-45, 55-57, 85, 88, 105, 159, 184, 217, 249, 286, 318, 324, 333, 341-342, 349, 358-361 |
+| interactionfreepy/core.py            |      279 |       38 |     86% |60-69, 92, 171, 198-200, 252, 264, 278-284, 324-326, 368, 388, 398, 408, 421, 432, 498, 501-502, 523, 575, 585 |
+| interactionfreepy/worker.py          |      239 |       23 |     90% |39, 44-45, 55-57, 86, 89, 106, 160, 218, 250, 287, 319, 325, 334, 342-343, 350, 359-362 |
 | tests/\_\_init\_\_.py                |        9 |        1 |     89% |        11 |
 | tests/defines.py                     |        2 |        0 |    100% |           |
 | tests/experimental/\_\_init\_\_.py   |        9 |        1 |     89% |        11 |
 | tests/experimental/testRSocket.py    |        0 |        0 |    100% |           |
 | tests/testDocExamples.py             |        0 |        0 |    100% |           |
-| tests/testIFWorkerAsync.py           |       39 |        2 |     95% |    35, 51 |
+| tests/testIFWorkerAsync.py           |       39 |        3 |     92% |35, 37, 51 |
 | tests/testInitBrokerAndWorker.py     |       42 |        1 |     98% |        51 |
 | tests/testInvocation.py              |       51 |        1 |     98% |        91 |
 | tests/testInvocationSerialization.py |      109 |        1 |     99% |       137 |
-| tests/testMessageTransport.py        |      211 |        7 |     97% |125, 130, 136, 141, 160, 238, 284 |
-| **TOTAL**                            | **1203** |  **156** | **87%** |           |
+| tests/testMessageTransport.py        |      241 |        7 |     97% |126, 131, 137, 142, 161, 274, 320 |
+| **TOTAL**                            | **1240** |  **156** | **87%** |           |
 
 
 ## Setup coverage badge
