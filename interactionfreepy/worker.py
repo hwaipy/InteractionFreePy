@@ -8,6 +8,7 @@ import threading
 import asyncio
 import logging
 import traceback
+from datetime import datetime
 import zmq
 from zmq.eventloop.zmqstream import ZMQStream
 from interactionfreepy.core import IFException, Message, Invocation, IFLoop, IFDefinition, IFAddress, IFRemoteException
@@ -30,6 +31,9 @@ class IFWorker:
     self.__isService = False
     if serviceName is not None:
       self.bindService(serviceName, serviceObject, [] if interfaces is None else interfaces)
+    self.__hbTimeoutCount = 0
+    self.__latestHBTime = time.time()
+    self.logging = logging.getLogger('InteractionFreePy')
     threading.Thread(target=self.__hbLoop, daemon=True).start()
     IFLoop.tryStart()
     if self.__isService:
@@ -41,8 +45,18 @@ class IFWorker:
       try:
         if not self.blockingInvoker(timeout=IFDefinition.HEARTBEAT_LIVETIME / 5).heartbeat() and self.__isService:
           self.registerAsService(self.__serviceName, self.__interfaces)
+        self.__hbTimeoutCount = 0
       except BaseException as exception:
-        logging.warning('Heartbeat: %s', exception)
+        if str(exception) == 'TIMEOUT':
+          self.__hbTimeoutCount += 1
+          now = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+          if self.__hbTimeoutCount < 3:
+            self.logging.warning(f'[{now}] Heartbeat timeout. The connection seems to be slightly unstable.')
+          else:
+            duration = time.time() - self.__latestHBTime
+            self.logging.warning(f'[{now}] Heartbeat timeout for {duration:.0f}s. The connection seems to be faulty.')
+        else:
+          self.logging.warning('Error in Heartbeat: %s', exception)
 
   def __onMessage(self, msg):
     try:
@@ -340,7 +354,7 @@ class InvokeFuture:
       if isinstance(self.__exception, BaseException):
         raise self.__exception
       raise IFException('Error state in InvokeFuture.')
-    raise IFException('Time out!')
+    raise IFException('TIMEOUT')
 
   def _onFinish(self):
     self.__done = True
