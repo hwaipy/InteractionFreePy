@@ -10,7 +10,7 @@ import logging
 import traceback
 import zmq
 from zmq.eventloop.zmqstream import ZMQStream
-from interactionfreepy.core import IFException, Message, Invocation, IFLoop, IFDefinition, IFAddress
+from interactionfreepy.core import IFException, Message, Invocation, IFLoop, IFDefinition, IFAddress, IFRemoteException
 
 
 class IFWorker:
@@ -68,7 +68,8 @@ class IFWorker:
       responseMessage = Message.newDirectMessage(sourcePoint, Invocation.newResponse(message.messageID, result))
       self.__stream.send_multipart(responseMessage.getContent())
     except BaseException as exception:
-      errorMsg = Message.newDirectMessage(sourcePoint, Invocation.newError(message.messageID, str(exception)))
+      fullErrorString = traceback.format_exc()
+      errorMsg = Message.newDirectMessage(sourcePoint, Invocation.newError(message.messageID, fullErrorString))
       self.__stream.send_multipart(errorMsg.getContent())
 
   def __onResponse(self, message):
@@ -348,7 +349,7 @@ class InvokeFuture:
     if self.__resultMap.__contains__('warning'):
       self.__warning = self.__resultMap['warning']
     if self.__resultMap.__contains__('error'):
-      self.__exception = IFException(self.__resultMap['error'])
+      self.__exception = IFRemoteException(self.__resultMap['error'])
     if self.__onComplete is not None:
       self.__onComplete()
     self.__awaitSemaphore.release()

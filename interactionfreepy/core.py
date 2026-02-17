@@ -35,6 +35,15 @@ class IFException(Exception):
   def __str__(self):
     return self.description
 
+class IFRemoteException(Exception):
+  """Remote Exception of Interaction Free."""
+
+  def __init__(self, remoteTraceback):
+    Exception.__init__(self)
+    self.remoteTraceback = remoteTraceback
+
+  def __str__(self):
+      return f'[Remote Exception]\n{"-" * 20 + " Remote Traceback below " + "-" * 20}\n{self.remoteTraceback}\n{"-" * 20 + " Remote Traceback above " + "-" * 20}\n'
 
 class IFLoop:
   """A tool class to start the loop of Interaction Free."""

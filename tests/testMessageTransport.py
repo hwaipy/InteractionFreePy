@@ -7,9 +7,10 @@ import string
 import queue
 from interactionfreepy import IFBroker
 from interactionfreepy import IFWorker
-from interactionfreepy import Message, IFException
+from interactionfreepy import Message, IFException, IFRemoteException
 from tornado.ioloop import IOLoop
 from asyncio import Queue
+import traceback
 from random import Random
 from wrapt_timeout_decorator import timeout
 from tests.defines import Defines
@@ -63,7 +64,7 @@ class MessageTransportTest(unittest.TestCase):
     latch1.acquire()
     self.assertTrue(future1.isDone())
     self.assertFalse(future1.isSuccess())
-    self.assertEqual(future1.exception().description, "Function [co] not available.")
+    self.assertTrue(future1.exception().remoteTraceback.__contains__("Function [co] not available."))
 
     future1 = invoker1.protocol(a=1, b=2)
     latch1 = threading.Semaphore(0)
@@ -71,26 +72,26 @@ class MessageTransportTest(unittest.TestCase):
     latch1.acquire()
     self.assertTrue(future1.isDone())
     self.assertFalse(future1.isSuccess())
-    self.assertEqual(future1.exception().description, "Keyword Argument [a] not availabel for function [protocol].")
+    self.assertTrue(future1.exception().remoteTraceback.__contains__("Keyword Argument [a] not availabel for function [protocol]."))
     future1 = invoker1.protocol(1, 2, 3)
     latch1 = threading.Semaphore(0)
     future1.onComplete(lambda: latch1.release())
     latch1.acquire()
     self.assertTrue(future1.isDone())
     self.assertFalse(future1.isSuccess())
-    self.assertEqual(future1.exception().description, "Function [protocol] expects [0] arguments, but [3] were given.")
+    self.assertTrue(future1.exception().remoteTraceback.__contains__("Function [protocol] expects [0] arguments, but [3] were given."))
 
   @timeout(Defines.timeout)
   def testRemoteInvokeAndSync(self):
     worker = IFWorker(MessageTransportTest.brokerAddress)
     invoker = worker.blockingInvoker()
-    self.assertRaises(IFException, lambda: invoker.co())
+    self.assertRaises(IFRemoteException, lambda: invoker.co())
     self.assertEqual(invoker.protocol(), 'IF1')
 
   @timeout(Defines.timeout)
   def testSyncAndAsyncMode(self):
     worker = IFWorker(MessageTransportTest.brokerAddress)
-    self.assertRaises(IFException, lambda: worker.co())
+    self.assertRaises(IFRemoteException, lambda: worker.co())
     self.assertEqual(worker.protocol(), 'IF1')
     worker.blocking = False
     future1 = worker.protocol(1, 2, 3)
@@ -99,7 +100,7 @@ class MessageTransportTest(unittest.TestCase):
     latch1.acquire()
     self.assertTrue(future1.isDone())
     self.assertFalse(future1.isSuccess())
-    self.assertEqual(future1.exception().description, "Function [protocol] expects [0] arguments, but [3] were given.")
+    self.assertTrue(future1.exception().remoteTraceback.__contains__("Function [protocol] expects [0] arguments, but [3] were given."))
 
   @timeout(Defines.timeout)
   def testInvokeOtherClient(self):
@@ -123,32 +124,32 @@ class MessageTransportTest(unittest.TestCase):
     try:
       benzChecker.v9()
       self.assertTrue(False)
-    except IFException as e:
-      self.assertEqual(e.__str__(), "V9 not good.")
+    except IFRemoteException as e:
+      self.assertTrue(e.__str__().__contains__("V9 not good."))
     try:
       benzChecker.v10()
       self.assertTrue(False)
-    except Exception as e:
-      self.assertEqual(e.__str__(), "V10 have problems.")
+    except IFRemoteException as e:
+      self.assertTrue(e.__str__().__contains__("V10 have problems."))
     self.assertEqual(benzChecker.v(1, False), "OK")
     try:
       benzChecker.v11()
       self.assertTrue(False)
-    except IFException as e:
-      self.assertEqual(e.__str__(), "Function [v11] not available.")
+    except IFRemoteException as e:
+      self.assertTrue(e.__str__().__contains__("Function [v11] not available."))
     try:
       benzChecker.notFunction()
       self.assertTrue(False)
-    except IFException as e:
-      self.assertEqual(e.__str__(), "Function [notFunction] not available.")
+    except IFRemoteException as e:
+      self.assertTrue(e.__str__().__contains__("Function [notFunction] not available."))
 
   @timeout(Defines.timeout)
   def testServiceDuplicated(self):
     worker1 = IFWorker(MessageTransportTest.brokerAddress, serviceName="T2-ClientDuplicated")
     try:
       worker2 = IFWorker(MessageTransportTest.brokerAddress, serviceName="T2-ClientDuplicated")
-    except IFException as e:
-      self.assertEqual(e.__str__(), "Service name [T2-ClientDuplicated] occupied.")
+    except IFRemoteException as e:
+      self.assertTrue(e.__str__().__contains__("Service name [T2-ClientDuplicated] occupied."))
 
   @timeout(Defines.timeout)
   def testTimeCostInvocation(self):
@@ -227,6 +228,41 @@ class MessageTransportTest(unittest.TestCase):
     self.assertTrue(client.blockingInvoker(serviceName).strip() == '1')
     s2 = IFWorker(MessageTransportTest.brokerAddress, serviceName=serviceName, serviceObject='2', force=True)
     self.assertTrue(client.blockingInvoker(serviceName).strip() == '2')
+
+  @timeout(Defines.timeout)
+  def testExceptionMessage(self):
+    class Target:
+      def expectException(self, someMessageInException):
+        raise IOError(someMessageInException)
+
+    worker = IFWorker(MessageTransportTest.brokerAddress, serviceObject=Target(), serviceName="EM")
+    checker = IFWorker(MessageTransportTest.brokerAddress)
+
+    try:
+      checker.EM.expectException("Test Exception Message")
+    except IFRemoteException as e:
+      remoteTraceback = traceback.format_exc()
+      for characterMsg in ['[Remote Exception]', 'Test Exception Message', 'IOError', 'Remote Traceback below', 'Remote Traceback above']:
+        self.assertTrue(e.__str__().__contains__(characterMsg))
+        self.assertTrue(remoteTraceback.__contains__(characterMsg))
+
+    try:
+      worker.registerAsService("EM")
+    except IFRemoteException as e:
+      remoteTraceback = traceback.format_exc()
+      for characterMsg in ['[Remote Exception]', 'Service name [EM] occupied.', 'Remote Traceback below', 'Remote Traceback above']:
+        self.assertTrue(e.__str__().__contains__(characterMsg))
+        self.assertTrue(remoteTraceback.__contains__(characterMsg))
+
+    try:
+      worker.bindService('EM', Target())    
+    except IFException as e:
+      self.assertTrue(e.__str__().__contains__('Service already bind.'))
+      self.assertEqual(type(e), IFException)
+      self.assertTrue(traceback.format_exc().__contains__('interactionfreepy.core.IFException: Service already bind.'))
+
+    worker.close()
+    checker.close()
 
   @timeout(Defines.timeout)
   def testInvokeOtherClientRemotely(self):

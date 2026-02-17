@@ -5,7 +5,7 @@ __email__ = 'hwaipy@gmail.com'
 
 import platform
 import asyncio
-from interactionfreepy.core import IFLoop, IFDefinition, IFException, Invocation, Message
+from interactionfreepy.core import IFLoop, IFDefinition, IFException, Invocation, Message, IFRemoteException
 from interactionfreepy.broker import IFBroker
 from interactionfreepy.worker import IFWorker
 
