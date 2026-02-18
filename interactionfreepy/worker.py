@@ -112,7 +112,6 @@ class IFWorker:
     Returns:
         InvokeFuture: The future of the sending.
     """
-    self.__stream.send_multipart(msg.getContent())
     mid = msg.messageID
     (future, onFinish, resultMap) = InvokeFuture.newFuture()
     self.__waitingMapLock.acquire()
@@ -120,6 +119,7 @@ class IFWorker:
       raise IFException("MessageID have been used.")
     self.__waitingMap[mid] = (resultMap, onFinish)
     self.__waitingMapLock.release()
+    self.__stream.send_multipart(msg.getContent())
     return future
 
   def toMessageInvoker(self, target=None):
@@ -182,6 +182,7 @@ class IFWorker:
     Returns:
         None
     """
+    self.__isService = False
     self.unregister()
 
   def bindService(self, serviceName, serviceObject, interfaces=None):

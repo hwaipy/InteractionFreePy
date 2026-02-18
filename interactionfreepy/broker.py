@@ -43,7 +43,7 @@ class IFBroker:
     """Close the server. All the connections will be closed."""
     self.main_stream.on_recv(None)
     self.main_stream.socket.setsockopt(zmq.LINGER, 0)
-    self.main_stream.socket.close()
+    # self.main_stream.socket.close()
     self.main_stream.close()
     self.main_stream = None
 
